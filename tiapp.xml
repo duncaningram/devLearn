@@ -5,10 +5,10 @@
     <id>com.devlearnapp.devlearn</id>
     <name>devLearn</name>
     <version>1.0.0</version>
-    <publisher>tim</publisher>
+    <publisher>devLearn</publisher>
     <url>http://www.devlearnapp.com</url>
-    <description>undefined</description>
-    <copyright>2014 by tim</copyright>
+    <description>A mobile application to help kids learn to code in a fun and exciting way.</description>
+    <copyright>2014 devLearn</copyright>
     <icon>appicon.png</icon>
     <fullscreen>false</fullscreen>
     <navbar-hidden>false</navbar-hidden>
