@@ -1,0 +1,16 @@
+"Label[platform=ios]": {
+	font: {
+		fontSize: 14
+	}
+}
+
+".container[platform=ios]": {
+	backgroundColor: "#eee"
+}
+
+".subheading": {
+	color: "#435e67",
+	font: {
+		fontSize: 20
+	}
+}

@@ -16,6 +16,7 @@
     <guid>e5d8e4bb-d2c9-42c7-954a-af36afa14b39</guid>
     <property name="ti.ui.defaultunit" type="string">dp</property>
     <ios>
+    	<min-ios-ver>7.0</min-ios-ver>
         <plist>
             <dict>
                 <key>UISupportedInterfaceOrientations~iphone</key>
@@ -40,7 +41,12 @@
             </dict>
         </plist>
     </ios>
-    <android xmlns:android="http://schemas.android.com/apk/res/android"/>
+    <android xmlns:android="http://schemas.android.com/apk/res/android">
+    	<manifest>
+    		<application android:theme="@style/Light" />
+    		<uses-sdk android:minSdkVersion="14" android:targetSdkVersion="19" />
+    	</manifest>
+	</android>
     <mobileweb>
         <precache/>
         <splash>

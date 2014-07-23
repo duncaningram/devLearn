@@ -1,0 +1,39 @@
+<Alloy>
+	<Window class="container">
+		<ScrollableView id="scrollable">
+			<View>
+				<View layout="vertical" height="450">
+					<Label class="subheading">\u003CdevLearn\u003E</Label>
+					<Label></Label>
+					<ImageView width="auto" height="300" image="/images/logo.png" />
+					<Label>Learn programming for a better future!</Label>
+					<Label></Label>
+					<Label>Swipe right to get started \u2192</Label>
+				</View>
+			</View>
+			<View>
+				<View layout="vertical" height="300">
+					<Label></Label>
+					<Label></Label>
+					<ImageView width="auto" height="150" image="/images/hearts.png" />
+					<Label></Label>
+					<Label>Finish each lesson before you run out of lives!</Label>
+				</View>
+			</View>
+			<View>
+				<View layout="vertical" height="450">
+					<ImageView width="auto" height="300" image="/images/point.png" />
+					<Label></Label>
+					<Label>Complete questions and earn points!</Label>
+				</View>
+			</View>
+			<View>
+				<View layout="vertical" height="300">
+					<ImageView width="auto" height="150" />
+					<Label>Sign in to save your progress.</Label>
+				</View>
+			</View>
+		</ScrollableView>
+		<ProgressBar id="progress" bottom="20" width="75%" min="0" max="3" value="0" />
+	</Window>
+</Alloy>
