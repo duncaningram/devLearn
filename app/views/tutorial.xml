@@ -31,6 +31,7 @@
 				<View layout="vertical" height="300">
 					<ImageView width="auto" height="150" />
 					<Label>Sign in to save your progress.</Label>
+					<Button id="signin">Click Me</Button>
 				</View>
 			</View>
 		</ScrollableView>
