@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ti:app xmlns:ti="http://ti.appcelerator.org">
-    <property name="acs-api-key-production" type="string">VJIRlC8CDa270d6Ru9VpAmR9HSxiIDHq</property>
-    <property name="acs-api-key-development" type="string">SfYdJv4XtO7WCWMgFJJkBir10NB2AcW6</property>
+    <property name="acs-api-key-production" type="string">1a91llPjiqMcMsmrz6OsJBCUhqVv4MGg</property>
+    <property name="acs-api-key-development" type="string">hb6JXGnbVWUK8wtJnRRwd9GrqcqpEY0P</property>
     <id>com.devlearnapp.devlearn</id>
     <name>devLearn</name>
     <version>1.0.0</version>
