@@ -1,0 +1,23 @@
+<Alloy>
+	<Window class="container">
+		<TableView id="languages">
+			<HeaderView>
+				<View class="listHeading">
+					<Label class="listTitle">I want to learn</Label>
+				</View>
+			</HeaderView>
+			<TableViewSection>
+				<TableViewRow class="listRow">
+					<View class="listSelection">
+						<Label class="listSubtitle">HTML</Label>
+					</View>
+				</TableViewRow>
+				<TableViewRow class="listRow">
+					<View class="listSelection" title="CSS">
+						<Label class="listSubtitle">CSS</Label>
+					</View>
+				</TableViewRow>	
+			</TableViewSection>
+		</TableView>		
+	</Window>
+</Alloy>

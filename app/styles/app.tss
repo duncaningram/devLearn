@@ -4,6 +4,36 @@
 	}
 }
 
+".listHeading": {
+	height: 70,
+	backgroundColor: "#33b5e5"
+}
+
+".listTitle": {
+	left: 20,
+	color: "#fff",
+	font: {
+		fontSize: 20
+	}
+}
+
+".listRow": {
+	backgroundSelectedColor: "#ccc"
+}
+
+".listSelection": {
+	height: 70
+}
+
+".listSubtitle": {
+	left: 26,
+	height: 70,
+	color: "#000",
+	font: {
+		fontSize: 20
+	}
+}
+
 ".container[platform=ios]": {
 	backgroundColor: "#eee"
 }
