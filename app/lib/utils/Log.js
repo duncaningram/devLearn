@@ -1,31 +1,22 @@
-var instance = null;
-
-var getInstance = function() {
-	if (instance == null) {
-		instance = new Log();
-	}
-	return instance;
-};
-
-function Log() {
+var Log = (function() {
 	
-	var trace = function(message) {
+	function trace(message) {
 		Ti.API.trace(message);
 	};
 	
-	var debug = function(message) {
+	function debug(message) {
 		Ti.API.debug(message);
 	};
 	
-	var info = function(message) {
+	function info(message) {
 		Ti.API.info(message);
 	};
 	
-	var warning = function(message) {
+	function warn(message) {
 		Ti.API.warn(message);
 	};
 	
-	var error = function(message) {
+	function error(message) {
 		Ti.API.error(message);
 	};
 	
@@ -33,10 +24,10 @@ function Log() {
 		trace: trace,
 		debug: debug,
 		info: info,
-		warning: warning,
+		warn: warn,
 		error: error
 	};
 	
-}
+})();
 
-exports.getInstance = getInstance;
+module.exports = Log;

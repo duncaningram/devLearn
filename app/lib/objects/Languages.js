@@ -14,7 +14,7 @@ var Languages = (function() {
 				if (e.success) {
 					_languages = e.Languages;
 				} else {
-					Log.getInstance().error('error: ' + JSON.stringify(e));	
+					Log.error('error: ' + JSON.stringify(e));	
 				}
 				
 				callback(_languages);
