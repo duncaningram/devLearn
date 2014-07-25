@@ -8,6 +8,7 @@ var getInstance = function() {
 };
 
 function Log() {
+	
 	var trace = function(message) {
 		Ti.API.trace(message);
 	};
