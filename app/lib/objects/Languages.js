@@ -12,10 +12,9 @@ var Languages = (function() {
 				order: 'order'
 			}, function (e) {
 				if (e.success) {
-					Log.getInstance().info(e.Languages.length);
-					Log.getInstance().info('success: ' + JSON.stringify(e));
+					_languages = e.Languages;
 				} else {
-					Log.getInstance().info('error: ' + JSON.stringify(e));	
+					Log.getInstance().error('error: ' + JSON.stringify(e));	
 				}
 				
 				callback(_languages);
