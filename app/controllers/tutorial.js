@@ -1,3 +1,6 @@
+var args = arguments[0] || {};
+var parent = args.parent;
+
 function updateProgress(e) {
 	$.progress.setValue(e.currentPage);
 }
@@ -5,9 +8,13 @@ function updateProgress(e) {
 $.scrollable.addEventListener("scrollend", updateProgress);
 
 $.btnNewUser.addEventListener('click', function() {
-	Alloy.createController('signup').getView().open();
+	Alloy.createController('signup', {
+		parent: $
+	}).getView().open();
 });
 
 $.btnExistingUser.addEventListener('click', function() {
-	Alloy.createController('signin').getView().open();
+	Alloy.createController('signin', {
+		parent: $
+	}).getView().open();
 });

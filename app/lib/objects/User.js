@@ -4,6 +4,7 @@ var Log = require('utils/Log');
 var User = (function() {
 	
 	var _user = undefined;
+	var _sessionId = undefined;
 	
 	function create(email, password, password_confirmation, callback) {
 		if (_user == undefined) {
@@ -28,15 +29,46 @@ var User = (function() {
 		}
 	};
 	
-	function login() {
-		//TODO code me	
+	function login(email, password, callback) {
+		if(_user == undefined) {
+			Cloud.Users.login({
+				login: email,
+				password: password
+			}, function (e) {
+				if (e.success) {
+					_user = e.users[0];
+					_sessionId = Cloud.sessionId;
+					Log.info('Login success');
+					//alert('Success');
+				} else {
+					alert("Failed to login");
+					Log.error('error:' + e.message + JSON.stringify(e));
+				}
+				
+				callback(_user);
+			});
+		} else {
+			Log.info("User Logged In already");
+			callback(_user);
+		}
 	}
 	
 	function logout() {
-		//TODO code me
+		if(_user != undefined) {
+			Cloud.Users.logout(function (e) {
+				if(e.success) {
+					_user = undefined;
+				} else {
+					alert('Error:\n' + ((e.error && e.message) || JSON.stringify(e)));
+				}
+			});
+		} else {
+			Log.info("User Already Logged out");
+		}
 	}
 	
 	function isLoggedIn() {
+		return (_user == undefined ? false : true);
 		
 	}
 	
