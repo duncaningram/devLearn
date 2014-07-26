@@ -3,3 +3,11 @@ function updateProgress(e) {
 }
 
 $.scrollable.addEventListener("scrollend", updateProgress);
+
+$.btnNewUser.addEventListener('click', function() {
+	Alloy.createController('signup').getView().open();
+});
+
+$.btnExistingUser.addEventListener('click', function() {
+	Alloy.createController('signin').getView().open();
+});

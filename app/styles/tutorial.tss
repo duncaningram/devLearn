@@ -1,0 +1,11 @@
+".flatButton": {
+	//TODO format me better
+	width: "75%",
+	borderWidth: "1",
+	borderColor: "#000",
+	backgroundColor: "#FFF"
+}
+
+".lblFlatButton": {
+	//TODO format me better
+}
