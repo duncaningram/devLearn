@@ -1,0 +1,10 @@
+<Alloy>
+	<TableView>
+		<HeaderView>
+			<View class="listHeading">
+				<Label id="title" class="listTitle"></Label>
+			</View>
+		</HeaderView>
+		<TableViewSection id="items" />
+	</TableView>
+</Alloy>
