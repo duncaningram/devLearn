@@ -1,0 +1,7 @@
+<Alloy>
+	<TableViewRow id="row" class="listRow">
+		<View class="listSelection">
+			<Label id="item" class="listSubtitle">HTML</Label>
+		</View>
+	</TableViewRow>
+</Alloy>
