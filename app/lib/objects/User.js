@@ -40,6 +40,9 @@ var User = (function() {
 					_sessionId = Cloud.sessionId;
 					Log.info('Login success');
 					//alert('Success');
+				} else if(e.code == 401) {
+					alert("Invalid Username or password");
+					Log.error('error:' + e.message + JSON.stringify(e));
 				} else {
 					alert("Failed to login");
 					Log.error('error:' + e.message + JSON.stringify(e));

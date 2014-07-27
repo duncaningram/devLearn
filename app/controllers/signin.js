@@ -7,7 +7,6 @@ var parent = args.parent;
 // Basic validation only
 var validateEmail = /^.*\@..*$/;
 
-
 $.btnSignIn.addEventListener('click', function() {
 	var _email = $.txtEmail.value;
 	var _password = $.txtPassword.value;
@@ -29,12 +28,11 @@ $.btnSignIn.addEventListener('click', function() {
 			});
 		} else {
 			// Email is not valid
-			//TODO toss some kind of error
+			alert("Email is not valid");
 			Log.info("Invalid Email");
 		}
 	} else {
-		// Passwords don't match or less then 4 characters
-		//TODO toss some kind of error
-		Log.info("Passwords don't match or no password entered");
+		alert("Password length must be greater then 4 characters");
+		Log.info("Password is not long enough");
 	}
 });

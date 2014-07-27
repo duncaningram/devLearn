@@ -28,12 +28,12 @@ $.btnSignUp.addEventListener('click', function() {
 		});
 		} else {
 			// Email is not valid
-			//TODO toss some kind of error
+			alert("Email is not valid");
 			Log.info("Invalid Email");
 		}
 	} else {
 		// Passwords don't match or less then 4 characters
-		//TODO toss some kind of error
+		alert("Passwords entered do not match");
 		Log.info("Passwords don't match or no password entered");
 	}
 });
