@@ -14,7 +14,8 @@
 					<Label width="75" left="10">Confirm Password:</Label>
 					<TextField width="180" id="txtPasswordConfirm" passwordMask="true" borderSyle="TI.UI.INPUT_BORDERSTYLE_ROUNDED"></TextField>
 				</View>
-				<Button height="auto" id="btnSignUp">Sign Up</Button>
+				<View height="10"></View>
+				<View height="30" class="flatButton" bottom="50" id="btnSignUp"><Label class="lblFlatButton">Sign Up</Label></View>
 			</View>
 		</View>
 	</Window>

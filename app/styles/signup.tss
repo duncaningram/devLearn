@@ -1,6 +1,6 @@
 ".flatButton": {
 	borderRadius: "18",
-	width: "50%",
+	width: "150",
 	backgroundGradient: {
         type: 'linear',
         startPoint: { x: '0%', y: '0%' },

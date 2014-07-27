@@ -10,7 +10,8 @@
 					<Label width="75" left="10">Password:</Label>
 					<TextField width="180" id="txtPassword" passwordMask="true" borderSyle="TI.UI.INPUT_BORDERSTYLE_ROUNDED"></TextField>
 				</View>
-				<Button height="auto" id="btnSignIn">Sign In</Button>
+				<View height="10"></View>
+				<View height="30" class="flatButton" bottom="50" id="btnSignIn"><Label class="lblFlatButton">Sign In</Label></View>
 			</View>
 		</View>
 	</Window>
