@@ -7,5 +7,7 @@
 }
 
 ".lblFlatButton": {
-	//TODO format me better
+	font: {
+		fontSize: 20
+	}
 }

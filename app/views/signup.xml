@@ -1,16 +1,16 @@
 <Alloy>
 	<Window class="container">
 		<View>
-			<View layout="vertical" height="450">
-	            <View layout="horizontal" height="35">
+			<View layout="vertical" height="450" width="100%">
+	            <View layout="horizontal" height="35" width="300">
 					<Label width="75" left="10">Email:</Label>
 					<TextField width="180" hintText="user@email.com" id="txtEmail" borderStyle="Ti.UI.INPUT_BORDERSTYLE_ROUNDED"></TextField>
 				</View>
-				<View layout="horizontal" height="35">
+				<View layout="horizontal" height="35" width="300">
 					<Label width="75" left="10">Password:</Label>
 					<TextField width="180" id="txtPassword" passwordMask="true" borderSyle="TI.UI.INPUT_BORDERSTYLE_ROUNDED"></TextField>
 				</View>
-				<View layout="horizontal" height="35">
+				<View layout="horizontal" height="35" width="300">
 					<Label width="75" left="10">Confirm Password:</Label>
 					<TextField width="180" id="txtPasswordConfirm" passwordMask="true" borderSyle="TI.UI.INPUT_BORDERSTYLE_ROUNDED"></TextField>
 				</View>

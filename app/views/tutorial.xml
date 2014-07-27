@@ -29,7 +29,7 @@
 			</View>
 		</ScrollableView>
 		<ProgressBar id="progress" bottom="100" width="75%" min="0" max="2" value="0" />
-		<View height="20" class="flatButton" bottom="50" id="btnNewUser"><Label class="lblFlatButton">New User</Label></View>
-		<View height="20" class="flatButton" bottom="10" id="btnExistingUser"><Label class="lblFlatButton">Existing User</Label></View>
+		<View height="30" class="flatButton" bottom="50" id="btnNewUser"><Label class="lblFlatButton">New User</Label></View>
+		<View height="30" class="flatButton" bottom="10" id="btnExistingUser"><Label class="lblFlatButton">Existing User</Label></View>
 	</Window>
 </Alloy>
