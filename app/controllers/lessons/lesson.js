@@ -16,6 +16,7 @@ function init(args) {
 	lesson = args.lesson;
 	
 	//TODO: Probably pass in the 0 as part of the argument so that you can call this page over and over.  Will probably need to be part of the UserSave progress.
+	//Also right now our flow consists of only tutorial pages, but our real flow will have tutorials, tests, review, and information pages.
 	Tutorials.getTutorial(lesson.id, 0, display_tutorial);
 }
 
