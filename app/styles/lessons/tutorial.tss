@@ -1,0 +1,47 @@
+"#txtTitle": {
+	font: {
+		fontSize: 20,
+		fontWeight: 'bold'
+	}
+}
+
+"#txtDescription": {
+	font: {
+		fontSize: 16
+	}
+}
+
+"#contentView": {
+	width: '90%',
+	top: 25
+}
+
+".btnoff": {
+	backgroundColor: "#d3d3d3",
+	font: {
+		color: "#000"
+	}	
+}
+
+".btnon": {
+	backgroundColor: "#33b5e5",
+	font: {
+		color: "#FFF"
+	}
+	
+}
+
+".br": {
+	height: 20
+}
+
+"#lblSource": {
+	color: "#FFF"
+}
+
+".btnTab": {
+	left: 20,
+	right: 20,
+	top: 10,
+	bottom: 10
+}

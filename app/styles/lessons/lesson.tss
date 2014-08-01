@@ -1,0 +1,27 @@
+"#titleView": {
+	height: 70,
+	backgroundColor: "#33b5e5"
+}
+
+".titleBarText": {
+	left: 10,
+	color: "#fff",
+	font: {
+		fontSize: 20
+	}
+	
+}
+
+"#btnContinue": {
+	height: 75,
+	bottom: 0,
+	width: '100%',
+	backgroundColor: "#33b5e5"
+}
+
+"#lblContinue": {
+	color: "#fff",
+	font: {
+		fontSize: 25
+	}
+}

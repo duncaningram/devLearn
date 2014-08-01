@@ -9,6 +9,11 @@
 	backgroundColor: "#33b5e5"
 }
 
+".wrap_content": {
+	height: Ti.UI.SIZE,
+	width: Ti.UI.SIZE
+}
+
 ".listTitle": {
 	left: 20,
 	color: "#fff",
