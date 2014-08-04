@@ -2,6 +2,7 @@ var Log = require('utils/Log');
 var Quizzes = require('objects/Quizzes');
 var Tests = require('objects/Tests');
 var Tutorials = require('objects/Tutorials');
+var User = require('objects/User');
 var UserAttempt = require('objects/UserAttempt');
 
 var _attempt;
@@ -9,6 +10,7 @@ var _lesson;
 var _tests;
 var _tutorials;
 var _view;
+var _user = User.getUser();
 
 function display_tutorial(tutorial) {
 	_view = Alloy.createController('lessons/tutorial', {parent: $, tutorial: tutorial});
@@ -73,6 +75,8 @@ function advance() {
 				_attempt.progress.position = 0;
 				_attempt.is_active = false;
 				_attempt.is_completed = true;
+				_user.custom_fields.points += _attempt.points;
+				//TODO: Save user
 				display_results();
 			}
 		}
