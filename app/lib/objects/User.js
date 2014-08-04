@@ -12,7 +12,10 @@ var User = (function() {
 				email: email,
 				username: email,
 				password: password,
-				password_confirmation: password_confirmation
+				password_confirmation: password_confirmation,
+				custom_fields: {
+					points: 0
+				}
 			}, function (e) {
 				if (e.success) {
 					_user = e.users[0];
