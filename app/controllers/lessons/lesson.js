@@ -47,41 +47,52 @@ function start(attempt) {
 
 function load(attempt) {
 	_attempt = attempt;
-	
-	//TODO: Code logic to resume a lesson in progress.
+
+	switch (_attempt.progress.flow) {
+		case "tutorials":
+			display_tutorial(_tutorials[_attempt.progress.position]);
+			break;
+		case "quizzes":
+			Quizzes.getQuiz(_tutorials[_attempt.progress.position].id, display_quiz);
+			break;
+		case "tests":
+			display_test(_test[_attempts.progress.position]);
+			break;
+		case "results":
+			display_results();
+			break;
+		default:
+			Log.info("Invalid flow: " + _attempt.progress.flow);
+	}
 }
 
 function advance() {
 	if (_attempt.lives > 0) {
 		if (_attempt.progress.flow == "tutorials") {
 			_attempt.progress.flow = "quizzes";
-			Quizzes.getQuiz(_tutorials[_attempt.progress.position].id, display_quiz);
 		} else if (_attempt.progress.flow == "quizzes" && _attempt.progress.position + 1 < _tutorials.length) {
 			if (_attempt.progress.position + 1 < _tutorials.length) {
 				_attempt.progress.flow = "tutorials";
 				_attempt.progress.position = _attempt.progress.position + 1;
-				display_tutorial(_tutorials[_attempt.progress.position]);
 			} else {
 				_attempt.progress.flow = "tests";
 				_attempt.progress.position = 0;
-				display_test(_tests[_attempt.progress.position]);
 			}
 		} else if (_attempt.progress.flow == "tests") {
 			if (_attempt.progress.position + 1 < _tests.length) {
 				_attempt.progress.position = _attempt.progress.position + 1;
-				display_test(_tests[_attempt.progress.position]);
 			} else {
 				_attempt.progress.flow = "results";
 				_attempt.progress.position = 0;
 				_attempt.is_active = false;
 				_attempt.is_completed = true;
 				_user.custom_fields.points += _attempt.points;
-				//TODO: Save user
-				display_results();
+				User.save(_user);
 			}
 		}
 		
 		UserAttempt.save(_attempt);
+		load(_attempt);
 	} else {
 		//TODO: Display out of lives page.
 	}

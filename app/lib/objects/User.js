@@ -32,6 +32,20 @@ var User = (function() {
 		}
 	};
 	
+	function save(user) {
+		Cloud.Users.update({
+			custom_fields: {
+				points: user.custom_fields.points
+			}
+		}, function (e) {
+			if (e.success) {
+				_user = e.users[0];
+			} else {
+				Log.error('error: ' + JSON.stringify(e));
+			}
+		});
+	}
+	
 	function login(email, password, callback) {
 		if(_user == undefined) {
 			Cloud.Users.login({
@@ -84,10 +98,11 @@ var User = (function() {
 	
 	return {
 		create: create, 
+		save: save,
 		getUser: getUser,
 		login: login,
 		logout: logout,
-		isLoggedIn: isLoggedIn
+		isLoggedIn: isLoggedIn,
 	};
 	
 })();
