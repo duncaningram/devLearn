@@ -50,10 +50,35 @@ function load(attempt) {
 }
 
 function advance() {
-	Log.info("advance");
-	Quizzes.getQuiz(_tutorials[0].id, display_quiz);
-	//TODO: Advance to the next page in the lesson.
-	//TODO: Save user progress.
+	if (_attempt.lives > 0) {
+		if (_attempt.progress.flow == "tutorials") {
+			_attempt.progress.flow = "quizzes";
+			Quizzes.getQuiz(_tutorials[_attempt.progress.position].id, display_quiz);
+		} else if (_attempt.progress.flow == "quizzes" && _attempt.progress.position + 1 < _tutorials.length) {
+			if (_attempt.progress.position + 1 < _tutorials.length) {
+				_attempt.progress.flow = "tutorials";
+				_attempt.progress.position = _attempt.progress.position + 1;
+				display_tutorial(_tutorials[_attempt.progress.position]);
+			} else {
+				_attempt.progress.flow = "tests";
+				_attempt.progress.position = 0;
+				display_test(_tests[_attempt.progress.position]);
+			}
+		} else if (_attempt.progress.flow == "tests") {
+			if (_attempt.progress.position + 1 < _tests.length) {
+				_attempt.progress.position = _attempt.progress.position + 1;
+				display_test(_tests[_attempt.progress.position]);
+			} else {
+				_attempt.progress.flow = "results";
+				_attempt.progress.position = 0;
+				display_results();
+			}
+		}
+		
+		UserAttempt.save(_attempt);
+	} else {
+		//TODO: Display out of lives page.
+	}
 }
 
 function preload_tutorials_complete(tutorials) {
