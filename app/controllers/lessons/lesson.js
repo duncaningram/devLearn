@@ -6,47 +6,41 @@ var UserAttempt = require('objects/UserAttempt');
 
 var _attempt;
 var _lesson;
-var _tutorial;
+var _tests;
+var _tutorials;
+var _view;
 
 function display_tutorial(tutorial) {
-	_tutorial = tutorial;
-/*
-	Log.info(JSON.stringify(tutorial));
-	Log.info(JSON.stringify(tutorial['[CUSTOM_Lessons]lesson_id'][0]['name']));
-	Log.info(tutorial.description);*/
-	
-	var tutorialView = Alloy.createController('lessons/tutorial', {parent: $, tutorial: tutorial});
+	_view = Alloy.createController('lessons/tutorial', {parent: $, tutorial: tutorial});
 	
 	$.content.removeAllChildren();
-	$.content.add(tutorialView.getView());
+	$.content.add(_view.getView());
 	
-	//Quizzes.getQuiz(tutorial.id, display_quiz);
+	$.btnContinue.addEventListener('click', advance);
 }
 
 function display_quiz(quiz) {
-	Log.info(quiz.question);
-	var quizView = Alloy.createController('lessons/quiz', {parent: $, quiz: quiz});
+	_view = Alloy.createController('lessons/quiz', {parent: $, quiz: quiz});
 	
 	$.content.removeAllChildren();
-	$.content.add(quizView.getView());
+	$.content.add(_view.getView());
+	
+	$.btnContinue.removeEventListener('click', advance);
+	//TODO: Add event listener to check if the quiz is correct.
 }
 
 function display_test(test) {
 	Log.info(test.question);
 }
 
+function display_results() {
+	Log.info("load results page");
+}
+
 function start(attempt) {
 	_attempt = attempt;
 	
-	$.txtLessonTitleBar.setText(_lesson['[CUSTOM_Languages]language_id'][0]['name'] + ": " + _lesson.name);
-	$.btnContinue.addEventListener('click', function() {
-		Quizzes.getQuiz(_tutorial.id, display_quiz);
-	});
-	
-	//TODO: Probably pass in the 0 as part of the argument so that you can call this page over and over.  Will probably need to be part of the UserSave progress.
-	//Also right now our flow consists of only tutorial pages, but our real flow will have tutorials, quizzes, tests, review, and information pages.
-
-	Tutorials.getTutorial(_lesson.id, 0, display_tutorial);
+	display_tutorial(_tutorials[0]);
 }
 
 function load(attempt) {
@@ -55,11 +49,36 @@ function load(attempt) {
 	//TODO: Code logic to resume a lesson in progress.
 }
 
+function advance() {
+	Log.info("advance");
+	Quizzes.getQuiz(_tutorials[0].id, display_quiz);
+	//TODO: Advance to the next page in the lesson.
+	//TODO: Save user progress.
+}
+
+function preload_tutorials_complete(tutorials) {
+	_tutorials = tutorials;
+	
+	Tests.getTests(_lesson.id, preload_tests_complete);
+}
+
+function preload_tests_complete(tests) {
+	_tests = tests;
+	
+	preload_complete();
+}
+
+function preload_complete() {
+	//TODO: Check if we are starting a new lesson or loading an existing one.
+	UserAttempt.create(_lesson.id, start);
+}
+
 function init(args) {
 	_lesson = args.lesson;
 	
-	//TODO: Check if we are starting a new lesson or loading an existing one.
-	UserAttempt.create(_lesson.id, start);
+	$.txtLessonTitleBar.setText(_lesson['[CUSTOM_Languages]language_id'][0]['name'] + ": " + _lesson.name);
+	
+	Tutorials.getTutorials(_lesson.id, preload_tutorials_complete);
 }
 
 init(arguments[0] || {});
