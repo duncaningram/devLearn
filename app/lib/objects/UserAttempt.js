@@ -12,7 +12,7 @@ var UserAttempt = (function() {
 		Cloud.Objects.query({
 			classname: "UserAttempts",
 			where: {
-				active: true,
+				is_active: true,
 				user_id: User.getUser().id
 			},
 		}, function (e) {
@@ -22,7 +22,7 @@ var UserAttempt = (function() {
 						id: e.UserAttempts[i].id,
 						classname: "UserAttempts",
 						fields: {
-							active: false
+							is_active: false
 						}
 					}, function (e) {
 						if (!e.success) {
@@ -42,8 +42,8 @@ var UserAttempt = (function() {
 						flow: "tutorials",
 						position: 0
 					},
-					active: true,
-					completed: false
+					is_active: true,
+					is_completed: false
 				}
 			}, function (e) {
 				if (e.success) {
@@ -63,7 +63,7 @@ var UserAttempt = (function() {
 		Cloud.Objects.query({
 			classname: "UserAttempts",
 			where: {
-				active: true,
+				is_active: true,
 				user_id: User.getUser().id
 			},
 		}, function (e) {
@@ -86,8 +86,8 @@ var UserAttempt = (function() {
 					flow: attempt.progress.flow,
 					position: attempt.progress.position
 				},
-				active: attempt.active,
-				completed: attempt.completed
+				is_active: attempt.is_active,
+				is_completed: attempt.is_completed
 			}
 		}, function (e) {
 			if (!e.success) {
