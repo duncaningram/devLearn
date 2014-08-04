@@ -3,7 +3,6 @@ var Quizzes = require('objects/Quizzes');
 var Tests = require('objects/Tests');
 var Tutorials = require('objects/Tutorials');
 var UserAttempt = require('objects/UserAttempt');
-var UserQuizzes = require('objects/UserQuizzes');
 
 var _attempt;
 var _lesson;
