@@ -71,6 +71,8 @@ function advance() {
 			} else {
 				_attempt.progress.flow = "results";
 				_attempt.progress.position = 0;
+				_attempt.is_active = false;
+				_attempt.is_completed = true;
 				display_results();
 			}
 		}
