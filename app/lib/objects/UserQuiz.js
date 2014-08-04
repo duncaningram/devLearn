@@ -2,7 +2,7 @@ var Cloud = require('ti.cloud');
 var Log = require('utils/Log');
 var User = require('objects/User');
 
-var UserQuizzes = (function() {
+var UserQuiz = (function() {
 	
 	function log(quiz_id, attempt_id, is_correct, answer) {
 		Cloud.Objects.create({
@@ -27,4 +27,4 @@ var UserQuizzes = (function() {
 	
 })();
 
-module.exports = UserQuizzes;
+module.exports = UserQuiz;
