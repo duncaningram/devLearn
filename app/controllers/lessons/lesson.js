@@ -2,7 +2,9 @@ var Log = require('utils/Log');
 var Quizzes = require('objects/Quizzes');
 var Tests = require('objects/Tests');
 var Tutorials = require('objects/Tutorials');
+var UserAttempt = require('objects/UserAttempt');
 
+var _attempt;
 var _lesson;
 var _tutorial;
 
@@ -34,8 +36,8 @@ function display_test(test) {
 	Log.info(test.question);
 }
 
-function init(args) {
-	_lesson = args.lesson;
+function start(attempt) {
+	_attempt = attempt;
 	
 	$.txtLessonTitleBar.setText(_lesson['[CUSTOM_Languages]language_id'][0]['name'] + ": " + _lesson.name);
 	$.btnContinue.addEventListener('click', function() {
@@ -46,6 +48,19 @@ function init(args) {
 	//Also right now our flow consists of only tutorial pages, but our real flow will have tutorials, quizzes, tests, review, and information pages.
 
 	Tutorials.getTutorial(_lesson.id, 0, display_tutorial);
+}
+
+function load(attempt) {
+	_attempt = attempt;
+	
+	//TODO: Code logic to resume a lesson in progress.
+}
+
+function init(args) {
+	_lesson = args.lesson;
+	
+	//TODO: Check if we are starting a new lesson or loading an existing one.
+	UserAttempt.create(_lesson.id, start);
 }
 
 init(arguments[0] || {});
