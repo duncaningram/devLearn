@@ -1,6 +1,7 @@
 var Log = require('utils/Log');
-var Tutorials = require('objects/Tutorials');
 var Quizzes = require('objects/Quizzes');
+var Tests = require('objects/Tests');
+var Tutorials = require('objects/Tutorials');
 
 var _lesson;
 var _tutorial;
@@ -29,6 +30,10 @@ function display_quiz(quiz) {
 	
 }
 
+function display_test(test) {
+	Log.info(test.question);
+}
+
 function init(args) {
 	_lesson = args.lesson;
 	
@@ -38,7 +43,7 @@ function init(args) {
 	});
 	
 	//TODO: Probably pass in the 0 as part of the argument so that you can call this page over and over.  Will probably need to be part of the UserSave progress.
-	//Also right now our flow consists of only tutorial pages, but our real flow will have tutorials, tests, review, and information pages.
+	//Also right now our flow consists of only tutorial pages, but our real flow will have tutorials, quizzes, tests, review, and information pages.
 
 	Tutorials.getTutorial(_lesson.id, 0, display_tutorial);
 }
