@@ -111,7 +111,7 @@ function preload_tests_complete(tests) {
 }
 
 function preload_complete() {
-	//TODO: Check if we are starting a new lesson or loading an existing one.
+	//TODO: Check if we are starting a new lesson or loading an existing one.  Also, if it is load and flow is quizzes change flow to tutorials.
 	UserAttempt.create(_lesson.id, start);
 }
 
