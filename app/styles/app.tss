@@ -49,3 +49,7 @@
 		fontSize: 20
 	}
 }
+
+".br": {
+	height: 20
+}

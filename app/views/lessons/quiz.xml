@@ -1,4 +1,8 @@
 <Alloy>
-	<View>
+	<View layout="vertical" id="contentMultipleChoice">
+		<Label id="txtQuestion">Question</Label>
+		<View class="br" />
+		<View id="sourceWrapper" height=Ti.UI.SIZE width="90%" layout="verticle">
+		</View>
 	</View>
 </Alloy>
