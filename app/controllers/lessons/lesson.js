@@ -22,7 +22,7 @@ function display_tutorial(tutorial) {
 }
 
 function display_quiz(quiz) {
-	_view = Alloy.createController('lessons/quiz', {parent: $, quiz: quiz});
+	_view = Alloy.createController('lessons/quiz', {parent: $, quiz: quiz, attempt: _attempt});
 	
 	$.content.removeAllChildren();
 	$.content.add(_view.getView());

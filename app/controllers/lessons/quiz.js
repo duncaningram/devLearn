@@ -1,12 +1,16 @@
 var Collection = require('utils/Collection');
 var Log = require('utils/Log');
+var UserQuiz = require('objects/UserQuiz');
 
 var parent;
 var quiz;
+var attempt;
 
 function init(args) {
 	parent = args.parent;
 	quiz = args.quiz;
+	attempt = args.attempt;
+	
 	Log.info("Quiz controller: " + JSON.stringify(quiz));
 	
 	if(quiz.type == "multiple_choice") {
@@ -15,11 +19,14 @@ function init(args) {
 }
 
 function display_multiple_choice() {
-	_view = Alloy.createController('lessons/questions/multiple_choice', {parent: $, quiz: quiz, grandparent: parent});
+	var view = Alloy.createController('lessons/questions/multiple_choice', {parent: $, quiz: quiz, grandparent: parent});
 	
-	// No idea why this doesn't work
-	//$.contentView.removeAllChildren();
-	//$.contentView.add(_view);
+	$.contentView.removeAllChildren();
+	$.contentView.add(view.getView());
 }
+
+exports.logAnswer = function(is_correct, answer) {
+	UserQuiz.log(quiz.id, attempt.id, is_correct, answer);
+};
 
 init(arguments[0] || {});

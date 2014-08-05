@@ -5,6 +5,7 @@ var parent;
 var grandparent;
 var quiz;
 var answers;
+var questions;
 
 var choices;
 
@@ -16,13 +17,13 @@ function init(args) {
 
 	
 	setCheckButton(true, true);
-	parent.txtQuestion.setText(quiz.question);
+	$.txtQuestion.setText(quiz.question);
 	
 	questions = Collection.shuffle(quiz.selections);
 	
 	Log.info("Multiple Choice shuffled: " + JSON.stringify(questions));
 	
-	parent.sourceWrapper.removeAllChildren();
+	$.questions.removeAllChildren();
 	
 	choices = new Array();
 	answers = new Array();
@@ -33,11 +34,11 @@ function init(args) {
 		var view = Titanium.UI.createView({
 			borderRadius:5,
 			backgroundColor: '#33b5e5',
-			top: (index+1)*50,
-			left: 20,
+			left: 0,
 			layout: 'horizontal',
-			width: Ti.UI.SIZE,
-			height: Ti.UI.SIZE
+			width: '100%',
+			height: Ti.UI.SIZE,
+			data: index
 		});
 		
 		var correct = false;
@@ -63,12 +64,20 @@ function init(args) {
 			height: 40,
 			font: {
 				fontSize: 25
-			}
+			},
+			data: index
 		});
+		var padding = Titanium.UI.createView({
+			height:20
+		});
+		
+		entry = String.fromCharCode(97+index) + '. ' + entry;
+		
 		label.setText(entry);
 		view.add(label);
 
-		parent.sourceWrapper.add(view);
+		$.questions.add(view);
+		$.questions.add(padding);
 		index++;
 	});	
 
@@ -94,7 +103,7 @@ function checkAnswer(answer, chosenView) {
 			choice.setBackgroundColor("#86C15D");
 		} else {
 			choice.removeEventListener('click', incorrectAnswer);
-			if(choice.getChildren()[0].getText() == chosenView.source.text)
+			if(choice.data == chosenView.source.data)
 				choice.setBackgroundColor("#FF3333");
 			else
 				choice.setBackgroundColor("#D3D3D3");
@@ -102,8 +111,8 @@ function checkAnswer(answer, chosenView) {
 		index++;
 	});
 	
-	//chosenView.source.text setBackgroundColor("#FF3333");
-
+	Log.info("Chosen Answer: " + questions[chosenView.source.data]);
+	parent.logAnswer(answer, questions[chosenView.source.data]);
 
 	if(answer) {
 		// Correct answer
