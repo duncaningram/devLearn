@@ -18,6 +18,7 @@ function display_tutorial(tutorial) {
 	$.content.removeAllChildren();
 	$.content.add(_view.getView());
 	
+	$.btnContinue.removeEventListener('click', $.advance);
 	$.btnContinue.addEventListener('click', $.advance);
 }
 
@@ -28,7 +29,6 @@ function display_quiz(quiz) {
 	$.content.add(_view.getView());
 	
 	$.btnContinue.removeEventListener('click', $.advance);
-	//TODO: Add event listener to check if the quiz is correct.
 }
 
 function display_test(test) {
