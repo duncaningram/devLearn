@@ -18,7 +18,7 @@ function display_tutorial(tutorial) {
 	$.content.removeAllChildren();
 	$.content.add(_view.getView());
 	
-	$.btnContinue.addEventListener('click', advance);
+	$.btnContinue.addEventListener('click', $.advance);
 }
 
 function display_quiz(quiz) {
@@ -27,7 +27,7 @@ function display_quiz(quiz) {
 	$.content.removeAllChildren();
 	$.content.add(_view.getView());
 	
-	$.btnContinue.removeEventListener('click', advance);
+	$.btnContinue.removeEventListener('click', $.advance);
 	//TODO: Add event listener to check if the quiz is correct.
 }
 
@@ -66,7 +66,7 @@ function load(attempt) {
 	}
 }
 
-function advance() {
+exports.advance = function() {
 	if (_attempt.lives > 0) {
 		if (_attempt.progress.flow == "tutorials") {
 			_attempt.progress.flow = "quizzes";
@@ -96,7 +96,7 @@ function advance() {
 	} else {
 		//TODO: Display out of lives page.
 	}
-}
+};
 
 function preload_tutorials_complete(tutorials) {
 	_tutorials = tutorials;

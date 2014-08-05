@@ -116,6 +116,7 @@ function checkAnswer(answer, chosenView) {
 
 	if(answer) {
 		// Correct answer
+		parent.addPoints();
 		var toast = Ti.UI.createNotification({
 			message: "Correct",
 			duration: Ti.UI.NOTIFICATION_DURATION_LONG
@@ -124,6 +125,7 @@ function checkAnswer(answer, chosenView) {
 
 	} else {
 		// Incorrect answer
+		parent.removeLife();
 		var toast = Ti.UI.createNotification({
 			message: "Incorrect",
 			duration: Ti.UI.NOTIFICATION_DURATION_LONG
@@ -144,6 +146,7 @@ function setCheckButton(check, disabled) {
 		} else {
 			grandparent.lblContinue.setColor("#FFF");
 			grandparent.btnContinue.setBackgroundColor("#33b5e5");
+			grandparent.btnContinue.addEventListener('click', grandparent.advance);
 		}
 	} else {
 		//grandparent.lblContinue.setText("Continue");

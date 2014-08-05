@@ -1,6 +1,8 @@
 var Collection = require('utils/Collection');
 var Log = require('utils/Log');
+var UserAttempt = require('objects/UserAttempt');
 var UserQuiz = require('objects/UserQuiz');
+
 
 var parent;
 var quiz;
@@ -29,4 +31,13 @@ exports.logAnswer = function(is_correct, answer) {
 	UserQuiz.log(quiz.id, attempt.id, is_correct, answer);
 };
 
+exports.removeLife = function() {
+	attempt.lives -= 1;
+	UserAttempt.save(attempt);
+};
+
+exports.addPoints = function() {
+	attempt.points += quiz.points;
+	UserAttempt.save(attempt);
+};
 init(arguments[0] || {});
