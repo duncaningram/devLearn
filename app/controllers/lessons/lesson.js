@@ -103,7 +103,7 @@ exports.advance = function() {
 
 exports.stats = function() {
 	$.txtPoints.setText(_user.custom_fields.points + _attempt.points);
-	
+
 	switch (_attempt.lives) {
 		case 0:
 			$.life1.setImage("/images/heart_loss.png");

@@ -5,9 +5,9 @@
 				<Label id="txtLessonTitleBar" class="titleBarText">Lesson Title</Label>
 				<View class="statsView" layout="horizontal">
 					<Label id="txtPoints" class="titlePoints" left="0"></Label>
-					<ImageView id="life3" width="36" height="36" left="0" />
-					<ImageView id="life2" width="36" height="36" left="0" />
-					<ImageView id="life1" width="36" height="36" left="0" />
+					<ImageView id="life3" width="32" height="32" left="0" />
+					<ImageView id="life2" width="32" height="32" left="0" />
+					<ImageView id="life1" width="32" height="32" left="0" />
 				</View>
 			</View>
 			<View id="content"></View>
