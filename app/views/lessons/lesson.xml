@@ -1,7 +1,15 @@
 <Alloy>
 	<Window id="window" class="container">
 		<View layout='vertical'>
-			<View width="100%" top="0" id="titleView"><Label id='txtLessonTitleBar' class="titleBarText">Lesson Title</Label></View>
+			<View width="100%" top="0" id="titleView">
+				<Label id="txtLessonTitleBar" class="titleBarText">Lesson Title</Label>
+				<View class="statsView" layout="horizontal">
+					<Label id="txtPoints" class="titlePoints" left="0"></Label>
+					<ImageView id="life3" width="36" height="36" left="0" />
+					<ImageView id="life2" width="36" height="36" left="0" />
+					<ImageView id="life1" width="36" height="36" left="0" />
+				</View>
+			</View>
 			<View id="content"></View>
 		</View>
 		<View id="btnContinue"><Label id="lblContinue">Continue</Label></View>

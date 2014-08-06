@@ -8,8 +8,22 @@
 	color: "#fff",
 	font: {
 		fontSize: 20
+	}	
+}
+
+".statsView": {
+	right: 10,
+	height: 70,
+	width: Ti.UI.SIZE,
+	horizontalWrap: false
+}
+
+".titlePoints": {
+	color: "#fff",
+	right: 10,
+	font: {
+		fontSize: 20
 	}
-	
 }
 
 "#btnContinue": {

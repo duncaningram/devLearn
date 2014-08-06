@@ -43,6 +43,7 @@ function start(attempt) {
 	_attempt = attempt;
 	
 	display_tutorial(_tutorials[0]);
+	$.stats();
 }
 
 function load(attempt) {
@@ -64,6 +65,8 @@ function load(attempt) {
 		default:
 			Log.info("Invalid flow: " + _attempt.progress.flow);
 	}
+	
+	$.stats();
 }
 
 exports.advance = function() {
@@ -95,6 +98,33 @@ exports.advance = function() {
 		load(_attempt);
 	} else {
 		//TODO: Display out of lives page.
+	}
+};
+
+exports.stats = function() {
+	$.txtPoints.setText(_user.custom_fields.points + _attempt.points);
+	
+	switch (_attempt.lives) {
+		case 0:
+			$.life1.setImage("/images/heart_loss.png");
+			$.life2.setImage("/images/heart_loss.png");
+			$.life3.setImage("/images/heart_loss.png");
+			break;
+		case 1:
+			$.life1.setImage("/images/heart.png");
+			$.life2.setImage("/images/heart_loss.png");
+			$.life3.setImage("/images/heart_loss.png");
+			break;
+		case 2:
+			$.life1.setImage("/images/heart.png");
+			$.life2.setImage("/images/heart.png");
+			$.life3.setImage("/images/heart_loss.png");
+			break;
+		default:
+			$.life1.setImage("/images/heart.png");
+			$.life2.setImage("/images/heart.png");
+			$.life3.setImage("/images/heart.png");
+			break;
 	}
 };
 

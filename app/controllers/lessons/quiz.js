@@ -34,10 +34,12 @@ exports.logAnswer = function(is_correct, answer) {
 exports.removeLife = function() {
 	attempt.lives -= 1;
 	UserAttempt.save(attempt);
+	parent.stats();
 };
 
 exports.addPoints = function() {
 	attempt.points += quiz.points;
 	UserAttempt.save(attempt);
+	parent.stats();
 };
 init(arguments[0] || {});
