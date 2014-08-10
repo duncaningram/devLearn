@@ -17,11 +17,20 @@ function init(args) {
 	
 	if(quiz.type == "multiple_choice") {
 		display_multiple_choice();
-	}	
+	} else if (quiz.type == "code") {
+		display_code();
+	}
 }
 
 function display_multiple_choice() {
 	var view = Alloy.createController('lessons/questions/multiple_choice', {parent: $, quiz: quiz, grandparent: parent});
+	
+	$.contentView.removeAllChildren();
+	$.contentView.add(view.getView());
+}
+
+function display_code() {
+	var view = Alloy.createController('lessons/questions/code', {parent: $, quiz: quiz, grandparent: parent});
 	
 	$.contentView.removeAllChildren();
 	$.contentView.add(view.getView());
