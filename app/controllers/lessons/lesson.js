@@ -5,6 +5,8 @@ var Tutorials = require('objects/Tutorials');
 var User = require('objects/User');
 var UserAttempt = require('objects/UserAttempt');
 
+var MAX_TESTS = 5;
+
 var _attempt;
 var _lesson;
 var _tests;
@@ -57,7 +59,7 @@ function load(attempt) {
 			Quizzes.getQuiz(_tutorials[_attempt.progress.position].id, display_quiz);
 			break;
 		case "tests":
-			display_test(_test[_attempts.progress.position]);
+			display_test(_tests[_attempt.progress.position]);
 			break;
 		case "results":
 			display_results();
@@ -73,7 +75,7 @@ exports.advance = function() {
 	if (_attempt.lives > 0) {
 		if (_attempt.progress.flow == "tutorials") {
 			_attempt.progress.flow = "quizzes";
-		} else if (_attempt.progress.flow == "quizzes" && _attempt.progress.position + 1 < _tutorials.length) {
+		} else if (_attempt.progress.flow == "quizzes") {
 			if (_attempt.progress.position + 1 < _tutorials.length) {
 				_attempt.progress.flow = "tutorials";
 				_attempt.progress.position = _attempt.progress.position + 1;
@@ -82,7 +84,7 @@ exports.advance = function() {
 				_attempt.progress.position = 0;
 			}
 		} else if (_attempt.progress.flow == "tests") {
-			if (_attempt.progress.position + 1 < _tests.length) {
+			if (_attempt.progress.position + 1 < _tests.length && _attempt.progress.position + 1 < MAX_TESTS) {
 				_attempt.progress.position = _attempt.progress.position + 1;
 			} else {
 				_attempt.progress.flow = "results";
@@ -102,7 +104,11 @@ exports.advance = function() {
 };
 
 exports.stats = function() {
-	$.txtPoints.setText(_user.custom_fields.points + _attempt.points);
+	if (_attempt.is_completed) {
+		$.txtPoints.setText(_user.custom_fields.points);
+	} else {
+		$.txtPoints.setText(_user.custom_fields.points + _attempt.points);
+	}
 
 	switch (_attempt.lives) {
 		case 0:
