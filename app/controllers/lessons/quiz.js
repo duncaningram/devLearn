@@ -2,16 +2,18 @@ var Collection = require('utils/Collection');
 var Log = require('utils/Log');
 var UserAttempt = require('objects/UserAttempt');
 var UserQuiz = require('objects/UserQuiz');
-
+var UserTest = require('objects/UserTest');
 
 var parent;
 var quiz;
 var attempt;
+var type;
 
 function init(args) {
 	parent = args.parent;
 	quiz = args.quiz;
 	attempt = args.attempt;
+	type = args.type;
 	
 	Log.info("Quiz controller: " + JSON.stringify(quiz));
 	
@@ -37,7 +39,11 @@ function display_code() {
 }
 
 exports.logAnswer = function(is_correct, answer) {
-	UserQuiz.log(quiz.id, attempt.id, is_correct, answer);
+	if (type == "quiz") {
+		UserQuiz.log(quiz.id, attempt.id, is_correct, answer);
+	} else {
+		UserTest.log(quiz.id, attempt.id, is_correct, answer);	
+	}
 };
 
 exports.removeLife = function() {

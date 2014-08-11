@@ -25,7 +25,7 @@ function display_tutorial(tutorial) {
 }
 
 function display_quiz(quiz) {
-	_view = Alloy.createController('lessons/quiz', {parent: $, quiz: quiz, attempt: _attempt});
+	_view = Alloy.createController('lessons/quiz', {parent: $, quiz: quiz, type: "quiz", attempt: _attempt});
 	
 	$.content.removeAllChildren();
 	$.content.add(_view.getView());
@@ -34,7 +34,12 @@ function display_quiz(quiz) {
 }
 
 function display_test(test) {
-	Log.info(test.question);
+	_view = Alloy.createController('lessons/quiz', {parent: $, quiz: test, type: "test", attempt: _attempt});
+	
+	$.content.removeAllChildren();
+	$.content.add(_view.getView());
+	
+	$.btnContinue.removeEventListener('click', $.advance);
 }
 
 function display_results() {
