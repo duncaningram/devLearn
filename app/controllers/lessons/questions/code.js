@@ -122,6 +122,7 @@ function checkAnswer(e) {
 	if (answer == quiz.answer)
 		correct = true;
 	
+	parent.logAnswer(correct, answer);
 	
 	if(correct) {
 		// Correct answer
