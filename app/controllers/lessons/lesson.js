@@ -42,6 +42,24 @@ function display_test(test) {
 	$.btnContinue.removeEventListener('click', $.advance);
 }
 
+function display_outoflives() {
+	_view = Alloy.createController('lessons/outoflives', {parent: $});
+	
+	$.content.removeAllChildren();
+	$.content.add(_view.getView());
+	
+	$.btnContinue.removeEventListener('click', $.advance);
+}
+
+function display_completed() {
+	_view = Alloy.createController('lessons/completed', {parent: $, attempt: _attempt, user: _user});
+	
+	$.content.removeAllChildren();
+	$.content.add(_view.getView());
+	
+	$.btnContinue.removeEventListener('click', $.advance);
+}
+
 function display_results() {
 	Log.info("load results page");
 }
@@ -51,6 +69,28 @@ function start(attempt) {
 	
 	display_tutorial(_tutorials[0]);
 	$.stats();
+}
+
+function check_load(attempt) {
+	if (attempt === undefined) {
+		UserAttempt.create(_lesson.id, start);
+	} else {
+		_attempt = attempt;
+		
+		if (_attempt.is_completed) {
+			display_completed();
+		}
+		else if (_attempt.lives <= 0) {
+			display_outoflives();
+			$.stats();
+		} else {
+			if (_attempt.progress.flow == "quizzes") {
+				_attempt.progress.flow = "tutorials";
+			}
+			
+			load(_attempt);
+		}
+	}
 }
 
 function load(attempt) {
@@ -76,6 +116,10 @@ function load(attempt) {
 	$.stats();
 }
 
+exports.restart = function() {
+	UserAttempt.create(_lesson.id, start);
+};
+
 exports.advance = function() {
 	if (_attempt.lives > 0) {
 		if (_attempt.progress.flow == "tutorials") {
@@ -94,7 +138,6 @@ exports.advance = function() {
 			} else {
 				_attempt.progress.flow = "results";
 				_attempt.progress.position = 0;
-				_attempt.is_active = false;
 				_attempt.is_completed = true;
 				_user.custom_fields.points += _attempt.points;
 				User.save(_user);
@@ -104,7 +147,7 @@ exports.advance = function() {
 		UserAttempt.save(_attempt);
 		load(_attempt);
 	} else {
-		//TODO: Display out of lives page.
+		display_outoflives();
 	}
 };
 
@@ -152,8 +195,7 @@ function preload_tests_complete(tests) {
 }
 
 function preload_complete() {
-	//TODO: Check if we are starting a new lesson or loading an existing one.  Also, if it is load and flow is quizzes change flow to tutorials.
-	UserAttempt.create(_lesson.id, start);
+	UserAttempt.load(check_load);
 }
 
 function init(args) {

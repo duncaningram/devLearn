@@ -1,0 +1,40 @@
+"Label": {
+	font: {
+		fontSize: 20
+	}
+}
+
+".half": {
+	width: "50%"
+}
+
+".lblText": {
+	left: 30,
+	right: 30,
+	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER
+}
+
+"#btnCancel": {
+	left: 30,
+	right: 15,
+	height: Ti.UI.SIZE,
+	backgroundColor: "#d3d3d3",
+}
+
+"#btnRetry": {
+	left: 15,
+	right: 30,
+	height: Ti.UI.SIZE,
+	backgroundColor: "#33b5e5",
+}
+
+"#lblRetry": {
+	color: "#FFF"
+}
+
+".btnSplit": {
+	left: 20,
+	right: 20,
+	top: 10,
+	bottom: 10
+}

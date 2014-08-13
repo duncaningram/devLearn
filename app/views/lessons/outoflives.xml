@@ -1,0 +1,17 @@
+<Alloy>
+	<View layout="vertical" height="350">
+		<Label class="lblText">Unfortunately, you have run out of lives, and you must restart this lesson from beginning.</Label>
+		<View class="br" />
+		<ImageView width="auto" height="150" image="/images/hearts.png" />
+		<View class="br" />
+		<View class="br" />
+		<View left="0" layout="horizontal">
+			<View class="half">
+				<View id="btnExit"><Label class="btnSplit" id="lblExit">Exit</Label></View>
+			</View>
+			<View class="half">
+				<View id="btnRetry"><Label class="btnSplit" id="lblRetry">Retry</Label></View>
+			</View>
+		</View>
+	</View>
+</Alloy>

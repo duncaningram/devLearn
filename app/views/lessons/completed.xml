@@ -1,0 +1,19 @@
+<Alloy>
+	<View layout="vertical" height="500">
+		<Label class="lblText">You have already successfully completed this lesson!</Label>
+		<View class="br" />
+		<ImageView width="auto" height="300" image="/images/completed.png" />
+		<View class="br" />
+		<Label class="lblText">Retrying will erase your current points for this lesson.</Label>
+		<View class="br" />
+		<View class="br" />
+		<View left="0" layout="horizontal">
+			<View class="half">
+				<View id="btnCancel"><Label class="btnSplit" id="lblCancel">Cancel</Label></View>
+			</View>
+			<View class="half">
+				<View id="btnRetry"><Label class="btnSplit" id="lblRetry">Retry</Label></View>
+			</View>
+		</View>
+	</View>
+</Alloy>

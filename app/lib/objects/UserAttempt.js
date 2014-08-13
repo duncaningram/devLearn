@@ -12,6 +12,7 @@ var UserAttempt = (function() {
 		Cloud.Objects.query({
 			classname: "UserAttempts",
 			where: {
+				"[CUSTOM_Lessons]lesson_id": lesson_id,
 				is_active: true,
 				user_id: User.getUser().id
 			},
