@@ -37,7 +37,7 @@ var UserAttempt = (function() {
 				classname: 'UserAttempts',
 				fields: {
 					"[CUSTOM_Lessons]lesson_id": lesson_id,
-					lives: 3,
+					lives: 4,
 					points: 0,
 					progress: {
 						flow: "tutorials",

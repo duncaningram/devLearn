@@ -163,21 +163,31 @@ exports.stats = function() {
 			$.life1.setImage("/images/heart_loss.png");
 			$.life2.setImage("/images/heart_loss.png");
 			$.life3.setImage("/images/heart_loss.png");
+			$.life4.setImage("/images/heart_loss.png");
 			break;
 		case 1:
 			$.life1.setImage("/images/heart.png");
 			$.life2.setImage("/images/heart_loss.png");
 			$.life3.setImage("/images/heart_loss.png");
+			$.life4.setImage("/images/heart_loss.png");
 			break;
 		case 2:
 			$.life1.setImage("/images/heart.png");
 			$.life2.setImage("/images/heart.png");
 			$.life3.setImage("/images/heart_loss.png");
+			$.life4.setImage("/images/heart_loss.png");
+			break;
+		case 3:
+			$.life1.setImage("/images/heart.png");
+			$.life2.setImage("/images/heart.png");
+			$.life3.setImage("/images/heart.png");
+			$.life4.setImage("/images/heart_loss.png");
 			break;
 		default:
 			$.life1.setImage("/images/heart.png");
 			$.life2.setImage("/images/heart.png");
 			$.life3.setImage("/images/heart.png");
+			$.life4.setImage("/images/heart.png");
 			break;
 	}
 };
