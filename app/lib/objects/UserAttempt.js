@@ -58,12 +58,13 @@ var UserAttempt = (function() {
 		});
 	};
 	
-	function load(callback) {
+	function load(lesson_id, callback) {
 		_attempt = {};
 		
 		Cloud.Objects.query({
 			classname: "UserAttempts",
 			where: {
+				"[CUSTOM_Lessons]lesson_id": lesson_id,
 				is_active: true,
 				user_id: User.getUser().id
 			},

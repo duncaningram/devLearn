@@ -205,7 +205,7 @@ function preload_tests_complete(tests) {
 }
 
 function preload_complete() {
-	UserAttempt.load(check_load);
+	UserAttempt.load(_lesson.id, check_load);
 }
 
 function init(args) {
