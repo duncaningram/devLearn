@@ -21,6 +21,8 @@ function init(args) {
 		display_multiple_choice();
 	} else if (quiz.type == "code") {
 		display_code();
+	} else if (quiz.type == "order") {
+		display_order();
 	}
 }
 
@@ -33,6 +35,13 @@ function display_multiple_choice() {
 
 function display_code() {
 	var view = Alloy.createController('lessons/questions/code', {parent: $, quiz: quiz, grandparent: parent});
+	
+	$.contentView.removeAllChildren();
+	$.contentView.add(view.getView());
+}
+
+function display_order() {
+	var view = Alloy.createController('lessons/questions/order', {parent: $, quiz: quiz, grandparent: parent});
 	
 	$.contentView.removeAllChildren();
 	$.contentView.add(view.getView());

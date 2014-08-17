@@ -1,0 +1,11 @@
+<Alloy>
+	<View height=Ti.UI.FILL>
+		<View layout="vertical" id="contentMultipleChoice">
+			<View class="br" />
+			<Label id="txtQuestion" width="90%">Question</Label>
+			<View class="br" />
+			<ScrollView id="answerBox" top="10" showVerticalScrollIndicator="true" showHorizontalScrollIndicator="false" width="90%" height="40%" borderColor="#33b5e5" borderWidth='1' layout="vertical" />
+		</View>
+		<View id="questions" />
+	</View>
+</Alloy>
