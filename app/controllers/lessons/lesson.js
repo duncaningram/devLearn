@@ -117,6 +117,7 @@ function load(attempt) {
 }
 
 exports.restart = function() {
+	Tests.randomize(_lesson.id);
 	UserAttempt.create(_lesson.id, start);
 };
 
