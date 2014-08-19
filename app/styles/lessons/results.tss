@@ -1,0 +1,20 @@
+"Label": {
+	font: {
+		fontSize: 20
+	}
+}
+
+".lblText": {
+	left: 30,
+	right: 30,
+	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER
+}
+
+".lblGrade": {
+	left: 0,
+	right: 0,
+	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER,
+	font: {
+		fontSize: 126
+	}
+}

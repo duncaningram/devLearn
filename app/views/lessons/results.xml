@@ -1,0 +1,10 @@
+<Alloy>
+	<View layout="vertical" height="500">
+		<Label class="lblText">You have successfully completed this lesson!</Label>
+		<View class="br" />
+		<View class="br" />
+		<View class="br" />
+		<Label id="grade" class="lblGrade">C</Label>
+		<View class="br" />
+	</View>
+</Alloy>

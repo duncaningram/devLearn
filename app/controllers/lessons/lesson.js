@@ -61,7 +61,12 @@ function display_completed() {
 }
 
 function display_results() {
-	Log.info("load results page");
+	_view = Alloy.createController('lessons/results', {parent: $, attempt: _attempt, user: _user});
+	
+	$.content.removeAllChildren();
+	$.content.add(_view.getView());
+	
+	$.btnContinue.removeEventListener('click', $.advance);
 }
 
 function start(attempt) {
@@ -137,9 +142,11 @@ exports.advance = function() {
 			if (_attempt.progress.position + 1 < _tests.length && _attempt.progress.position + 1 < MAX_TESTS) {
 				_attempt.progress.position = _attempt.progress.position + 1;
 			} else {
+				var questions = _tutorials.length + Math.min(_tests.length, MAX_TESTS);
 				_attempt.progress.flow = "results";
 				_attempt.progress.position = 0;
 				_attempt.is_completed = true;
+				_attempt.grade = (questions - (_lesson.lives - _attempt.lives)) / questions * 100;
 				_user.custom_fields.points += _attempt.points;
 				User.save(_user);
 			}
