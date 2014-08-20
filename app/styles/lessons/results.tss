@@ -20,15 +20,14 @@
 }
 
 ".ribbon": {
-	left: 0,
-	right: 0,
 	height: Ti.UI.SIZE,
+	width: Ti.UI.SIZE,
 	backgroundColor: "#4AC948"
 }
 
 ".lblPoints": {
-	left: 0,
-	right: 0,
+	left: 30,
+	right: 30,
 	top: 20,
 	bottom: 20,
 	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER,
