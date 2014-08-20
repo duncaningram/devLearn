@@ -1,0 +1,12 @@
+<Alloy>
+	<View height=Ti.UI.FILL>
+		<View layout="vertical" id="contentMultipleChoice">
+			<View class="br" />
+			<Label id="txtQuestion" width="90%">Question</Label>
+			<WebView id='webView' />
+			<View class="br" />
+			<View id="answerBox" layout="horizontal" />
+		</View>
+		<View id="questions" />
+	</View>
+</Alloy>

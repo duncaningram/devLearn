@@ -23,6 +23,8 @@ function init(args) {
 		display_code();
 	} else if (quiz.type == "order") {
 		display_order();
+	} else if (quiz.type == "match_code") {
+		display_match_code();
 	}
 }
 
@@ -42,6 +44,13 @@ function display_code() {
 
 function display_order() {
 	var view = Alloy.createController('lessons/questions/order', {parent: $, quiz: quiz, grandparent: parent});
+	
+	$.contentView.removeAllChildren();
+	$.contentView.add(view.getView());
+}
+
+function display_match_code() {
+	var view = Alloy.createController('lessons/questions/match_code', {parent: $, quiz: quiz, grandparent: parent});
 	
 	$.contentView.removeAllChildren();
 	$.contentView.add(view.getView());

@@ -1,0 +1,29 @@
+"#txtQuestion": {
+	top: 10,
+	font: {
+		fontSize: 20,
+		fontWeight: 'bold'
+	}
+}
+
+"#questions": {
+	bottom: 150,
+	height: Ti.UI.SIZE,
+	width: "90%",
+	layout: "horizontal"
+}
+
+"#answerBox": {
+	top: 10,
+	width: "90%",
+	height: "30%",
+	borderColor: "#33b5e5",
+	borderWidth: 1
+}
+
+"#webView": {
+	width: '90%',
+	height: '20%',
+	borderColor: '#000',
+	borderWidth: 1
+}
