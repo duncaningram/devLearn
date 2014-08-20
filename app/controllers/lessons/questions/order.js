@@ -119,8 +119,10 @@ function checkAnswer(e) {
 	
 	Log.info("Completed Answer: " + answer);
 	Log.info("Correct Answer: " + quiz.answer);
-	if (answer == quiz.answer)
-		correct = true;
+	quiz.answer.forEach(function(entry) {
+		if (answer == entry)
+			correct = true;
+	});
 	
 	parent.logAnswer(correct, answer);
 	
