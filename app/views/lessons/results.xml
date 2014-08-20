@@ -6,5 +6,11 @@
 		<View class="br" />
 		<Label id="grade" class="lblGrade">C</Label>
 		<View class="br" />
+		<View class="br" />
+		<View class="br" />
+		<View class="br" />
+		<View class="ribbon">
+			<Label id="points" class="lblPoints"></Label>
+		</View>
 	</View>
 </Alloy>
