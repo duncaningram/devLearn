@@ -2,4 +2,5 @@
 	<string name="language_select_title">I want to learn</string>
 	<string name="lesson_select_title">Begin learning: %1$s</string>
 	<string name="lesson_title">%1$s: %2$s</string>
+	<string name="lesson_results_points">You now have %1$s points!</string>
 </resources>

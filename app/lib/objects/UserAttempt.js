@@ -39,6 +39,7 @@ var UserAttempt = (function() {
 					"[CUSTOM_Lessons]lesson_id": lesson_id,
 					lives: 4,
 					points: 0,
+					grade: -1,
 					progress: {
 						flow: "tutorials",
 						position: 0
@@ -84,6 +85,7 @@ var UserAttempt = (function() {
 			fields: {
 				lives: attempt.lives,
 				points: attempt.points,
+				grade: attempt.grade,
 				progress: {
 					flow: attempt.progress.flow,
 					position: attempt.progress.position
