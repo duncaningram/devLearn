@@ -75,7 +75,9 @@ function createButton(entry, index, questionIndex) {
 		color: "#FFF",
 		left: 5,
 		right: 5,
-		height: 40,
+		top: 3,
+		bottom: 3,
+		height: Ti.UI.SIZE,
 		font: {
 			fontSize: 25
 		},
