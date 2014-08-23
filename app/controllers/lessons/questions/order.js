@@ -118,6 +118,7 @@ function checkAnswer(e) {
 		if(entry.questionIndex != undefined) {
 			answer += answers[entry.questionIndex];
 		}
+		entry.removeEventListener('click', clickAnswerButton);
 	});
 	
 	Log.info("Completed Answer: " + answer);
