@@ -14,7 +14,7 @@ function init(args) {
 	parent = args.parent;
 	quiz = args.quiz;
 	grandparent = args.grandparent;
-	Log.info("Code Quiz: " + JSON.stringify(quiz));
+	Log.info("Match_Code Quiz: " + JSON.stringify(quiz));
 
 	
 	setCheckButton(true, false);
@@ -22,7 +22,7 @@ function init(args) {
 	
 	questions = Collection.shuffle(quiz.selections);
 	
-	Log.info("Code shuffled: " + JSON.stringify(questions));
+	Log.info("Match_Code shuffled: " + JSON.stringify(questions));
 	
 	$.questions.removeAllChildren();
 	$.webView.setHtml(quiz.answer[0]);
@@ -100,6 +100,7 @@ function clickQuestionButton(e) {
 	button.addEventListener('click', clickAnswerButton);
 	answerButtons.push(button);
 	$.answerBox.add(button);
+	$.answerBox.scrollToBottom();
 	//e.source.setVisible(false);
 }
 

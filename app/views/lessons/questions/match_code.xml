@@ -5,7 +5,7 @@
 			<Label id="txtQuestion" width="90%">Question</Label>
 			<WebView id='webView' />
 			<View class="br" />
-			<View id="answerBox" layout="horizontal" />
+			<ScrollView id="answerBox" showVerticalScrollIndicator="true" showHorizontalScrollIndicator="false" layout="horizontal" />
 		</View>
 		<View id="questions" />
 	</View>

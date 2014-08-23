@@ -100,6 +100,7 @@ function clickQuestionButton(e) {
 	button.addEventListener('click', clickAnswerButton);
 	answerButtons.push(button);
 	$.answerBox.add(button);
+	$.answerBox.scrollToBottom();
 	//e.source.setVisible(false);
 }
 
