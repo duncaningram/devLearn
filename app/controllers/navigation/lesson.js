@@ -15,11 +15,20 @@ function display_lessons(lessons) {
 		table.items.add(row.getView());
 	}
 	
+	var row = Alloy.createController('navigation/row');
+	row.item.setText(L('language_transition'));
+	row.row.addEventListener('click', select_transition);
+	table.items.add(row.getView());
+	
 	$.window.add(table.getView());
 }
 
 function select_lesson(e) {
 	Alloy.createController('lessons/lesson', { lesson: e.row.lesson }).getView().open();
+}
+
+function select_transition(e) {
+	Alloy.createController('lessons/transition', { language: language }).getView().open();
 }
 
 function init(args) {

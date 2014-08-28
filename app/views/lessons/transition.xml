@@ -1,0 +1,17 @@
+<Alloy>
+	<Window id="window" class="container">
+		<View layout='vertical'>
+			<View width="100%" top="0" id="titleView">
+				<View layout="vertical" height="500">
+					<Label class="lblText">Now, that you have completed all the lessons, you are ready to start programming on a computer.  Go to the link below in your computer's browser for a guide to get started!</Label>
+					<View class="br" />
+					<ImageView width="auto" height="300" image="/images/computer.png" />
+					<View left="0" layout="horizontal">
+						<Label id="lblLink" class="lblLink" />
+					</View>
+				</View>
+			</View>
+		</View>
+		<View id="btnCancel"><Label id="lblCancel">Back</Label></View>
+	</Window>
+</Alloy>
