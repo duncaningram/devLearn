@@ -7,7 +7,7 @@
 			<View class="br" />
 			<View layout="vertical" >
 				<View class="wrap_content" left="0" layout="horizontal">
-					<View id="btnSource" class="btnon wrap_content"><Label class="btnTab" id="lblSource">Source</Label></View>
+					<View id="btnSource" class="btnon wrap_content"><Label class="btnTab" id="lblSource">Source - HTML</Label></View>
 					<View id="btnBrowser" class="btnoff wrap_content"><Label class="btnTab" id="lblBrowser">Browser</Label></View>
 				</View>
 				<View id="sourceWrapper" layout="horizontal" borderWidth="1" borderColor="#33b5e5">
