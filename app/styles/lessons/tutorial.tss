@@ -31,6 +31,10 @@
 	
 }
 
+".space": {
+	left: 1
+}
+
 ".br": {
 	height: 20
 }
