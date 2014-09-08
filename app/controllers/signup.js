@@ -11,10 +11,12 @@ $.btnSignUp.addEventListener('click', function() {
 	var _email = $.txtEmail.value;
 	var _password = $.txtPassword.value;
 	var _password_confirm = $.txtPasswordConfirm.value;
+	var _first_name = $.txtFname.value;
+	var _last_name = $.txtLname.value;
 	
 	if (_password_confirm == _password && _password_confirm.length > 3) {
 		if(_email.match(validateEmail)) {
-			User.create(_email, _password, _password, function(user) {
+			User.create(_email, _password, _password, _first_name, _last_name, function(user) {
 				if(user != undefined) {
 					Ti.App.Properties.setString('email', _email);
 					Ti.App.Properties.setString('password', _password);
