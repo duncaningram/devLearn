@@ -1,5 +1,6 @@
 var User = require('objects/User');
 var Log = require('utils/Log');
+var Window = require('utils/Window');
 
 var email = Ti.App.Properties.getString('email');
 var password = Ti.App.Properties.getString('password');
@@ -15,11 +16,13 @@ if(email == null || password == null) {
 		if(user != undefined) {
 			Log.info("User Signed in Hopefully");
 			Log.info("UserID: " + user.id);
-			Alloy.createController('navigation/language').getView().open();	
+			var view = Alloy.createController('navigation/language').getView();
+			Window.open(view);
+			//view.open();	
 		} else {
 			// Problem signing in
 			//TODO code something here
-			Alloy.createController('signing', {
+			Alloy.createController('signin', {
 				parent: $
 			}).getView().open();
 		}

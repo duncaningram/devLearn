@@ -1,5 +1,6 @@
 var Lessons = require('objects/Lessons');
 var Log = require('utils/Log');
+var Window = require('utils/Window');
 
 var language;
 
@@ -24,7 +25,8 @@ function display_lessons(lessons) {
 }
 
 function select_lesson(e) {
-	Alloy.createController('lessons/lesson', { lesson: e.row.lesson }).getView().open();
+	var view = Alloy.createController('lessons/lesson', { lesson: e.row.lesson }).getView();
+	Window.open(view);
 }
 
 function select_transition(e) {

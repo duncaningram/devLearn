@@ -1,3 +1,5 @@
 <Alloy>
-	<Window id="window" class="container" />
+	<Window id="window" class="container">
+		<Require src="menu" />
+	</Window>
 </Alloy>

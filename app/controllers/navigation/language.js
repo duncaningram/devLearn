@@ -1,5 +1,6 @@
 var Languages = require('objects/Languages');
 var Log = require('utils/Log');
+var Window = require('utils/Window');
 
 function display_languages(languages) {
 	var table = Alloy.createController('navigation/table');
@@ -13,11 +14,14 @@ function display_languages(languages) {
 		table.items.add(row.getView());
 	}
 	
+	//Globals.setLanguageView($.getView());
+	
 	$.window.add(table.getView());
 }
 
 function select_language(e) {
-	Alloy.createController('navigation/lesson', { language: e.row.language }).getView().open();
+	var view = Alloy.createController('navigation/lesson', { language: e.row.language }).getView();
+	Window.open(view);
 }
 
 function init() {

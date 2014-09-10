@@ -1,5 +1,6 @@
 var User = require('objects/User');
 var Log = require('utils/Log');
+var Window = require('utils/Window');
 
 var args = arguments[0] || {};
 var parent = args.parent;
@@ -21,7 +22,8 @@ $.btnSignUp.addEventListener('click', function() {
 					Ti.App.Properties.setString('email', _email);
 					Ti.App.Properties.setString('password', _password);
 					
-					Alloy.createController('navigation/language').getView().open();	
+					var view = Alloy.createController('navigation/language').getView();
+					Window.open(view);	
 					parent.getView().close();
 					$.getView().close();
 				} else {

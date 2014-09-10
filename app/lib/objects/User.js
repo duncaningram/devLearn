@@ -21,6 +21,9 @@ var User = (function() {
 			}, function (e) {
 				if (e.success) {
 					_user = e.users[0];
+				}  else if(e.code == 400) {
+					alert("Email address already taken");
+					Log.error('error:' + e.message + JSON.stringify(e));
 				} else {
 					//TODO error callback
 					Log.error('error: ' + JSON.stringify(e));	
@@ -79,6 +82,9 @@ var User = (function() {
 		if(_user != undefined) {
 			Cloud.Users.logout(function (e) {
 				if(e.success) {
+					Ti.App.Properties.removeProperty('email');
+					Ti.App.Properties.removeProperty('password');
+					Log.info("User Logged Out");
 					_user = undefined;
 				} else {
 					alert('Error:\n' + ((e.error && e.message) || JSON.stringify(e)));

@@ -1,0 +1,5 @@
+<Alloy>
+	<Menu id="menu" platform="android">
+	    <MenuItem id="logout_menu_item" title="Logout" onClick="logout" />
+	</Menu>
+</Alloy>
