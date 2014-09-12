@@ -1,16 +1,17 @@
 ".flatButton": {
-	borderRadius: "18",
+	height: "50",
 	width: "150",
-	backgroundGradient: {
-        type: 'linear',
-        startPoint: { x: '0%', y: '0%' },
-        endPoint: { x: '0%', y: '100%' },
-        colors: [ { color: '#6D9DD2', offset: 0.0}, { color: '#2357B7', offset: 0.75 }, { color: '#2357B7', offset: 1.0 } ],
-    }
+	backgroundColor: "#33b5e5"
 }
 
 ".lblFlatButton": {
 	color: "#FFF",
+	font: {
+		fontSize: 24
+	}
+}
+
+"Label": {
 	font: {
 		fontSize: 20
 	}

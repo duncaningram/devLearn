@@ -44,7 +44,6 @@
 }
 
 ".subheading": {
-	color: "#435e67",
 	font: {
 		fontSize: 20
 	}

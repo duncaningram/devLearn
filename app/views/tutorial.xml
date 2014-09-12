@@ -3,12 +3,8 @@
 		<ScrollableView id="scrollable">
 			<View>
 				<View layout="vertical" height="450">
-					<Label class="subheading">\u003CdevLearn\u003E</Label>
-					<Label></Label>
 					<ImageView width="auto" height="300" image="/images/logo.png" />
-					<Label>Learn programming for a better future!</Label>
-					<Label></Label>
-					<Label>Swipe right to get started \u2192</Label>
+					<Label class="subheading">Swipe right to get started \u2192</Label>
 				</View>
 			</View>
 			<View>
@@ -17,19 +13,19 @@
 					<Label></Label>
 					<ImageView width="auto" height="150" image="/images/hearts.png" />
 					<Label></Label>
-					<Label>Finish each lesson before you run out of lives!</Label>
+					<Label class="subheading">Finish each lesson before you run out of lives!</Label>
 				</View>
 			</View>
 			<View>
 				<View layout="vertical" height="450">
 					<ImageView width="auto" height="300" image="/images/point.png" />
 					<Label></Label>
-					<Label>Complete questions and earn points!</Label>
+					<Label class="subheading">Complete questions and earn points!</Label>
 				</View>
 			</View>
 		</ScrollableView>
-		<ProgressBar id="progress" bottom="100" width="75%" min="0" max="2" value="0" />
-		<View height="30" class="flatButton" bottom="50" id="btnNewUser"><Label class="lblFlatButton">New User</Label></View>
-		<View height="30" class="flatButton" bottom="10" id="btnExistingUser"><Label class="lblFlatButton">Existing User</Label></View>
+		<ProgressBar id="progress" bottom="180" width="50%" min="0" max="2" value="0" />
+		<View class="flatButton" bottom="105" id="btnNewUser"><Label class="lblFlatButton">New User</Label></View>
+		<View class="flatButton" bottom="50" id="btnExistingUser"><Label class="lblFlatButton">Existing User</Label></View>
 	</Window>
 </Alloy>

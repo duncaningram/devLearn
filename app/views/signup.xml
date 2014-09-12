@@ -1,29 +1,18 @@
 <Alloy>
 	<Window class="container">
 		<View>
-			<View layout="vertical" height="600" width="100%">
-	            <View layout="horizontal" height="35" width="80%">
-					<Label width="35%">Email:</Label>
-					<TextField width="65%" hintText="user@email.com" id="txtEmail" borderStyle="Ti.UI.INPUT_BORDERSTYLE_ROUNDED"></TextField>
-				</View>
-				<View layout="horizontal" height="35" width="80%">
-					<Label width="35%">Password:</Label>
-					<TextField width="65%" id="txtPassword" passwordMask="true" borderSyle="TI.UI.INPUT_BORDERSTYLE_ROUNDED"></TextField>
-				</View>
-				<View layout="horizontal" height="35" width="80%">
-					<Label width="35%" >Confirm Password:</Label>
-					<TextField width="65%" id="txtPasswordConfirm" passwordMask="true" borderSyle="TI.UI.INPUT_BORDERSTYLE_ROUNDED"></TextField>
-				</View>
-				<View layout="horizontal" height="35" width="80%">
-					<Label width="35%">First Name:</Label>
-					<TextField width="65%" hintText="First Name" id="txtFname" borderStyle="Ti.UI.INPUT_BORDERSTYLE_ROUNDED"></TextField>
-				</View>
-				<View layout="horizontal" height="35" width="80%">
-					<Label width="35%">Last Name:</Label>
-					<TextField width="65%" hintText="Last Name" id="txtLname" borderStyle="Ti.UI.INPUT_BORDERSTYLE_ROUNDED"></TextField>
-				</View>
+			<View layout="vertical" height="600" width="80%">
+				<Label class="subheading">Name</Label>
+				<TextField width="100%" hintText="First Name" id="txtFname" borderStyle="Ti.UI.INPUT_BORDERSTYLE_ROUNDED"></TextField>
+				<TextField width="100%" hintText="Last Name" id="txtLname" borderStyle="Ti.UI.INPUT_BORDERSTYLE_ROUNDED"></TextField>
+				<View height="20"></View>
+				<Label class="subheading">Account</Label>
+				<View height="10"></View>
+				<TextField width="100%" hintText="Email" id="txtEmail" borderStyle="Ti.UI.INPUT_BORDERSTYLE_ROUNDED"></TextField>
+				<TextField width="100%" hintText="Password" id="txtPassword" passwordMask="true" borderSyle="TI.UI.INPUT_BORDERSTYLE_ROUNDED"></TextField>
+				<TextField width="100%" hintText="Confirm Password" id="txtPasswordConfirm" passwordMask="true" borderSyle="TI.UI.INPUT_BORDERSTYLE_ROUNDED"></TextField>
 				<View height="30"></View>
-				<View height="30" class="flatButton" bottom="50" id="btnSignUp"><Label class="lblFlatButton">Sign Up</Label></View>
+				<View class="flatButton" bottom="70" id="btnSignUp"><Label class="lblFlatButton">Sign Up</Label></View>
 			</View>
 		</View>
 	</Window>

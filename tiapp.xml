@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ti:app xmlns:ti="http://ti.appcelerator.org">   
+<ti:app xmlns:ti="http://ti.appcelerator.org">
     <property name="acs-api-key-development" type="string">hb6JXGnbVWUK8wtJnRRwd9GrqcqpEY0P</property>
-	<property name="acs-oauth-key-development" type="string">1ebv3Lslr49nGWYL8rRkM81BlfJKMWRa</property>
-	<property name="acs-oauth-secret-development" type="string">QbTrY91vpqkuZQwSqnRkihOkSfTsFh0q</property>
-	<property name="acs-api-key-production" type="string">1a91llPjiqMcMsmrz6OsJBCUhqVv4MGg</property>
-	<property name="acs-oauth-key-production" type="string">sNfqNU1po77PgmOJdS2wmoyPT5BvJPEm</property>
-	<property name="acs-oauth-secret-production" type="string">l2nZJ7QNmKiXmzbJTL1pD5zIYoDjVbGp</property>
+    <property name="acs-oauth-key-development" type="string">1ebv3Lslr49nGWYL8rRkM81BlfJKMWRa</property>
+    <property name="acs-oauth-secret-development" type="string">QbTrY91vpqkuZQwSqnRkihOkSfTsFh0q</property>
+    <property name="acs-api-key-production" type="string">1a91llPjiqMcMsmrz6OsJBCUhqVv4MGg</property>
+    <property name="acs-oauth-key-production" type="string">sNfqNU1po77PgmOJdS2wmoyPT5BvJPEm</property>
+    <property name="acs-oauth-secret-production" type="string">l2nZJ7QNmKiXmzbJTL1pD5zIYoDjVbGp</property>
     <id>com.devlearnapp.devlearn</id>
     <name>devLearn</name>
-    <version>1.0.0</version>
+    <version>0.0.1</version>
     <publisher>devLearn</publisher>
     <url>http://www.devlearnapp.com</url>
     <description>A mobile application to help kids learn to code in a fun and exciting way.</description>
@@ -20,7 +20,7 @@
     <guid>e5d8e4bb-d2c9-42c7-954a-af36afa14b39</guid>
     <property name="ti.ui.defaultunit" type="string">dp</property>
     <ios>
-    	<min-ios-ver>7.0</min-ios-ver>
+        <min-ios-ver>7.0</min-ios-ver>
         <plist>
             <dict>
                 <key>UISupportedInterfaceOrientations~iphone</key>
@@ -46,11 +46,11 @@
         </plist>
     </ios>
     <android xmlns:android="http://schemas.android.com/apk/res/android">
-    	<manifest>
-    		<application android:theme="@style/Light" />
-    		<uses-sdk android:minSdkVersion="14" android:targetSdkVersion="19" />
-    	</manifest>
-	</android>
+        <manifest>
+            <application android:theme="@style/Light"/>
+            <uses-sdk android:minSdkVersion="14" android:targetSdkVersion="19"/>
+        </manifest>
+    </android>
     <mobileweb>
         <precache/>
         <splash>
