@@ -134,20 +134,12 @@ function checkAnswer(e) {
 	if(correct) {
 		// Correct answer
 		parent.addPoints();
-		var toast = Ti.UI.createNotification({
-			message: "Correct",
-			duration: Ti.UI.NOTIFICATION_DURATION_LONG
-		});
-		toast.show();
+		parent.showCorrectIncorrect(true);
 
 	} else {
 		// Incorrect answer
 		parent.removeLife();
-		var toast = Ti.UI.createNotification({
-			message: "Incorrect",
-			duration: Ti.UI.NOTIFICATION_DURATION_LONG
-		});
-		toast.show();
+		parent.showCorrectIncorrect(false);
 	}
 	
 	setCheckButton(false, false);

@@ -75,4 +75,35 @@ exports.addPoints = function() {
 	UserAttempt.save(attempt);
 	parent.stats();
 };
+
+exports.showCorrectIncorrect = function(correct) {
+	var image;
+	if(correct) {
+		image = '/images/green_check_large.png';
+	} else {
+		image = '/images/red_cross_large.png';
+	}
+	
+	var view = Titanium.UI.createView({
+			borderRadius:8,
+			backgroundColor: '#585858',
+			opacity: .5,
+			layout: 'verticle',
+			width: '400px',
+			height: '400px'
+	});
+	
+	//TODO need a better center method.
+	view.setTop(200);
+	
+	var imageView = Titanium.UI.createImageView({
+		image: image,
+		opacity: 1
+	});
+	
+	view.add(imageView);
+	parent.content.add(view);
+	
+};
+
 init(arguments[0] || {});
