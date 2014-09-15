@@ -94,7 +94,7 @@ exports.showCorrectIncorrect = function(correct) {
 	});
 	
 	//TODO need a better center method.
-	view.setTop(200);
+	view.setTop(400);
 	
 	var imageView = Titanium.UI.createImageView({
 		image: image,
