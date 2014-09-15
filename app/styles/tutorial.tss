@@ -4,9 +4,89 @@
 	backgroundColor: "#33b5e5"
 }
 
+".flatButton[formFactor=handheld]": {
+	height: "35"
+}
+
 ".lblFlatButton": {
 	color: "#FFF",
 	font: {
 		fontSize: 24
 	}
 }
+
+".lblFlatButton[formFactor=handheld]": {
+	color: "#FFF",
+	font: {
+		fontSize: 20
+	}
+}
+
+"#btnNewUser": {
+	bottom: 105
+}
+
+"#btnNewUser[formFactor=handheld]": {
+	bottom: 75
+}
+
+"#btnExistingUser": {
+	bottom: 50
+}
+
+"#btnExistingUser[formFactor=handheld]": {
+	bottom: 30
+}
+
+".tutorialImageView": {
+	height: 450
+}
+
+".tutorialImageView[formFactor=handheld]": {
+	height: 300
+}
+
+".tutorialImageView ImageView": {
+	width:"auto",
+	height: 300
+}
+
+".tutorialImageView ImageView[formFactor=handheld]": {
+	width:"auto",
+	height: "150"
+}
+
+".tutorialHeartView": {
+	height: 300
+}
+
+".tutorialHeartView[formFactor=handheld]": {
+	height: 200
+}
+
+".tutorialImageView ImageView": {
+	width:"auto",
+	height: 150
+}
+
+".tutorialImageView ImageView[formFactor=handheld]": {
+	width:"auto",
+	height: 100
+}
+
+"#imgPoint": {
+	width: "auto",
+	height: 300
+}
+
+"#imgPoint[formFactor=handheld]": {
+	width: "auto",
+	height: 200
+}
+
+".subheading[formFactor=handheld]": {
+	font: {
+		fontSize: 17
+	}
+}
+
