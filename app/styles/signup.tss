@@ -4,11 +4,31 @@
 	backgroundColor: "#33b5e5"
 }
 
+".flatButton[formFactor=handheld]": {
+	height: "35"
+}
+
 ".lblFlatButton": {
 	color: "#FFF",
 	font: {
 		fontSize: 24
 	}
+}
+
+".lblFlatButton[formFactor=handheld]": {
+	color: "#FFF",
+	font: {
+		fontSize: 20
+	}
+}
+
+"#information": {
+	height: 600
+}
+
+"#information[formFactor=handheld]": {
+	height: 400,
+	top: 20
 }
 
 "Label": {

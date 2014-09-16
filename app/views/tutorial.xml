@@ -24,7 +24,7 @@
 				</View>
 			</View>
 		</ScrollableView>
-		<ProgressBar id="progress" bottom="180" width="50%" min="0" max="2" value="0" />
+		<ProgressBar visible="false" id="progress" bottom="180" width="50%" min="0" max="2" value="0" />
 		<View class="flatButton" id="btnNewUser"><Label class="lblFlatButton">New User</Label></View>
 		<View class="flatButton" id="btnExistingUser"><Label class="lblFlatButton">Existing User</Label></View>
 	</Window>

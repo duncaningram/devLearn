@@ -1,7 +1,7 @@
 <Alloy>
 	<Window class="container">
 		<View>
-			<View layout="vertical" height="600" width="80%">
+			<View id="information" layout="vertical" width="80%">
 				<Label class="subheading">Name</Label>
 				<TextField width="100%" hintText="First Name" id="txtFname" borderStyle="Ti.UI.INPUT_BORDERSTYLE_ROUNDED"></TextField>
 				<TextField width="100%" hintText="Last Name" id="txtLname" borderStyle="Ti.UI.INPUT_BORDERSTYLE_ROUNDED"></TextField>
