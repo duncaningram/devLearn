@@ -3,11 +3,21 @@
 	backgroundColor: "#33b5e5"
 }
 
+"#titleView[formFactor=handheld]": {
+	height: 50
+}
+
 ".titleBarText": {
 	left: 10,
 	color: "#fff",
 	font: {
 		fontSize: 20
+	}	
+}
+
+".titleBarText[formFactor=handheld]": {
+	font: {
+		fontSize: 18
 	}	
 }
 
@@ -18,11 +28,21 @@
 	horizontalWrap: false
 }
 
+".statsView[formFactor=handheld]": {
+	height: 50,
+}
+
 ".titlePoints": {
 	color: "#fff",
 	right: 10,
 	font: {
 		fontSize: 20
+	}
+}
+
+".titlePoints[formFactor=handheld]": {
+	font: {
+		fontSize: 18
 	}
 }
 
@@ -33,9 +53,19 @@
 	backgroundColor: "#33b5e5"
 }
 
+"#btnContinue[formFactor=handheld]": {
+	height: 55
+}
+
 "#lblContinue": {
 	color: "#fff",
 	font: {
 		fontSize: 25
+	}
+}
+
+"#lblContinue[formFactor=handheld]": {
+	font: {
+		fontSize: 20
 	}
 }

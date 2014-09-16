@@ -221,7 +221,31 @@ function init(args) {
 	
 	$.txtLessonTitleBar.setText(_lesson['[CUSTOM_Languages]language_id'][0]['name'] + ": " + _lesson.name);
 	
+	if(Ti.Platform.osname === "android" && !isTablet()) {
+		$.window.addEventListener("open", function() {
+		     $.window.activity.actionBar.hide();
+		});
+	}
+	
+	
 	Tutorials.getTutorials(_lesson.id, preload_tutorials_complete);
 }
+
+function isTablet() {
+	
+	var osname = Ti.Platform.osname,
+		dpi = Ti.Platform.displayCaps.dpi,
+		h = Ti.Platform.displayCaps.platformHeight / dpi,
+    	w = Ti.Platform.displayCaps.platformWidth / dpi,
+    	diagonalSize = Math.sqrt(w*w+h*h);
+	var diag = 6.5;
+	switch(osname) {
+		case 'ipad':
+			return true;
+		break;
+		default:
+			return (diagonalSize >= diag) ? true : false;
+	}
+};
 
 init(arguments[0] || {});
