@@ -47,55 +47,17 @@ function init(args) {
 }
 
 function createButton(entry, index, questionIndex) {
-	var padding = Titanium.UI.createView({
-		left: 5,
-		right: 5,
-		top: 5,
-		bottom: 5,
-		layout: 'horizontal',
-		width: Ti.UI.SIZE,
-		height: Ti.UI.SIZE,
-		data: index,
-		questionIndex : questionIndex
-	});
 	
+	var button = Alloy.createController('lessons/questions/button');
+	button.label.setText(entry);
+	button.outterPadding.data = index;
+	button.outterPadding.questionIndex = questionIndex;
+	button.innerPadding.data = index;
+	button.innerPadding.questionIndex = questionIndex;
+	button.label.data = index;
+	button.label.questionIndex = questionIndex;
 	
-	var view = Titanium.UI.createView({
-		borderRadius:5,
-		backgroundColor: '#33b5e5',
-		left: 0,
-		layout: 'horizontal',
-		width: Ti.UI.SIZE,
-		height: Ti.UI.SIZE,
-		data: index,
-		questionIndex : questionIndex
-	});
-	
-	if(grandparent.isTablet()) {
-		var font_size = 25;
-	} else {
-		var font_size = 20;
-	}
-	
-	var label = Titanium.UI.createLabel({
-		color: "#FFF",
-		left: 5,
-		right: 5,
-		top: 3,
-		bottom: 3,
-		height: Ti.UI.SIZE,
-		font: {
-			fontSize: font_size
-		},
-		data: index,
-		questionIndex : questionIndex
-	});
-	
-	label.setText(entry);
-	view.add(label);
-	padding.add(view);
-	
-	return padding;
+	return button.getView();
 }
 
 function clickQuestionButton(e) {

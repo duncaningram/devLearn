@@ -1,0 +1,9 @@
+<Alloy>
+	<View id="outterPadding" layout="horizontal" width="Ti.UI.SIZE" height="Ti.UI.SIZE" borderRadius="5">
+		<View id="innerPadding" layout="horizontal" width="Ti.UI.SIZE" height="Ti.UI.SIZE" left="0" borderRadius="5" backgroundColor="#33b5e5">
+			<Label id="label" height="Ti.UI.SIZE">
+				
+			</Label>
+		</View>
+	</View>
+</Alloy>

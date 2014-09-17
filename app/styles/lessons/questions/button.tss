@@ -1,0 +1,23 @@
+"#label": {
+	color: "#FFF",
+	left: 5,
+	right: 5,
+	top: 3,
+	bottom: 3,
+	font: {
+		fontSize: 25
+	}
+}
+
+"#label[formFactor=handheld]": {
+	font: {
+		fontSize: 20
+	}
+}
+
+"#outterPadding": {
+	left: 5,
+	right: 5,
+	top: 5,
+	bottom: 5
+}
