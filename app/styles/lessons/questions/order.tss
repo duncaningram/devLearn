@@ -6,7 +6,7 @@
 	}
 }
 
-"txtQuestion[formFactor=handheld]": {
+"#txtQuestion[formFactor=handheld]": {
 	font: {
 		fontSize: 16,
 		fontWeight: 'bold'
@@ -21,7 +21,7 @@
 }
 
 "#questions[formFactor=handheld]": {
-	bottom: 100
+	bottom: 60
 }
 
 "#answerBox": {

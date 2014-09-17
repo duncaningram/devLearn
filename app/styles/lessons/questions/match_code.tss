@@ -6,6 +6,13 @@
 	}
 }
 
+"#txtQuestion[formFactor=handheld]": {
+	font: {
+		fontSize: 16,
+		fontWeight: 'bold'
+	}
+}
+
 "#questions": {
 	bottom: 120,
 	height: Ti.UI.SIZE,

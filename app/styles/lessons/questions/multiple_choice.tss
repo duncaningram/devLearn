@@ -5,3 +5,10 @@
 		fontWeight: 'bold'
 	}
 }
+
+"#txtQuestion[formFactor=handheld]": {
+	font: {
+		fontSize: 16,
+		fontWeight: 'bold'
+	}
+}

@@ -11,7 +11,7 @@
 
 "#label[formFactor=handheld]": {
 	font: {
-		fontSize: 20
+		fontSize: 16
 	}
 }
 
