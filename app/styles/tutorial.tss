@@ -90,3 +90,21 @@
 	}
 }
 
+"#progressIndicator": {
+	bottom: 220
+}
+
+"#progressIndicator[formFactor=handheld]": {
+	bottom: 140
+}
+
+".imgTicks": {
+	height: 20,
+	width: 20,
+	right: 5
+}
+
+".imgTicks[formFactor=handheld]": {
+	height: 15,
+	width: 15
+}

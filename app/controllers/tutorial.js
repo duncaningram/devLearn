@@ -2,7 +2,23 @@ var args = arguments[0] || {};
 var parent = args.parent;
 
 function updateProgress(e) {
-	$.progress.setValue(e.currentPage);
+	switch(e.currentPage) {
+		case 0:
+			$.imgPage1.setImage("/images/ring_full.png");
+			$.imgPage2.setImage("/images/ring.png");
+			$.imgPage3.setImage("/images/ring.png");
+			break;
+		case 1:
+			$.imgPage1.setImage("/images/ring.png");
+			$.imgPage2.setImage("/images/ring_full.png");
+			$.imgPage3.setImage("/images/ring.png");
+			break;
+		case 2:
+			$.imgPage1.setImage("/images/ring.png");
+			$.imgPage2.setImage("/images/ring.png");
+			$.imgPage3.setImage("/images/ring_full.png");
+			break;
+	}
 }
 
 $.scrollable.addEventListener("scrollend", updateProgress);

@@ -24,7 +24,11 @@
 				</View>
 			</View>
 		</ScrollableView>
-		<ProgressBar visible="false" id="progress" bottom="180" width="50%" min="0" max="2" value="0" />
+		<View id="progressIndicator" width="Ti.UI.SIZE" height="Ti.UI.SIZE" layout="horizontal">
+			<ImageView class="imgTicks" id="imgPage1" image="/images/ring_full.png" />
+			<ImageView class="imgTicks" id="imgPage2" image="/images/ring.png" />
+			<ImageView class="imgTicks" id="imgPage3" image="/images/ring.png" />
+		</View>
 		<View class="flatButton" id="btnNewUser"><Label class="lblFlatButton">New User</Label></View>
 		<View class="flatButton" id="btnExistingUser"><Label class="lblFlatButton">Existing User</Label></View>
 	</Window>
