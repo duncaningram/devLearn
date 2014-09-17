@@ -9,6 +9,10 @@
 	backgroundColor: "#33b5e5"
 }
 
+".listHeading[formFactor=handheld]": {
+	height: 50
+}
+
 ".wrap_content": {
 	height: Ti.UI.SIZE,
 	width: Ti.UI.SIZE

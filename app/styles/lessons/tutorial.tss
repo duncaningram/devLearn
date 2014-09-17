@@ -5,9 +5,22 @@
 	}
 }
 
+"txtTitle[formFactor=handheld]": {
+	font: {
+		fontSize: 16,
+		fontWeight: 'bold'
+	}
+}
+
 "#txtDescription": {
 	font: {
 		fontSize: 16
+	}
+}
+
+"#txtDescription[formFactor=handheld]": {
+	font: {
+		fontSize: 14
 	}
 }
 
@@ -48,4 +61,10 @@
 	right: 20,
 	top: 10,
 	bottom: 10
+}
+
+".btnTab[formFactor=handheld]": {
+	font: {
+		fontSize: 12
+	}
 }
