@@ -128,6 +128,8 @@ exports.restart = function() {
 };
 
 exports.advance = function() {
+	$.btnContinue.removeEventListener('click', $.advance);
+	
 	if (_attempt.lives > 0) {
 		if (_attempt.progress.flow == "tutorials") {
 			_attempt.progress.flow = "quizzes";
