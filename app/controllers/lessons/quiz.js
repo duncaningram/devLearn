@@ -94,7 +94,12 @@ exports.showCorrectIncorrect = function(correct) {
 	});
 	
 	//TODO need a better center method.
-	view.setTop(400);
+	Log.info("isTablet " + parent.isTablet());
+	if(parent.isTablet()) {
+		view.setTop(400);
+	} else {
+		view.setTop(200);
+	}
 	
 	var imageView = Titanium.UI.createImageView({
 		image: image,

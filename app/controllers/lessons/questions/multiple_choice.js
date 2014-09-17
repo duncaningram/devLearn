@@ -57,6 +57,12 @@ function init(args) {
 		
 		choices[index] = view;
 		
+		if(grandparent.isTablet()) {
+			var font_size = 25;
+		} else {
+			var font_size = 18;
+		}
+		
 		var label = Titanium.UI.createLabel({
 			color: "#FFF",
 			left: 5,
@@ -65,7 +71,7 @@ function init(args) {
 			bottom: 3,
 			height: Ti.UI.SIZE,
 			font: {
-				fontSize: 25
+				fontSize: font_size
 			},
 			data: index
 		});

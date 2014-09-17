@@ -2,7 +2,7 @@
 	<View layout="vertical" height="500">
 		<Label class="lblText">You have already successfully completed this lesson!</Label>
 		<View class="br" />
-		<ImageView width="auto" height="300" image="/images/completed.png" />
+		<ImageView width="auto" id="imgComplete" image="/images/completed.png" />
 		<View class="br" />
 		<Label class="lblText">Retrying will erase your current points for this lesson.</Label>
 		<View class="br" />

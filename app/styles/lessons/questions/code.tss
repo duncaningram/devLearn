@@ -6,9 +6,28 @@
 	}
 }
 
+"txtQuestion[formFactor=handheld]": {
+	font: {
+		fontSize: 16,
+		fontWeight: 'bold'
+	}
+}
+
 "#questions": {
 	bottom: 150,
 	height: Ti.UI.SIZE,
 	width: "90%",
 	layout: "horizontal"
+}
+
+"#questions[formFactor=handheld]": {
+	bottom: 100
+}
+
+"#answerBox": {
+	height: "50%"
+}
+
+"#answerBox[formFactor=handheld]": {
+	height: "30%"
 }

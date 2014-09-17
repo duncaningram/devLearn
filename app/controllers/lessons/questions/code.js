@@ -71,6 +71,12 @@ function createButton(entry, index, questionIndex) {
 		questionIndex : questionIndex
 	});
 	
+	if(grandparent.isTablet()) {
+		var font_size = 25;
+	} else {
+		var font_size = 20;
+	}
+	
 	var label = Titanium.UI.createLabel({
 		color: "#FFF",
 		left: 5,
@@ -79,7 +85,7 @@ function createButton(entry, index, questionIndex) {
 		bottom: 3,
 		height: Ti.UI.SIZE,
 		font: {
-			fontSize: 25
+			fontSize: font_size
 		},
 		data: index,
 		questionIndex : questionIndex
@@ -128,7 +134,7 @@ function checkAnswer(e) {
 	});
 	
 	parent.logAnswer(correct, answer);
-	
+
 	if(correct) {
 		// Correct answer
 		parent.addPoints();

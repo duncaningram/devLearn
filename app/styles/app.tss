@@ -34,6 +34,10 @@
 	height: 70
 }
 
+".listSelection[formFactor=handheld]": {
+	height: 50
+}
+
 ".listSubtitle": {
 	left: 26,
 	height: 70,
@@ -41,6 +45,13 @@
 	font: {
 		fontSize: 20
 	}
+}
+
+".listSubtitle[formFactor=handheld]": {
+	font: {
+		fontSize: 18
+	},
+	height: 40
 }
 
 ".container[platform=ios]": {

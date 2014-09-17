@@ -65,6 +65,6 @@
 
 ".btnTab[formFactor=handheld]": {
 	font: {
-		fontSize: 12
+		fontSize: 14
 	}
 }

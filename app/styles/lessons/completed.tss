@@ -38,3 +38,11 @@
 	top: 10,
 	bottom: 10
 }
+
+"#imgComplete": {
+	height: "300"
+}
+
+"#imgComplete[formFactor=handheld]": {
+	height: "200"
+}

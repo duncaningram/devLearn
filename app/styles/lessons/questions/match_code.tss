@@ -13,6 +13,10 @@
 	layout: "horizontal"
 }
 
+"#questions[formFactor=handheld]": {
+	bottom: 60
+}
+
 "#answerBox": {
 	top: 10,
 	width: "90%",
