@@ -8,10 +8,15 @@ function display_lessons(lessons) {
 	var table = Alloy.createController('navigation/table');
 	table.title.setText(String.format(L('lesson_select_title'), language.name));
 	
+	var less = new Array();
 	for (var i = 0; i < lessons.length; i++) {
+		less[lessons[i].order] = lessons[i];
+	}
+	
+	for (var i = 0; i < less.length; i++) {
 		var row = Alloy.createController('navigation/row');
-		row.item.setText(lessons[i].name);
-		row.row.lesson = lessons[i];
+		row.item.setText(less[i].name);
+		row.row.lesson = less[i];
 		row.row.addEventListener('click', select_lesson);
 		table.items.add(row.getView());
 	}

@@ -6,10 +6,17 @@ function display_languages(languages) {
 	var table = Alloy.createController('navigation/table');
 	table.title.setText(L('language_select_title'));
 	
+	Log.info(JSON.stringify(languages));
+	
+	var lang = new Array();
 	for (var i = 0; i < languages.length; i++) {
+		lang[languages[i].order] = languages[i];
+	}
+	
+	for (var i = 0; i < lang.length; i++) {
 		var row = Alloy.createController('navigation/row');
-		row.item.setText(languages[i].name);
-		row.row.language = languages[i];
+		row.item.setText(lang[i].name);
+		row.row.language = lang[i];
 		row.row.addEventListener('click', select_language);
 		table.items.add(row.getView());
 	}
