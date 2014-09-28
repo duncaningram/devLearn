@@ -9,6 +9,7 @@ var questions;
 
 var buttons;
 var answerButtons;
+var disabled = true;
 
 function init(args) {
 	parent = args.parent;
@@ -17,7 +18,7 @@ function init(args) {
 	Log.info("Match_Code Quiz: " + JSON.stringify(quiz));
 
 	
-	setCheckButton(true, false);
+	setCheckButton(true, true);
 	$.txtQuestion.setText(quiz.question);
 	
 	questions = Collection.shuffle(quiz.selections);
@@ -67,6 +68,10 @@ function clickQuestionButton(e) {
 	button.addEventListener('click', clickAnswerButton);
 	answerButtons.push(button);
 	$.answerBox.add(button);
+	if(disabled) {
+		disabled = false;
+		setCheckButton(true, false);
+	}
 	//e.source.setVisible(false);
 }
 
@@ -75,6 +80,12 @@ function clickAnswerButton(e) {
 	$.answerBox.remove(answerButtons[e.source.data]);
 	buttons[e.source.questionIndex].setVisible(true);
 	Log.info(JSON.stringify(buttons[0]));
+	if(!disabled) {
+		if($.answerBox.children.length == 0) {
+			disabled = true;
+			setCheckButton(true, true);
+		}
+	}
 }
 
 function checkAnswer(e) {
