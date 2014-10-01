@@ -10,7 +10,7 @@ function init(args) {
 	_attempt = args.attempt;
 	_user = args.user;
 		
-	setContinueButton(true);
+	_parent.btnContinue.visible = true;
 	
 	$.btnCancel.addEventListener("click", cancel);
 	$.btnRetry.addEventListener("click", retry);
@@ -25,16 +25,6 @@ function retry(e) {
 	User.save(_user);
 	
 	_parent.restart();
-	setContinueButton(false);
-}
-
-function setContinueButton(disabled) {
-	if (disabled) {
-		_parent.btnContinue.visible = false;
-	} else {
-		//_parent.btnContinue.visible = true;
-		//_parent.btnContinue.addEventListener('click', _parent.advance);
-	}
 }
 
 init(arguments[0] || {});

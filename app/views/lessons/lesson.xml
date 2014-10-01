@@ -14,6 +14,6 @@
 			</View>
 			<View id="content"></View>
 		</View>
-		<View id="btnContinue"><Label id="lblContinue">Continue</Label></View>
+		<View id="btnContinue" visible="false"><Label id="lblContinue">Continue</Label></View>
 	</Window>
 </Alloy>

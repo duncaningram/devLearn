@@ -21,8 +21,7 @@ function display_tutorial(tutorial) {
 	$.content.removeAllChildren();
 	$.content.add(_view.getView());
 	
-	//$.btnContinue.removeEventListener('click', $.advance);
-	//$.btnContinue.addEventListener('click', $.advance);
+	$.btnContinue.visible = true;
 }
 
 function display_quiz(quiz) {
@@ -31,6 +30,7 @@ function display_quiz(quiz) {
 	$.content.removeAllChildren();
 	$.content.add(_view.getView());
 	
+	$.btnContinue.visible = true;
 	$.btnContinue.removeEventListener('click', $.advance);
 }
 
@@ -39,6 +39,8 @@ function display_test(test) {
 	
 	$.content.removeAllChildren();
 	$.content.add(_view.getView());	
+	
+	$.btnContinue.visible = true;
 	$.btnContinue.removeEventListener('click', $.advance);
 }
 

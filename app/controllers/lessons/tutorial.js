@@ -39,9 +39,6 @@ function init(args) {
 
 	showSource(tutorial.example.source);
 	
-	if(!parent.btnContinue.getVisible()) {
-		parent.btnContinue.visible = true;
-	}
 	parent.btnContinue.removeEventListener('click', parent.advance);
 	parent.btnContinue.addEventListener('click', parent.advance);
 }
