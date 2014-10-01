@@ -21,8 +21,8 @@ function display_tutorial(tutorial) {
 	$.content.removeAllChildren();
 	$.content.add(_view.getView());
 	
-	$.btnContinue.removeEventListener('click', $.advance);
-	$.btnContinue.addEventListener('click', $.advance);
+	//$.btnContinue.removeEventListener('click', $.advance);
+	//$.btnContinue.addEventListener('click', $.advance);
 }
 
 function display_quiz(quiz) {
@@ -38,8 +38,7 @@ function display_test(test) {
 	_view = Alloy.createController('lessons/quiz', {parent: $, quiz: test, type: "test", attempt: _attempt});
 	
 	$.content.removeAllChildren();
-	$.content.add(_view.getView());
-	
+	$.content.add(_view.getView());	
 	$.btnContinue.removeEventListener('click', $.advance);
 }
 
@@ -48,7 +47,6 @@ function display_outoflives() {
 	
 	$.content.removeAllChildren();
 	$.content.add(_view.getView());
-	
 	$.btnContinue.removeEventListener('click', $.advance);
 }
 

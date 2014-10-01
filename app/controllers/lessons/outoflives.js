@@ -24,8 +24,8 @@ function setContinueButton(disabled) {
 	if (disabled) {
 		_parent.btnContinue.visible = false;
 	} else {
-		_parent.btnContinue.visible = true;
-		_parent.btnContinue.addEventListener('click', _parent.advance);
+		//_parent.btnContinue.visible = true;
+		//_parent.btnContinue.addEventListener('click', _parent.advance);
 	}
 }
 
