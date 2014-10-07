@@ -90,9 +90,12 @@ function clickAnswerButton(e) {
 
 function checkAnswer(e) {
 	answer = '';
+	correctAnswer = '';
+	userAnswers = Array();
 	correct = false;
 	$.answerBox.children.forEach(function(entry) {
 		if(entry.questionIndex != undefined) {
+			userAnswers.push(answers[entry.questionIndex]);
 			answer += answers[entry.questionIndex];
 		}
 		entry.removeEventListener('click', clickAnswerButton);
@@ -103,9 +106,8 @@ function checkAnswer(e) {
 	quiz.answer.forEach(function(entry) {
 		if (answer == entry)
 			correct = true;
+		correctAnswer = entry;
 	});
-	//if (answer == quiz.answer)
-	//	correct = true;
 	
 	parent.logAnswer(correct, answer);
 	
@@ -113,11 +115,10 @@ function checkAnswer(e) {
 		// Correct answer
 		parent.addPoints();
 		parent.showCorrectIncorrect(true);
-
 	} else {
 		// Incorrect answer
 		parent.removeLife();
-		parent.showCorrectIncorrect(false);
+		parent.showCorrectIncorrect(false, parent.breakApartAnswers(correctAnswer, answers), userAnswers, false);
 	}
 	
 	setCheckButton(false, false);

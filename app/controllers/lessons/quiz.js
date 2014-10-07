@@ -76,38 +76,180 @@ exports.addPoints = function() {
 	parent.stats();
 };
 
-exports.showCorrectIncorrect = function(correct) {
+exports.breakApartAnswers = function(_correctAnswer, _answers) {
+	var sortedAnswers = Array();
+
+	while(_correctAnswer.length > 0) {
+		_answers.forEach(function(entry) {
+			if (_correctAnswer.indexOf(entry) == 0) {
+				sortedAnswers.push(entry);
+				_correctAnswer = _correctAnswer.slice(entry.length, _correctAnswer.length);
+			}
+		});
+	}
+	
+	return sortedAnswers;
+};
+
+exports.showCorrectIncorrect = function(correct, correctAnswers, userAnswers, vertical) {
 	var image;
 	if(correct) {
 		image = '/images/green_check_large.png';
-	} else {
-		image = '/images/red_cross_large.png';
-	}
-	
-	var view = Titanium.UI.createView({
+		
+		var view = Titanium.UI.createView({
 			borderRadius:8,
 			backgroundColor: '#585858',
 			opacity: .5,
-			layout: 'verticle',
 			width: '400px',
 			height: '400px'
-	});
-	
-	//TODO need a better center method.
-	Log.info("isTablet " + parent.isTablet());
-	if(parent.isTablet()) {
-		view.setTop(400);
+		});
+		
+		//TODO need a better center method.
+		Log.info("isTablet " + parent.isTablet());
+		if(parent.isTablet()) {
+			view.setTop(400);
+		} else {
+			view.setTop(200);
+		}
+		
+		var imageView = Titanium.UI.createImageView({
+			image: image,
+			opacity: 1
+		});
+		
+		view.add(imageView);
+		parent.content.add(view);
+		
 	} else {
-		view.setTop(200);
+				
+		var greyoutView = Titanium.UI.createView({
+			backgroundColor: '#585858',
+			opacity: .5,
+			layout: 'vertical',
+			width: '100%',
+			height: '100%'
+		});
+		
+		parent.content.add(greyoutView);
+		
+		var wrapper = Titanium.UI.createView({
+			width: '100%', 
+			height: '100%',
+			layout: 'vertical'
+		});
+		
+		var padding = Titanium.UI.createView({
+			width: '100%',
+			height: '5%'
+		});
+		
+		var incorrectAnswerView = Titanium.UI.createView({
+			backgroundColor: '#FFF',
+			layout: 'vertical',
+			width: '75%',
+			height: '80%'
+		});
+		
+		var correctLabel = Titanium.UI.createLabel({
+			color: '#86C15D',
+			font: {
+				fontSize: 24,
+				fontWeight: 'bold'
+			}, 
+			top: '20px',
+			text: "Correct Answer"
+		});
+		
+		var incorrectLabel = Titanium.UI.createLabel({
+			color: '#FF3333',
+			font: {
+				fontSize: 24,
+				fontWeight: 'bold'
+			}, 
+			top: '40px',
+			text: "Your Answer"
+		});
+		
+		var correctViewWrapper, incorrectViewWrapper;
+		if(vertical) {
+			var correctViewWrapper = Titanium.UI.createScrollView({
+				showVerticalScrollIndicator: true,
+				showHorizontalScrollIndicator: false,
+				top: "10px",
+				width: "90%",
+				height: "37%",
+				borderColor: "#86C15D",
+				borderWidth: '1',
+				layout: 'vertical'
+			});
+			
+			var incorrectViewWrapper = Titanium.UI.createScrollView({
+				showVerticalScrollIndicator: true,
+				showHorizontalScrollIndicator: false,
+				horizontalWrap: true,
+				top: "10px",
+				width: "90%",
+				height: "37%",
+				borderColor: "#FF3333",
+				borderWidth: '1',
+				layout: 'vertical'
+			});
+		} else {
+			var correctViewWrapper = Titanium.UI.createView({
+				top: "10px",
+				width: "90%",
+				height: "37%",
+				borderColor: "#86C15D",
+				borderWidth: '1',
+				layout: 'horizontal'
+			});
+			
+			var incorrectViewWrapper = Titanium.UI.createView({
+				top: "10px",
+				width: "90%",
+				height: "37%",
+				borderColor: "#FF3333",
+				borderWidth: '1',
+				layout: 'horizontal'
+			});
+		}
+		
+		
+		Log.info("USER ANSWERS" + JSON.stringify(userAnswers));
+		
+		Log.info("Correct Answer" + JSON.stringify(correctAnswers));
+		
+		userAnswers.forEach(function(entry) {
+			var button = Alloy.createController('lessons/questions/button');
+			button.label.font = {
+				fontSize: 18
+			};
+			button.label.setText(entry);
+			button.innerPadding.setBackgroundColor("#FF3333");
+			incorrectViewWrapper.add(button.getView());
+		});
+		
+		correctAnswers.forEach(function(entry) {
+			var button = Alloy.createController('lessons/questions/button');
+			button.label.font = {
+				fontSize: 18
+			};
+			button.label.setText(entry);
+			button.innerPadding.setBackgroundColor("#86C15D");
+			correctViewWrapper.add(button.getView());
+		});
+		
+		incorrectAnswerView.add(correctLabel);
+		incorrectAnswerView.add(correctViewWrapper);
+		incorrectAnswerView.add(incorrectLabel);
+		incorrectAnswerView.add(incorrectViewWrapper);
+		
+		
+		wrapper.add(padding);
+		wrapper.add(incorrectAnswerView);
+		
+		parent.content.add(wrapper);
 	}
-	
-	var imageView = Titanium.UI.createImageView({
-		image: image,
-		opacity: 1
-	});
-	
-	view.add(imageView);
-	parent.content.add(view);
 	
 };
 
