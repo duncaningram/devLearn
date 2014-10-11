@@ -17,19 +17,7 @@ $.btnSignUp.addEventListener('click', function() {
 	
 	if (_password_confirm == _password && _password_confirm.length > 3) {
 		if(_email.match(validateEmail)) {
-			User.create(_email, _password, _password, _first_name, _last_name, function(user) {
-				if(user != undefined) {
-					Ti.App.Properties.setString('email', _email);
-					Ti.App.Properties.setString('password', _password);
-					
-					var view = Alloy.createController('navigation/language').getView();
-					Window.open(view);	
-					parent.getView().close();
-					$.getView().close();
-				} else {
-					
-				}
-		});
+			login(_email, _password, _first_name, _last_name);
 		} else {
 			// Email is not valid
 			alert("Email is not valid");
@@ -41,3 +29,25 @@ $.btnSignUp.addEventListener('click', function() {
 		Log.info("Passwords don't match or no password entered");
 	}
 });
+
+
+$.btnGuest.addEventListener('click', function() {
+	var date = new Date();
+	login(date.getTime() + "@guest.com", "qqqq", "guest", "guest");
+});
+
+function login(_email, _password, _first_name, _last_name) {
+	User.create(_email, _password, _password, _first_name, _last_name, function(user) {
+		if(user != undefined) {
+			Ti.App.Properties.setString('email', _email);
+			Ti.App.Properties.setString('password', _password);
+			
+			var view = Alloy.createController('navigation/language').getView();
+			Window.open(view);	
+			parent.getView().close();
+			$.getView().close();
+		} else {
+			
+		}
+	});
+}
