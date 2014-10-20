@@ -22,6 +22,22 @@
 	}
 }
 
+"#paddingSignUp": {
+	width: 32
+}
+
+"#paddingSignUp[formFactor=handheld]": {
+	width: 50
+}
+
+"#paddingGuest": {
+	width: 42
+}
+
+"#paddingGuest[formFactor=handheld]": {
+	width: 40
+}
+
 "#information": {
 	height: 600
 }

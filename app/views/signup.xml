@@ -13,9 +13,9 @@
 				<TextField width="100%" hintText="Confirm Password" id="txtPasswordConfirm" passwordMask="true" borderSyle="TI.UI.INPUT_BORDERSTYLE_ROUNDED"></TextField>
 				<View height="30"></View>
 				<View layout="horizontal" width="330" height="50">
-					<View class="flatButton" id="btnSignUp"><Label class="lblFlatButton">Sign Up</Label></View>
+					<View class="flatButton" id="btnSignUp" layout="horizontal"><View id="paddingSignUp"></View><Label class="lblFlatButton">Sign Up</Label></View>
 					<View width="30"></View>
-					<View class="flatButton" id="btnGuest"><Label class="lblFlatButton">Guest</Label></View>
+					<View class="flatButton" id="btnGuest" layout="horizontal"><View id="paddingGuest"></View><Label class="lblFlatButton">Guest</Label></View>
 				</View>
 				
 			</View>
