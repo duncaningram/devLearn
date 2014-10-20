@@ -12,13 +12,12 @@
 				<TextField width="100%" hintText="Password" id="txtPassword" passwordMask="true" borderSyle="TI.UI.INPUT_BORDERSTYLE_ROUNDED"></TextField>
 				<TextField width="100%" hintText="Confirm Password" id="txtPasswordConfirm" passwordMask="true" borderSyle="TI.UI.INPUT_BORDERSTYLE_ROUNDED"></TextField>
 				<View height="30"></View>
-				<View layout="horizontal" width="330" height="50">
-					<View class="flatButton" id="btnSignUp" layout="horizontal"><View id="paddingSignUp"></View><Label class="lblFlatButton">Sign Up</Label></View>
-					<View width="30"></View>
-					<View class="flatButton" id="btnGuest" layout="horizontal"><View id="paddingGuest"></View><Label class="lblFlatButton">Guest</Label></View>
+				<View layout="horizontal" width="100%" height="50">
+					<View class="half"><View class="flatButton" id="btnSignUp" layout="horizontal"><Label class="lblFlatButton">Sign Up</Label></View></View>
+					<View class="half"><View class="flatButton" id="btnGuest" layout="horizontal"><Label class="lblFlatButton">Guest</Label></View></View>
 				</View>
-				
 			</View>
 		</View>
 	</Window>
 </Alloy>
+
