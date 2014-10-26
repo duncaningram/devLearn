@@ -1,8 +1,16 @@
 "#letterGrade": {
 	color: "#060",
+	right: 20,
+	font: {
+		fontSize: 24,
+		fontWeight:'bold'
+	}
+}
+
+"#letterGrade[formFactor=handheld]": {
 	right: 10,
 	font: {
 		fontSize: 20,
-		fontWeight:'bold'
+		fontWeight: 'bold'
 	}
 }
