@@ -1,0 +1,8 @@
+"#letterGrade": {
+	color: "#060",
+	right: 10,
+	font: {
+		fontSize: 20,
+		fontWeight:'bold'
+	}
+}

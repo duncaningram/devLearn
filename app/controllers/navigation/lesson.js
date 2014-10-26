@@ -1,24 +1,31 @@
+var Grade = require('utils/Grade');
 var Lessons = require('objects/Lessons');
 var Log = require('utils/Log');
+var UserAttempt = require('objects/UserAttempt');
 var Window = require('utils/Window');
 
 var language;
+var rows;
 
 function display_lessons(lessons) {
 	var table = Alloy.createController('navigation/table');
 	table.title.setText(String.format(L('lesson_select_title'), language.name));
 	
 	var less = new Array();
+	rows = new Array();
 	for (var i = 0; i < lessons.length; i++) {
 		less[lessons[i].order] = lessons[i];
 	}
 	
 	for (var i = 0; i < less.length; i++) {
+		var attempt = UserAttempt.load(less[i].id, display_attempt);
 		var row = Alloy.createController('navigation/row');
 		row.item.setText(less[i].name);
 		row.row.lesson = less[i];
 		row.row.addEventListener('click', select_lesson);
-		table.items.add(row.getView());
+		var row_view = row.getView();
+		rows.push(row_view);
+		table.items.add(row_view);
 	}
 	
 	var row = Alloy.createController('navigation/row');
@@ -27,6 +34,17 @@ function display_lessons(lessons) {
 	table.items.add(row.getView());
 	
 	$.window.add(table.getView());
+}
+
+function display_attempt(attempt) {
+	if(attempt !== undefined){
+		if(attempt.is_completed && attempt.grade > -1) {
+			for (var i = 0; i < rows.length; i++) {
+				if(rows[i].lesson.id == attempt['[CUSTOM_Lessons]lesson_id'][0]['id'])
+					rows[i].children[0].children[1].text = Grade.getLetterGrade(attempt.grade);
+			}
+		}
+	}
 }
 
 function select_lesson(e) {

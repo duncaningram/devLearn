@@ -2,6 +2,7 @@
 	<TableViewRow id="row" class="listRow">
 		<View class="listSelection">
 			<Label id="item" class="listSubtitle">HTML</Label>
+			<Label id="letterGrade"></Label>
 		</View>
 	</TableViewRow>
 </Alloy>
