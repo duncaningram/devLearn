@@ -41,7 +41,7 @@ function display_attempt(attempt) {
 		if(attempt.is_completed && attempt.grade > -1) {
 			for (var i = 0; i < rows.length; i++) {
 				if(rows[i].lesson.id == attempt['[CUSTOM_Lessons]lesson_id'][0]['id'])
-					rows[i].children[0].children[1].text = Grade.getLetterGrade(attempt.grade);
+					rows[i].children[0].children[1].children[0].text = Grade.getLetterGrade(attempt.grade);
 			}
 		}
 	}

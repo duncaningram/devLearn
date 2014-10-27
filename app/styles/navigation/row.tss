@@ -1,6 +1,7 @@
 "#letterGrade": {
 	color: "#060",
-	right: 20,
+	left: 0,
+	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
 	font: {
 		fontSize: 24,
 		fontWeight:'bold'
@@ -8,9 +9,17 @@
 }
 
 "#letterGrade[formFactor=handheld]": {
-	right: 10,
 	font: {
 		fontSize: 20,
 		fontWeight: 'bold'
 	}
+}
+
+"#padding": {
+	right: 20,
+	width: 40
+}
+
+"#padding[formFactor=handheld]": {
+	right: 10
 }

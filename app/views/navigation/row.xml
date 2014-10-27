@@ -2,7 +2,7 @@
 	<TableViewRow id="row" class="listRow">
 		<View class="listSelection">
 			<Label id="item" class="listSubtitle">HTML</Label>
-			<Label id="letterGrade"></Label>
+			<View id='padding'><Label id="letterGrade"></Label></View>
 		</View>
 	</TableViewRow>
 </Alloy>
