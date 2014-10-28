@@ -34,6 +34,10 @@ function display_lessons(lessons) {
 	table.items.add(row.getView());
 	
 	$.window.add(table.getView());
+	
+	$.window.addEventListener('focus', function(e) {
+		Lessons.getLessons(language.id, display_lessons);
+	});
 }
 
 function display_attempt(attempt) {
