@@ -8,6 +8,7 @@ var parent = args.parent;
 
 // Basic validation only
 var validateEmail = /^.*\@..*$/;
+var validatePassword = 6;
 var randomPasswordLength = 8;
 
 $.btnSignUp.addEventListener('click', function() {
@@ -17,7 +18,7 @@ $.btnSignUp.addEventListener('click', function() {
 	var _first_name = $.txtFname.value;
 	var _last_name = $.txtLname.value;
 	
-	if (_password_confirm == _password && _password_confirm.length > 3) {
+	if (_password_confirm == _password && _password_confirm.length >= validatePassword) {
 		if(_email.match(validateEmail)) {
 			signup(_email, _password, _first_name, _last_name, false);
 		} else {
@@ -25,10 +26,11 @@ $.btnSignUp.addEventListener('click', function() {
 			alert("Email is not valid");
 			Log.info("Invalid Email");
 		}
+	} else if (_password_confirm == _password) {
+		alert("Password must be at least " + validatePassword + " characters long.");
 	} else {
-		// Passwords don't match or less then 4 characters
+		// Passwords do not match
 		alert("Passwords entered do not match");
-		Log.info("Passwords don't match or no password entered");
 	}
 });
 
