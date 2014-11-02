@@ -1,5 +1,6 @@
 var User = require('objects/User');
 var Log = require('utils/Log');
+var Random = require('utils/Random');
 var Window = require('utils/Window');
 
 var args = arguments[0] || {};
@@ -7,6 +8,7 @@ var parent = args.parent;
 
 // Basic validation only
 var validateEmail = /^.*\@..*$/;
+var randomPasswordLength = 8;
 
 $.btnSignUp.addEventListener('click', function() {
 	var _email = $.txtEmail.value;
@@ -17,7 +19,7 @@ $.btnSignUp.addEventListener('click', function() {
 	
 	if (_password_confirm == _password && _password_confirm.length > 3) {
 		if(_email.match(validateEmail)) {
-			login(_email, _password, _first_name, _last_name);
+			signup(_email, _password, _first_name, _last_name, false);
 		} else {
 			// Email is not valid
 			alert("Email is not valid");
@@ -30,14 +32,25 @@ $.btnSignUp.addEventListener('click', function() {
 	}
 });
 
-
 $.btnGuest.addEventListener('click', function() {
-	var date = new Date();
-	login(date.getTime() + "@guest.com", "qqqq", "guest", "guest");
+	var dialog = Ti.UI.createAlertDialog({
+		cancel: 1,
+		buttonNames: ['OK', 'Cancel'],
+		message: 'If you skip signing up, your progress will not be saved.',
+		title: 'Warning!'
+	});
+	
+	dialog.addEventListener('click', function(e) {
+		if (e.index !== e.source.cancel) {
+			signup(Ti.Platform.createUUID() + "@guest.invalid", Random.string(randomPasswordLength), "Guest", "Guest", true);
+		} 
+	});
+	
+	dialog.show();
 });
 
-function login(_email, _password, _first_name, _last_name) {
-	User.create(_email, _password, _password, _first_name, _last_name, function(user) {
+function signup(_email, _password, _first_name, _last_name, is_guest) {
+	User.create(_email, _password, _password, _first_name, _last_name, is_guest, function(user) {
 		if(user != undefined) {
 			Ti.App.Properties.setString('email', _email);
 			Ti.App.Properties.setString('password', _password);

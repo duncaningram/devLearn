@@ -14,7 +14,7 @@
 				<View height="30"></View>
 				<View layout="horizontal" width="100%" height="50">
 					<View class="half"><View class="flatButton" id="btnSignUp" layout="horizontal"><Label class="lblFlatButton">Sign Up</Label></View></View>
-					<View class="half"><View class="flatButton" id="btnGuest" layout="horizontal"><Label class="lblFlatButton">Guest</Label></View></View>
+					<View class="half"><View class="flatButton" id="btnGuest" layout="horizontal"><Label class="lblFlatButton">Skip</Label></View></View>
 				</View>
 			</View>
 		</View>

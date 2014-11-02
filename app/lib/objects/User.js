@@ -6,7 +6,7 @@ var User = (function() {
 	var _user = undefined;
 	var _sessionId = undefined;
 	
-	function create(email, password, password_confirmation, first_name, last_name, callback) {
+	function create(email, password, password_confirmation, first_name, last_name, is_guest, callback) {
 		if (_user == undefined) {
 			Cloud.Users.create({
 				email: email,
@@ -16,6 +16,7 @@ var User = (function() {
 				first_name: first_name,
 				last_name: last_name,
 				custom_fields: {
+					is_guest: is_guest,
 					points: 0
 				}
 			}, function (e) {
