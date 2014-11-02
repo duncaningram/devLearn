@@ -10,7 +10,7 @@ function init(args) {
 	_attempt = args.attempt;
 	_user = args.user;
 		
-	_parent.btnContinue.visible = true;
+	_parent.btnContinue.visible = false;
 	
 	$.btnCancel.addEventListener("click", cancel);
 	$.btnRetry.addEventListener("click", retry);
