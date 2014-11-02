@@ -6,41 +6,47 @@ var Window = require('utils/Window');
 
 var language;
 var rows;
-var table;
+var controller;
 
 function display_lessons(lessons) {
-	if (typeof table !== "undefined") {
+	if (typeof controller !== "undefined") {
 		$.window.removeEventListener('focus', refresh_lessons);
-		$.window.remove(table.getView());
+		$.window.remove(controller.getView());
 	}
 	
-	table = Alloy.createController('navigation/table');
-	table.title.setText(String.format(L('lesson_select_title'), language.name));
-	
-	var less = new Array();
-	rows = new Array();
-	for (var i = 0; i < lessons.length; i++) {
-		less[lessons[i].order] = lessons[i];
-	}
-	
-	for (var i = 0; i < less.length; i++) {
-		var attempt = UserAttempt.load(less[i].id, display_attempt);
+	if (lessons.length > 0) {
+		controller = Alloy.createController('navigation/table');
+		controller.title.setText(String.format(L('lesson_select_title'), language.name));
+		
+		var less = new Array();
+		rows = new Array();
+		for (var i = 0; i < lessons.length; i++) {
+			less[lessons[i].order] = lessons[i];
+		}
+		
+		for (var i = 0; i < less.length; i++) {
+			var attempt = UserAttempt.load(less[i].id, display_attempt);
+			var row = Alloy.createController('navigation/row');
+			row.item.setText(less[i].name);
+			row.row.lesson = less[i];
+			row.row.addEventListener('click', select_lesson);
+			var row_view = row.getView();
+			rows.push(row_view);
+			controller.items.add(row_view);
+		}
+		
 		var row = Alloy.createController('navigation/row');
-		row.item.setText(less[i].name);
-		row.row.lesson = less[i];
-		row.row.addEventListener('click', select_lesson);
-		var row_view = row.getView();
-		rows.push(row_view);
-		table.items.add(row_view);
+		row.item.setText(L('language_transition'));
+		row.row.addEventListener('click', select_transition);
+		controller.items.add(row.getView());
+		
+		$.window.add(controller.getView());
+	} else {
+		controller = Alloy.createController('navigation/soon', {parent: $});
+		
+		$.window.add(controller.getView());
 	}
-	
-	var row = Alloy.createController('navigation/row');
-	row.item.setText(L('language_transition'));
-	row.row.addEventListener('click', select_transition);
-	table.items.add(row.getView());
-	
-	$.window.add(table.getView());
-	
+		
 	$.window.addEventListener('focus', refresh_lessons);
 }
 

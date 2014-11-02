@@ -1,0 +1,19 @@
+<Alloy>
+	<View>
+		<View layout='vertical'>
+			<View width="100%" top="0" id="titleView">
+				<View layout="vertical" height="500">
+					<View class="br" />
+					<View class="br" />
+					<ImageView width="auto" height="300" image="/images/calendar.png" />
+					<View class="br" />
+					<View class="br" />
+					<View left="0" layout="horizontal">
+						<Label class="lblText">Coming Soon!</Label>
+					</View>
+				</View>
+			</View>
+		</View>
+		<View id="btnCancel"><Label id="lblCancel">Back</Label></View>
+	</View>
+</Alloy>

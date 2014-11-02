@@ -1,0 +1,24 @@
+"Label": {
+	font: {
+		fontSize: 20
+	}
+}
+
+".lblText": {
+	width: Titanium.UI.FILL,
+	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER
+}
+
+"#btnCancel": {
+	height: 75,
+	bottom: 0,
+	width: '100%',
+	backgroundColor: "#33b5e5"
+}
+
+"#lblCancel": {
+	color: "#fff",
+	font: {
+		fontSize: 25
+	}
+}
