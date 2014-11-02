@@ -46,16 +46,6 @@
 	height: 300
 }
 
-".tutorialImageView ImageView": {
-	width:"auto",
-	height: 300
-}
-
-".tutorialImageView ImageView[formFactor=handheld]": {
-	width:"auto",
-	height: "150"
-}
-
 ".tutorialHeartView": {
 	height: 300
 }
@@ -64,14 +54,23 @@
 	height: 200
 }
 
-".tutorialImageView ImageView": {
-	width:"auto",
-	height: 150
+"#imgLogo": {
+	width: "auto",
+	height: 300
 }
 
-".tutorialImageView ImageView[formFactor=handheld]": {
-	width:"auto",
-	height: 100
+"#imgLogo[formFactor=handheld]": {
+	width: "auto",
+	height: 200
+}
+
+"#imgHeart": {
+	width: "auto",
+	height: 200
+}
+
+"#imgHeart[formFactor=handheld]": {
+	height: 150
 }
 
 "#imgPoint": {

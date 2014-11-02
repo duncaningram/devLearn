@@ -3,15 +3,13 @@
 		<ScrollableView id="scrollable">
 			<View>
 				<View class="tutorialImageView" layout="vertical">
-					<ImageView image="/images/logo.png" />
+					<ImageView id="imgLogo" image="/images/logo.png" />
 					<Label class="subheading">Swipe right to get started \u2192</Label>
 				</View>
 			</View>
 			<View>
 				<View class="tutorialHeartView" layout="vertical">
-					<Label></Label>
-					<Label></Label>
-					<ImageView image="/images/hearts.png" />
+					<ImageView id="imgHeart" image="/images/hearts.png" />
 					<Label></Label>
 					<Label class="subheading">Finish each lesson before you run out of lives!</Label>
 				</View>
