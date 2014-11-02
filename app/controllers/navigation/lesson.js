@@ -6,9 +6,15 @@ var Window = require('utils/Window');
 
 var language;
 var rows;
+var table;
 
 function display_lessons(lessons) {
-	var table = Alloy.createController('navigation/table');
+	if (typeof table !== "undefined") {
+		$.window.removeEventListener('focus', refresh_lessons);
+		$.window.remove(table.getView());
+	}
+	
+	table = Alloy.createController('navigation/table');
 	table.title.setText(String.format(L('lesson_select_title'), language.name));
 	
 	var less = new Array();
@@ -35,9 +41,11 @@ function display_lessons(lessons) {
 	
 	$.window.add(table.getView());
 	
-	$.window.addEventListener('focus', function(e) {
-		Lessons.getLessons(language.id, display_lessons);
-	});
+	$.window.addEventListener('focus', refresh_lessons);
+}
+
+function refresh_lessons() {
+	Lessons.getLessons(language.id, display_lessons);
 }
 
 function display_attempt(attempt) {
