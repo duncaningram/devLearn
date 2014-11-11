@@ -26,7 +26,10 @@ function init(args) {
 	Log.info("Match_Code shuffled: " + JSON.stringify(questions));
 	
 	$.questions.removeAllChildren();
-	$.webView.setHtml(quiz.answer[0]);
+	if(quiz.html !== undefined)
+		$.webView.setHtml(quiz.html);
+	else
+		$.webView.setHtml(quiz.answer[0]);
 	answers = new Array();
 	buttons = new Array();
 	answerButtons = new Array();
@@ -72,7 +75,6 @@ function clickQuestionButton(e) {
 		disabled = false;
 		setCheckButton(true, false);
 	}
-	//e.source.setVisible(false);
 }
 
 function clickAnswerButton(e) {
