@@ -1,6 +1,6 @@
 <Alloy>
 	<TableViewRow id="row" class="listRow">
-		<View class="listSelection">
+		<View id='listSelection' class="listSelection">
 			<Label id="item" class="listSubtitle">HTML</Label>
 			<View id='padding'><Label id="letterGrade"></Label></View>
 		</View>

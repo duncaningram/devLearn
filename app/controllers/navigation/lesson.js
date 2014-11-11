@@ -29,6 +29,12 @@ function display_lessons(lessons) {
 			var row = Alloy.createController('navigation/row');
 			row.item.setText(less[i].name);
 			row.row.lesson = less[i];
+			
+			row.listSelection.lesson = less[i];
+			row.item.lesson = less[i];
+			row.padding.lesson = less[i];
+			row.letterGrade.lesson = less[i];
+			
 			row.row.addEventListener('click', select_lesson);
 			var row_view = row.getView();
 			rows.push(row_view);
@@ -36,7 +42,7 @@ function display_lessons(lessons) {
 		}
 		
 		var row = Alloy.createController('navigation/row');
-		row.item.setText(L('language_transition'));
+		row.item.setText(L('language_transition'));		
 		row.row.addEventListener('click', select_transition);
 		controller.items.add(row.getView());
 		
@@ -66,7 +72,12 @@ function display_attempt(attempt) {
 }
 
 function select_lesson(e) {
-	var view = Alloy.createController('lessons/lesson', { lesson: e.row.lesson }).getView();
+	var view;
+	if(Ti.Platform.name == 'mobileweb'){
+		var view = Alloy.createController('lessons/lesson', { lesson: e.source.lesson }).getView();
+	} else {
+		var view = Alloy.createController('lessons/lesson', { lesson: e.row.lesson }).getView();
+	}
 	Window.open(view);
 }
 

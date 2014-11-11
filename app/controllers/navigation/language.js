@@ -18,6 +18,12 @@ function display_languages(languages) {
 		row.item.setText(lang[i].name);
 		row.row.language = lang[i];
 		row.row.addEventListener('click', select_language);
+		
+		row.listSelection.language = lang[i];
+		row.item.language = lang[i];
+		row.padding.language = lang[i];
+		row.letterGrade.language = lang[i];
+		
 		table.items.add(row.getView());
 	}
 	
@@ -27,7 +33,12 @@ function display_languages(languages) {
 }
 
 function select_language(e) {
-	var view = Alloy.createController('navigation/lesson', { language: e.row.language }).getView();
+	var view;
+	if(Ti.Platform.name == 'mobileweb'){
+		view = Alloy.createController('navigation/lesson', { language: e.source.language }).getView();
+	} else {
+		view = Alloy.createController('navigation/lesson', { language: e.row.language }).getView();
+	}
 	Window.open(view);
 }
 
