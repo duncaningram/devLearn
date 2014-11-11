@@ -1,4 +1,5 @@
 var Device = require('utils/Device');
+var Loader = require('utils/Loader');
 var Log = require('utils/Log');
 var Quizzes = require('objects/Quizzes');
 var Tests = require('objects/Tests');
@@ -230,6 +231,7 @@ function init(args) {
 		});
 	}
 	
+	Loader.showLoader($.content);
 	
 	Tutorials.getTutorials(_lesson.id, preload_tutorials_complete);
 }
