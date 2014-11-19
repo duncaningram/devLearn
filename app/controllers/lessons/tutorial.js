@@ -40,7 +40,13 @@ function init(args) {
 	showSource(tutorial.example.source);
 	
 	parent.btnContinue.removeEventListener('click', parent.advance);
-	parent.btnContinue.addEventListener('click', parent.advance);
+	parent.btnContinue.setBackgroundColor("#d3d3d3");
+	parent.lblContinue.setColor("#000");
+	setTimeout(function() {
+		parent.btnContinue.addEventListener('click', parent.advance);
+		parent.btnContinue.setBackgroundColor("#33b5e5");
+		parent.lblContinue.setColor("#FFF");
+	}, 1000);
 }
 
 function toggleTab(source) {	
