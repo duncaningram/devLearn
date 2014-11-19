@@ -4,6 +4,12 @@
 	}
 }
 
+"Label[formFactor=handheld]": {
+	font: {
+		fontSize: 14
+	}
+}
+
 ".lblText": {
 	left: 30,
 	right: 30,
@@ -22,9 +28,19 @@
 	backgroundColor: "#33b5e5"
 }
 
+"#btnCancel[formFactor=handheld]": {
+	height: 55
+}
+
 "#lblCancel": {
 	color: "#fff",
 	font: {
 		fontSize: 25
+	}
+}
+
+"#lblCancel[formFactor=handheld]": {
+	font: {
+		fontSize: 20
 	}
 }
