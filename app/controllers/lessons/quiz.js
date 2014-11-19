@@ -80,12 +80,18 @@ exports.breakApartAnswers = function(_correctAnswer, _answers) {
 	var sortedAnswers = Array();
 
 	while(_correctAnswer.length > 0) {
+		_tempLength = _correctAnswer.length;
 		_answers.forEach(function(entry) {
 			if (_correctAnswer.indexOf(entry) == 0) {
 				sortedAnswers.push(entry);
 				_correctAnswer = _correctAnswer.slice(entry.length, _correctAnswer.length);
 			}
 		});
+		if(_correctAnswer.length == _tempLength) {
+			Log.error("Malformed Answer");
+			throw 'Malformed Answer';
+			break;
+		}
 	}
 	
 	return sortedAnswers;
