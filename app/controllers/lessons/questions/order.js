@@ -132,6 +132,7 @@ function setCheckButton(check, disabled) {
 		if(disabled) {
 			grandparent.lblContinue.setColor("#000");
 			grandparent.btnContinue.setBackgroundColor("#d3d3d3");
+			grandparent.btnContinue.removeEventListener('click', checkAnswer);
 		} else {
 			grandparent.lblContinue.setColor("#FFF");
 			grandparent.btnContinue.setBackgroundColor("#33b5e5");
