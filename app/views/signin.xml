@@ -5,7 +5,7 @@
 				<Items>
 					<Button id="btnCancel" systemButton="Ti.UI.iPhone.SystemButton.CANCEL" />
 					<FlexSpace />
-					<Label>devLearn</Label>
+					<Label text="L('app_name')" />
 					<FlexSpace />
 				</Items>
 			</Toolbar>

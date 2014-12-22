@@ -1,4 +1,5 @@
 <resources>
+	<string name="app_name">devLearn</string>
 	<string name="language_select_title">I want to learn</string>
 	<string name="language_transition">Transition to a Computer</string>
 	<string name="lesson_select_title">Begin learning: %1$s</string>
