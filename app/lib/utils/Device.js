@@ -14,10 +14,25 @@ var Device = (function() {
 			default:
 				return (diagonalSize >= diag) ? true : false;
 		}
-	}
+	};
+	
+	function isIOS() {
+		return Ti.Platform.osname == "iphone" || Ti.Platform.osname == "ipad";
+	};
+	
+	function isAndroid() {
+		return Ti.Platform.osname == "android";
+	};
+	
+	function isMobileWeb() {
+		return Ti.Platform.osname == "mobileweb";
+	};
 	
 	return {
-		isTablet: isTablet
+		isTablet: isTablet,
+		isIOS: isIOS,
+		isAndroid: isAndroid,
+		isMobileWeb: isMobileWeb
 	};
 	
 })();

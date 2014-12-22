@@ -2,6 +2,11 @@
 	backgroundColor: "#FFF"
 }
 
+"Window[platform=ios]": {
+	statusBarStyle: Titanium.UI.iPhone.StatusBar.LIGHT_CONTENT,
+	fullscreen: true
+}
+
 "Label[platform=ios]": {
 	font: {
 		fontSize: 14

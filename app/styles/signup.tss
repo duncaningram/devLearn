@@ -40,9 +40,14 @@
 	height: 600
 }
 
-"#information[formFactor=handheld]": {
+"#information[platform=android, formFactor=handheld]": {
 	height: 400,
 	top: 20
+}
+
+"#information[platform=ios, formFactor=handheld]": {
+	height: 400,
+	top: 70
 }
 
 "Label": {

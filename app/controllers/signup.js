@@ -1,3 +1,4 @@
+var Device = require('utils/Device');
 var User = require('objects/User');
 var Log = require('utils/Log');
 var Random = require('utils/Random');
@@ -50,6 +51,12 @@ $.btnGuest.addEventListener('click', function() {
 	
 	dialog.show();
 });
+
+if (Device.isIOS()) {
+	$.btnCancel.addEventListener('click', function() {
+		$.getView().close();
+	});
+}
 
 function signup(_email, _password, _first_name, _last_name, is_guest) {
 	User.create(_email, _password, _password, _first_name, _last_name, is_guest, function(user) {
