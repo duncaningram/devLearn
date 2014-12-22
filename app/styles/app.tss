@@ -13,6 +13,10 @@
 	}
 }
 
+"TextField[platform=ios]": {
+	height: 32
+}
+
 ".listHeading": {
 	height: 70,
 	backgroundColor: "#33b5e5"
