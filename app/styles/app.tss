@@ -17,6 +17,10 @@
 	height: 32
 }
 
+"TableView[platform=ios]": {
+	backgroundColor: "#eee"
+}
+
 ".listHeading": {
 	height: 70,
 	backgroundColor: "#33b5e5"
