@@ -1,0 +1,9 @@
+"TableView[platform=ios]": {
+	scrollable: false,
+	style: Ti.UI.iPhone.TableViewStyle.GROUPED,
+	separatorStyle: Ti.UI.iPhone.TableViewSeparatorStyle.SINGLE_LINE,
+	separatorInsets: {
+		left: 0,
+		right: 0
+	}
+}
