@@ -3,7 +3,7 @@
 		<View>
 			<View layout="vertical" height="450" width="80%">
 				<TextField width="100%" hintText="Email" id="txtEmail" borderStyle="Ti.UI.INPUT_BORDERSTYLE_ROUNDED"></TextField>
-				<TextField width="100%" hintText="Password" id="txtPassword" passwordMask="true" borderSyle="TI.UI.INPUT_BORDERSTYLE_ROUNDED"></TextField>
+				<TextField width="100%" hintText="Password" id="txtPassword" passwordMask="true" borderStyle="Ti.UI.INPUT_BORDERSTYLE_ROUNDED"></TextField>
 				<View height="30"></View>
 				<View class="flatButton" bottom="70" id="btnSignIn"><Label class="lblFlatButton">Sign In</Label></View>
 			</View>

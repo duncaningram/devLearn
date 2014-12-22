@@ -9,8 +9,8 @@
 				<Label class="subheading">Account</Label>
 				<View height="10"></View>
 				<TextField width="100%" hintText="Email" id="txtEmail" borderStyle="Ti.UI.INPUT_BORDERSTYLE_ROUNDED"></TextField>
-				<TextField width="100%" hintText="Password" id="txtPassword" passwordMask="true" borderSyle="TI.UI.INPUT_BORDERSTYLE_ROUNDED"></TextField>
-				<TextField width="100%" hintText="Confirm Password" id="txtPasswordConfirm" passwordMask="true" borderSyle="TI.UI.INPUT_BORDERSTYLE_ROUNDED"></TextField>
+				<TextField width="100%" hintText="Password" id="txtPassword" passwordMask="true" borderStyle="Ti.UI.INPUT_BORDERSTYLE_ROUNDED"></TextField>
+				<TextField width="100%" hintText="Confirm Password" id="txtPasswordConfirm" passwordMask="true" borderStyle="Ti.UI.INPUT_BORDERSTYLE_ROUNDED"></TextField>
 				<View height="30"></View>
 				<View layout="horizontal" width="100%" height="50">
 					<View class="half"><View class="flatButton" id="btnSignUp" layout="horizontal"><Label class="lblFlatButton">Sign Up</Label></View></View>
