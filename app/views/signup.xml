@@ -1,14 +1,10 @@
 <Alloy>
 	<Window class="container">
-		<View>
-			<Toolbar platform="ios" top="0">
-				<Items>
-					<Button id="btnCancel" systemButton="Ti.UI.iPhone.SystemButton.CANCEL" />
-					<FlexSpace />
-					<Label text="L('app_name')" />
-					<FlexSpace />
-				</Items>
-			</Toolbar>
+		<View layout="vertical">
+			<View width="100%" top="0" id="titleBar">
+				<ImageView id="btnCancel" class="titleBack" width="auto" height="24" image="/images/left_arrow.png"></ImageView>
+				<Label id="title" class="titleText">Sign Up</Label>
+			</View>
 			<View id="information" layout="vertical" width="80%">
 				<Label class="subheading">Name</Label>
 				<TextField width="100%" hintText="First Name" id="txtFname" borderStyle="Ti.UI.INPUT_BORDERSTYLE_ROUNDED"></TextField>

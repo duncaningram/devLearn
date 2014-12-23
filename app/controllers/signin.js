@@ -36,8 +36,13 @@ $.btnSignIn.addEventListener('click', function() {
 	}
 });
 
-if (Device.isIOS()) {
-	$.btnCancel.addEventListener('click', function() {
-		$.getView().close();
-	});
+function cancel(e) {
+	$.getView().close();
 }
+
+function init(args) {
+	$.btnCancel.addEventListener('click', cancel);
+	$.title.addEventListener('click', cancel);
+}
+
+init(arguments[0] || {});

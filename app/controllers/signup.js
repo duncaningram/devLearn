@@ -52,12 +52,6 @@ $.btnGuest.addEventListener('click', function() {
 	dialog.show();
 });
 
-if (Device.isIOS()) {
-	$.btnCancel.addEventListener('click', function() {
-		$.getView().close();
-	});
-}
-
 function signup(_email, _password, _first_name, _last_name, is_guest) {
 	User.create(_email, _password, _password, _first_name, _last_name, is_guest, function(user) {
 		if(user != undefined) {
@@ -73,3 +67,14 @@ function signup(_email, _password, _first_name, _last_name, is_guest) {
 		}
 	});
 }
+
+function cancel(e) {
+	$.getView().close();
+}
+
+function init(args) {
+	$.btnCancel.addEventListener('click', cancel);
+	$.title.addEventListener('click', cancel);
+}
+
+init(arguments[0] || {});

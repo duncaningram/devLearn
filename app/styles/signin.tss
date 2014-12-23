@@ -1,3 +1,24 @@
+"#titleBar": {
+	height: 70,
+	backgroundColor: "#33b5e5"
+}
+
+"#titleBar[formFactor=handheld]": {
+	height: 50
+}
+
+".titleBack": {
+	left: 10
+}
+
+".titleText": {
+	left: 40,
+	color: "#fff",
+	font: {
+		fontSize: 18
+	}
+}
+
 ".flatButton": {
 	height: "50",
 	width: "150",
