@@ -1,3 +1,4 @@
+var Device = require('utils/Device');
 var Grade = require('utils/Grade');
 var Lessons = require('objects/Lessons');
 var Log = require('utils/Log');
@@ -7,6 +8,7 @@ var Window = require('utils/Window');
 var language;
 var rows;
 var controller;
+var settings;
 
 function display_lessons(lessons) {
 	if (typeof controller !== "undefined") {
@@ -18,6 +20,7 @@ function display_lessons(lessons) {
 		controller = Alloy.createController('navigation/table');
 		controller.btnBack.setVisible(true);
 		controller.btnBack.addEventListener('click', cancel);
+		controller.btnSettings.addEventListener('click', show_settings);
 		controller.title.addEventListener('click', cancel);
 		controller.title.setLeft(40);
 		controller.title.setText(String.format(L('lesson_select_title'), language.name));
@@ -87,6 +90,17 @@ function select_lesson(e) {
 
 function select_transition(e) {
 	Alloy.createController('lessons/transition', { language: language }).getView().open();
+}
+
+function show_settings(e) {
+	settings = Alloy.createController('settings').getView();
+	Window.open(settings, { animated: false, theme: "NoActionBar" });
+	settings.addEventListener('click', hide_settings);
+}
+
+function hide_settings(e) {
+	$.window.removeEventListener('click', hide_settings);
+	Window.close(settings, { animated: false });
 }
 
 function cancel(e) {

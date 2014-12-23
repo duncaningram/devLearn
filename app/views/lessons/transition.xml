@@ -1,6 +1,5 @@
 <Alloy>
 	<Window id="window" class="container">
-		<Require src="menu" />
 		<View layout='vertical'>
 			<View width="100%" top="0" id="titleView">
 				<View layout="vertical" height="500">

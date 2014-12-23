@@ -47,6 +47,10 @@
 	}
 }
 
+".listSettings": {
+	right: 10
+}
+
 ".listRow": {
 	backgroundSelectedColor: "#ccc"
 }

@@ -2,13 +2,13 @@ var Window = (function() {
 	
 	var _windows = new Array();
 	
-	function open(view) {
-		view.open();
+	function open(view, params) {
+		view.open(params);
 		_windows.push(view);
 	};
 	
-	function close(view) {
-		view.close();
+	function close(view, params) {
+		view.close(params);
 	}
 	
 	function closeAll() {

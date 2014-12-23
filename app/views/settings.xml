@@ -1,0 +1,11 @@
+<Alloy>
+	<Window id="window">
+		<TableView>
+			<TableViewSection>
+				<TableViewRow onClick="logout">
+					<Label>Logout</Label>
+				</TableViewRow>
+			</TableViewSection>
+		</TableView>
+	</Window>
+</Alloy>

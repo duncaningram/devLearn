@@ -2,8 +2,11 @@ var Languages = require('objects/Languages');
 var Log = require('utils/Log');
 var Window = require('utils/Window');
 
+var _view;
+
 function display_languages(languages) {
 	var table = Alloy.createController('navigation/table');
+	table.btnSettings.addEventListener('click', show_settings);
 	table.title.setText(L('language_select_title'));
 	
 	Log.info(JSON.stringify(languages));
@@ -40,6 +43,17 @@ function select_language(e) {
 		view = Alloy.createController('navigation/lesson', { language: e.row.language }).getView();
 	}
 	Window.open(view);
+}
+
+function show_settings(e) {
+	_view = Alloy.createController('settings').getView();
+	Window.open(_view, { animated: false, theme: "NoActionBar" });
+	_view.addEventListener('click', hide_settings);
+}
+
+function hide_settings(e) {
+	$.window.removeEventListener('click', hide_settings);
+	Window.close(_view, { animated: false });
 }
 
 function init() {

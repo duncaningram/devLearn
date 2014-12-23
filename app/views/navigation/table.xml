@@ -4,6 +4,7 @@
 			<View class="listHeading">
 				<ImageView id="btnBack" class="listBack" visible="false" width="auto" height="24" image="/images/left_arrow.png"></ImageView>
 				<Label id="title" class="listTitle"></Label>
+				<ImageView id="btnSettings" class="listSettings" width="auto" height="24" image="/images/settings.png"></ImageView>
 			</View>
 		</HeaderView>
 		<TableViewSection id="items" />

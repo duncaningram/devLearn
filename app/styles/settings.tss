@@ -1,0 +1,44 @@
+"Window": {
+	backgroundColor: "transparent"
+}
+
+"Window[platform=android]": {
+	opacity: 1
+}
+
+"TableView": {
+	height: 50,
+	width: 150,
+	top: 60,
+	right: 15,
+	borderColor: "#CCC",
+	borderWidth: 1,
+	backgroundColor: "#EEE"
+}
+
+"TableView[formFactor=handheld]": {
+	top: 40
+}
+
+"TableView[platform=ios]": {
+	scrollable: false,
+	style: Ti.UI.iPhone.TableViewStyle.PLAIN,
+	separatorStyle: Ti.UI.iPhone.TableViewSeparatorStyle.NONE,
+	separatorInsets: {
+		left: 0,
+		right: 0
+	}
+}
+
+"TableViewSelection": {
+	height: 50
+}
+
+"Label": {
+	left: 20,
+	height: 50,
+	color: "#000",
+	font: {
+		fontSize: 20
+	}
+}

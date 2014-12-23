@@ -8,7 +8,7 @@
     <property name="acs-oauth-secret-production" type="string">l2nZJ7QNmKiXmzbJTL1pD5zIYoDjVbGp</property>
     <id>com.devlearnapp.devlearn</id>
     <name>devLearn</name>
-    <version>1.0</version>
+    <version>1.1</version>
     <publisher>devLearn</publisher>
     <url>http://www.devlearnapp.com</url>
     <description>A mobile application to help kids learn to code in a fun and exciting way.</description>
@@ -46,13 +46,13 @@
         </plist>
     </ios>
     <android xmlns:android="http://schemas.android.com/apk/res/android">
-        <manifest android:versionCode="8" android:versionName="1.0">
-            <application android:theme="@style/Light"/>
+        <manifest android:versionCode="10" android:versionName="1.0">
+            <application android:theme="@style/NoActionBar"/>
             <uses-sdk android:minSdkVersion="14" android:targetSdkVersion="19"/>
             <application android:debuggable="false"
                 android:icon="@drawable/appicon"
                 android:label="devLearn"
-                android:name="DevlearnApplication" android:theme="@style/Light">
+                android:name="DevlearnApplication" android:theme="@style/NoActionBar">
                 <activity
                     android:configChanges="keyboardHidden|orientation|screenSize"
                     android:label="@string/app_name"
