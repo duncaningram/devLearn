@@ -1,7 +1,8 @@
 <Alloy>
 	<TableView>
 		<HeaderView>
-			<View class="listHeading">
+			<View id="heading" class="listHeading">
+				<ImageView id="btnBack" class="listBack" visible="false" width="auto" height="24" image="/images/left_arrow.png"></ImageView>
 				<Label id="title" class="listTitle"></Label>
 			</View>
 		</HeaderView>

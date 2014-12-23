@@ -35,6 +35,10 @@
 	width: Ti.UI.SIZE
 }
 
+".listBack": {
+	left: 10
+}
+
 ".listTitle": {
 	left: 20,
 	color: "#fff",

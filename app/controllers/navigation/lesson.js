@@ -16,6 +16,9 @@ function display_lessons(lessons) {
 	
 	if (lessons.length > 0) {
 		controller = Alloy.createController('navigation/table');
+		controller.heading.addEventListener('click', cancel);
+		controller.btnBack.setVisible(true);
+		controller.title.setLeft(40);
 		controller.title.setText(String.format(L('lesson_select_title'), language.name));
 		
 		var less = new Array();
@@ -83,6 +86,10 @@ function select_lesson(e) {
 
 function select_transition(e) {
 	Alloy.createController('lessons/transition', { language: language }).getView().open();
+}
+
+function cancel(e) {
+	$.window.close();
 }
 
 function init(args) {
