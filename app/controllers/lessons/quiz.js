@@ -1,4 +1,5 @@
 var Collection = require('utils/Collection');
+var Device = require('utils/Device');
 var Log = require('utils/Log');
 var UserAttempt = require('objects/UserAttempt');
 var UserQuiz = require('objects/UserQuiz');
@@ -111,8 +112,8 @@ exports.showCorrectIncorrect = function(correct, correctAnswers, userAnswers, ve
 		});
 		
 		//TODO need a better center method.
-		Log.info("isTablet " + parent.isTablet());
-		if(parent.isTablet()) {
+		Log.info("isTablet " + Device.isTablet());
+		if (Device.isTablet()) {
 			view.setTop(400);
 		} else {
 			view.setTop(200);
@@ -139,8 +140,8 @@ exports.showCorrectIncorrect = function(correct, correctAnswers, userAnswers, ve
 			});
 			
 			//TODO need a better center method.
-			Log.info("isTablet " + parent.isTablet());
-			if(parent.isTablet()) {
+			Log.info("isTablet " + Device.isTablet());
+			if (Device.isTablet()) {
 				view.setTop(400);
 			} else {
 				view.setTop(200);

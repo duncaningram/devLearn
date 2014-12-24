@@ -1,4 +1,5 @@
 var Collection = require('utils/Collection');
+var Device = require('utils/Device');
 var Log = require('utils/Log');
 
 var parent;
@@ -57,7 +58,7 @@ function init(args) {
 		
 		choices[index] = view;
 		
-		if(grandparent.isTablet()) {
+		if (Device.isTablet()) {
 			var font_size = 25;
 		} else {
 			var font_size = 18;
