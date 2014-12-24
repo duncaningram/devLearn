@@ -1,3 +1,4 @@
+var Device = require('utils/Device');
 var Log = require('utils/Log');
 
 var parent;
@@ -98,7 +99,9 @@ function toggleTab(source) {
 
 function showSource(source) {
 	$.sourceWrapper.removeAllChildren();
+	
 	var lblSource = Ti.UI.createLabel({
+		font: { fontSize: Device.isTablet() ? 16 : 14 },
 		text: source,
 		left: 10,
 		top: 10
