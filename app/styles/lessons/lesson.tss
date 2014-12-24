@@ -34,7 +34,6 @@
 
 ".titlePoints": {
 	color: "#fff",
-	right: 10,
 	font: {
 		fontSize: 20
 	}

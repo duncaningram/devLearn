@@ -5,6 +5,7 @@
 				<Label id="txtLessonTitleBar" class="titleBarText">Lesson Title</Label>
 				<View class="statsView" layout="horizontal">
 					<Label id="txtPoints" class="titlePoints" left="0"></Label>
+					<View width="5"></View>
 					<ImageView class="lives" id="life4" left="0" />
 					<ImageView class="lives" id="life3" left="0" />
 					<ImageView class="lives" id="life2" left="0" />

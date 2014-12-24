@@ -200,6 +200,7 @@ exports.stats = function() {
 			$.life2.setImage("/images/heart.png");
 			$.life3.setImage("/images/heart.png");
 			$.life4.setImage("/images/heart.png");
+			$.life1.setLeft(0);
 			break;
 	}
 };
@@ -223,7 +224,11 @@ function preload_complete() {
 function init(args) {
 	_lesson = args.lesson;
 	
-	$.txtLessonTitleBar.setText(_lesson['[CUSTOM_Languages]language_id'][0]['name'] + ": " + _lesson.name);
+	if (Device.isTablet()) {
+		$.txtLessonTitleBar.setText(_lesson['[CUSTOM_Languages]language_id'][0]['name'] + ": " + _lesson.name);
+	} else {
+		$.txtLessonTitleBar.setText(_lesson.name);
+	}
 	
 	Loader.showLoader($.content);
 	

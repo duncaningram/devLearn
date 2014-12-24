@@ -16,6 +16,10 @@ var Device = (function() {
 		}
 	};
 	
+	function isIPhone() {
+		return Ti.Platform.osname == "iphone";
+	};
+	
 	function isIOS() {
 		return Ti.Platform.osname == "iphone" || Ti.Platform.osname == "ipad";
 	};
@@ -30,6 +34,7 @@ var Device = (function() {
 	
 	return {
 		isTablet: isTablet,
+		isIPhone: isIPhone,
 		isIOS: isIOS,
 		isAndroid: isAndroid,
 		isMobileWeb: isMobileWeb
