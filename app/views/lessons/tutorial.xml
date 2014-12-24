@@ -7,10 +7,10 @@
 			<View class="br" />
 			<View layout="vertical" >
 				<View id="tabs" class="wrap_content" left="0" layout="horizontal">
-					<View id="btnSource" class="btnOutterTab btnon wrap_content"><Label class="btnTab" id="lblSource">Source - HTML</Label></View>
-					<View id="btnSourceCSS" class="btnOutterTab space btnoff wrap_content"><Label class="btnTab" id="lblSourceCSS">Source - CSS</Label></View>
-					<View id="btnSourceJS" class="btnOutterTab space btnoff wrap_content"><Label class="btnTab" id="lblSourceJS">Source - JS</Label></View>
-					<View id="btnBrowser" class="btnOutterTab space btnoff wrap_content"><Label class="btnTab" id="lblBrowser">Browser</Label></View>
+					<View id="btnSource" class="btnOutterTab btnon wrap_content"><View class="hspace" /><Label class="btnTab" id="lblSource">Source - HTML</Label><View class="hspace" /></View>
+					<View id="btnSourceCSS" class="btnOutterTab space btnoff wrap_content"><View class="hspace" /><Label class="btnTab" id="lblSourceCSS">Source - CSS</Label><View class="hspace" /></View>
+					<View id="btnSourceJS" class="btnOutterTab space btnoff wrap_content"><View class="hspace" /><Label class="btnTab" id="lblSourceJS">Source - JS</Label><View class="hspace" /></View>
+					<View id="btnBrowser" class="btnOutterTab space btnoff wrap_content"><View class="hspace" /><Label class="btnTab" id="lblBrowser">Browser</Label><View class="hspace" /></View>
 				</View>
 				<ScrollView id="sourceWrapper" layout="horizontal" borderWidth="1" borderColor="#33b5e5" showVerticalScrollIndicator="true">
 					<Label left="10" top="10" id="txtSource"></Label>

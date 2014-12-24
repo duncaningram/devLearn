@@ -29,6 +29,11 @@
 	top: 25
 }
 
+".btnOutterTab": {
+	height: 40,
+	layout: "horizontal"
+}
+
 ".btnoff": {
 	backgroundColor: "#d3d3d3",
 	font: {
@@ -56,16 +61,15 @@
 	color: "#FFF"
 }
 
-".btnTab": {
-	left: 20,
-	right: 20,
-	top: 10,
-	bottom: 10
+".hspace": {
+	width: 20
+}
+
+".hspace[formFactor=handheld]": {
+	width: 10
 }
 
 ".btnTab[formFactor=handheld]": {
-	left: 10,
-	right:10,
 	font: {
 		fontSize: 12
 	}
