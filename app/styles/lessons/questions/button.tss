@@ -1,7 +1,5 @@
 "#label": {
 	color: "#FFF",
-	left: 5,
-	right: 5,
 	top: 3,
 	bottom: 3,
 	font: {
@@ -20,4 +18,9 @@
 	right: 5,
 	top: 5,
 	bottom: 5
+}
+
+".hspace": {
+	width: 5,
+	height: Ti.UI.SIZE
 }
