@@ -1,5 +1,6 @@
 var Collection = require('utils/Collection');
 var Device = require('utils/Device');
+var Event = require('utils/Event');
 var Log = require('utils/Log');
 
 var parent;
@@ -146,7 +147,7 @@ function setCheckButton(check, disabled) {
 		} else {
 			grandparent.lblContinue.setColor("#FFF");
 			grandparent.btnContinue.setBackgroundColor("#33b5e5");
-			grandparent.btnContinue.addEventListener('click', grandparent.advance);
+			Event.addEventListener(grandparent.btnContinue, 'click', grandparent.advance);
 		}
 	} else {
 		//grandparent.lblContinue.setText("Continue");

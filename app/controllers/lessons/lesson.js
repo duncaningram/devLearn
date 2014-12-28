@@ -1,4 +1,5 @@
 var Device = require('utils/Device');
+var Event = require('utils/Event');
 var Loader = require('utils/Loader');
 var Log = require('utils/Log');
 var Quizzes = require('objects/Quizzes');
@@ -32,7 +33,7 @@ function display_quiz(quiz) {
 	$.content.add(_view.getView());
 	
 	$.btnContinue.visible = true;
-	$.btnContinue.removeEventListener('click', $.advance);
+	Event.removeEventListener($.btnContinue, 'click', $.advance);
 }
 
 function display_test(test) {
@@ -42,7 +43,7 @@ function display_test(test) {
 	$.content.add(_view.getView());	
 	
 	$.btnContinue.visible = true;
-	$.btnContinue.removeEventListener('click', $.advance);
+	Event.removeEventListener($.btnContinue, 'click', $.advance);
 }
 
 function display_outoflives() {
@@ -50,7 +51,8 @@ function display_outoflives() {
 	
 	$.content.removeAllChildren();
 	$.content.add(_view.getView());
-	$.btnContinue.removeEventListener('click', $.advance);
+	
+	Event.removeEventListener($.btnContinue, 'click', $.advance);
 }
 
 function display_completed() {
@@ -59,7 +61,7 @@ function display_completed() {
 	$.content.removeAllChildren();
 	$.content.add(_view.getView());
 	
-	$.btnContinue.removeEventListener('click', $.advance);
+	Event.removeEventListener($.btnContinue, 'click', $.advance);
 }
 
 function display_results() {
@@ -68,7 +70,7 @@ function display_results() {
 	$.content.removeAllChildren();
 	$.content.add(_view.getView());
 	
-	$.btnContinue.removeEventListener('click', $.advance);
+	Event.removeEventListener($.btnContinue, 'click', $.advance);
 }
 
 function start(attempt) {
@@ -129,7 +131,7 @@ exports.restart = function() {
 };
 
 exports.advance = function() {
-	$.btnContinue.removeEventListener('click', $.advance);
+	Event.removeEventListener($.btnContinue, 'click', $.advance);
 	
 	if (_attempt.lives > 0) {
 		if (_attempt.progress.flow == "tutorials") {

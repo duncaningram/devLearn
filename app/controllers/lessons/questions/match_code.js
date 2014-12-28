@@ -1,4 +1,5 @@
 var Collection = require('utils/Collection');
+var Event = require('utils/Event');
 var Log = require('utils/Log');
 
 var parent;
@@ -133,18 +134,18 @@ function setCheckButton(check, disabled) {
 		if(disabled) {
 			grandparent.lblContinue.setColor("#000");
 			grandparent.btnContinue.setBackgroundColor("#d3d3d3");
-			grandparent.btnContinue.removeEventListener('click', checkAnswer);
+			Event.removeEventListener(grandparent.btnContinue, 'click', checkAnswer);
 		} else {
 			grandparent.lblContinue.setColor("#FFF");
 			grandparent.btnContinue.setBackgroundColor("#33b5e5");
-			grandparent.btnContinue.addEventListener('click', checkAnswer);
+			Event.addEventListener(grandparent.btnContinue, 'click', checkAnswer);
 		}
 	} else {
 		grandparent.lblContinue.setText("Continue");
 		grandparent.lblContinue.setColor("#FFF");
 		grandparent.btnContinue.setBackgroundColor("#33b5e5");
-		grandparent.btnContinue.removeEventListener('click', checkAnswer);
-		grandparent.btnContinue.addEventListener('click', grandparent.advance);
+		Event.removeEventListener(grandparent.btnContinue, 'click', checkAnswer);
+		Event.addEventListener(grandparent.btnContinue, 'click', grandparent.advance);
 	}
 
 }

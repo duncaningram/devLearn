@@ -1,4 +1,5 @@
 var Device = require('utils/Device');
+var Event = require('utils/Event');
 var Log = require('utils/Log');
 
 var parent;
@@ -40,11 +41,11 @@ function init(args) {
 
 	showSource(tutorial.example.source);
 	
-	parent.btnContinue.removeEventListener('click', parent.advance);
+	Event.removeEventListener(parent.btnContinue, 'click', parent.advance);
 	parent.btnContinue.setBackgroundColor("#d3d3d3");
 	parent.lblContinue.setColor("#000");
 	setTimeout(function() {
-		parent.btnContinue.addEventListener('click', parent.advance);
+		Event.addEventListener(parent.btnContinue, 'click', parent.advance);
 		parent.btnContinue.setBackgroundColor("#33b5e5");
 		parent.lblContinue.setColor("#FFF");
 	}, 1000);

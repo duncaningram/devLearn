@@ -1,3 +1,4 @@
+var Event = require('utils/Event');
 var Grade = require('utils/Grade');
 var Log = require('utils/Log');
 
@@ -13,7 +14,7 @@ function init(args) {
 	$.grade.setText(Grade.getLetterGrade(_attempt.grade));
 	$.points.setText(String.format(L('lesson_results_points'), _user.custom_fields.points));
 	
-	_parent.btnContinue.addEventListener("click", cancel);
+	Event.addEventListener(_parent.btnContinue, "click", cancel);
 }
 
 function cancel(e) {
