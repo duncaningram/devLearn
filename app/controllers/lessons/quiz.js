@@ -18,6 +18,11 @@ function init(args) {
 	
 	Log.info("Quiz controller: " + JSON.stringify(quiz));
 	
+	//TODO: FIgure out why this is needed.  For some reason, the screen will just render all white occasionally without this fix.
+	if (Device.isIOS()) {
+		$.contentView.toImage();
+	}
+	
 	if(quiz.type == "multiple_choice") {
 		display_multiple_choice();
 	} else if (quiz.type == "code") {
