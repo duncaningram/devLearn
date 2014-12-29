@@ -2,12 +2,14 @@
 	color: "#FFF",
 	top: 3,
 	bottom: 3,
+	minimumFontSize: 25,
 	font: {
 		fontSize: 25
 	}
 }
 
 "#label[formFactor=handheld]": {
+	minimumFontSize: 16,
 	font: {
 		fontSize: 16
 	}
