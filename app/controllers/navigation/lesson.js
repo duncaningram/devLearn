@@ -55,7 +55,7 @@ function display_lessons(lessons) {
 		
 		$.window.add(controller.getView());
 	} else {
-		controller = Alloy.createController('navigation/soon', {parent: $});
+		controller = Alloy.createController('navigation/soon', {parent: $, language: language});
 		
 		$.window.add(controller.getView());
 	}

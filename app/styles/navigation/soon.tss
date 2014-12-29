@@ -4,21 +4,31 @@
 	}
 }
 
-".lblText": {
-	width: Titanium.UI.FILL,
-	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER
-}
-
-"#btnCancel": {
-	height: 75,
-	bottom: 0,
-	width: '100%',
+"#titleBar": {
+	height: 70,
 	backgroundColor: "#33b5e5"
 }
 
-"#lblCancel": {
+"#titleBar[formFactor=handheld]": {
+	height: 50
+}
+
+".titleBack": {
+	left: 10
+}
+
+".titleText": {
+	left: 40,
 	color: "#fff",
 	font: {
-		fontSize: 25
+		fontSize: 18
+	}
+}
+
+".lblText": {
+	width: Titanium.UI.FILL,
+	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+	font: {
+		fontSize: 20
 	}
 }
