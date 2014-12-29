@@ -5,13 +5,17 @@
 }
 
 ".half": {
-	width: "50%"
+	width: "50%",
+	height: 50
 }
 
 ".lblText": {
 	left: 30,
 	right: 30,
-	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER
+	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+	font: {
+		fontSize: 16
+	}
 }
 
 "#btnCancel": {

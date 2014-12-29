@@ -1,5 +1,6 @@
 <Alloy>
 	<View layout="vertical" height="500">
+		<View class="br" />
 		<Label class="lblText">You have already successfully completed this lesson!</Label>
 		<View class="br" />
 		<ImageView width="auto" id="imgComplete" image="/images/completed.png" />
