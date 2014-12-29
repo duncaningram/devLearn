@@ -4,10 +4,25 @@
 	}
 }
 
+".screen": {
+	height: 500
+}
+
+".screen[formFactor=handheld]": {
+	height: 350
+}
+
+".br[formFactor=tablet]": {
+	height: 50
+}
+
 ".lblText": {
 	left: 30,
 	right: 30,
-	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER
+	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+	font: {
+		fontSize: 20
+	}
 }
 
 ".lblGrade": {
@@ -21,11 +36,15 @@
 
 ".ribbon": {
 	height: Ti.UI.SIZE,
-	width: Ti.UI.SIZE,
+	width: Ti.UI.SIZE
+}
+
+".ribbon[platform=android]": {
 	backgroundColor: "#4AC948"
 }
 
 ".lblPoints": {
+	backgroundColor: "#4AC948",
 	left: 30,
 	right: 30,
 	top: 20,
@@ -35,4 +54,8 @@
 	font: {
 		fontSize: 20
 	}
+}
+
+".lblPoints[platform=ios]": {
+	height: 50
 }
