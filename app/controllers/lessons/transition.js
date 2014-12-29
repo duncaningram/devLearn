@@ -8,6 +8,7 @@ function init(args) {
 	$.lblLink.setText(_language.url);
 	
 	$.btnCancel.addEventListener("click", cancel);
+	$.title.addEventListener("click", cancel);
 }
 
 function cancel(e) {

@@ -6,8 +6,33 @@
 
 "Label[formFactor=handheld]": {
 	font: {
-		fontSize: 14
+		fontSize: 16
 	}
+}
+
+"#titleBar": {
+	height: 70,
+	backgroundColor: "#33b5e5"
+}
+
+"#titleBar[formFactor=handheld]": {
+	height: 50
+}
+
+".titleBack": {
+	left: 10
+}
+
+".titleText": {
+	left: 40,
+	color: "#fff",
+	font: {
+		fontSize: 18
+	}
+}
+
+".screen": {
+	height: 500
 }
 
 ".lblText": {
@@ -19,28 +44,4 @@
 ".lblLink": {
 	width: Titanium.UI.FILL,
 	textAlign: Titanium.UI.TEXT_ALIGNMENT_CENTER
-}
-
-"#btnCancel": {
-	height: 75,
-	bottom: 0,
-	width: '100%',
-	backgroundColor: "#33b5e5"
-}
-
-"#btnCancel[formFactor=handheld]": {
-	height: 55
-}
-
-"#lblCancel": {
-	color: "#fff",
-	font: {
-		fontSize: 25
-	}
-}
-
-"#lblCancel[formFactor=handheld]": {
-	font: {
-		fontSize: 20
-	}
 }
