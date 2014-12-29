@@ -1,4 +1,5 @@
 var Collection = require('utils/Collection');
+var Device = require('utils/Device');
 var Event = require('utils/Event');
 var Log = require('utils/Log');
 
@@ -57,6 +58,12 @@ function createButton(entry, index, questionIndex) {
 	button.innerPadding.questionIndex = questionIndex;
 	button.label.data = index;
 	button.label.questionIndex = questionIndex;
+	
+	if (Device.isIOS()) {
+		var width = button.getView().toImage().width;
+		Log.info(width);
+		button.getView().setWidth(width);	
+	}
 	
 	return button.getView();
 }
