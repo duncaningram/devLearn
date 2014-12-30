@@ -9,7 +9,7 @@
 }
 
 ".screen[formFactor=handheld]": {
-	height: 350
+	height: 400
 }
 
 ".br[formFactor=tablet]": {
