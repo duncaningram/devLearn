@@ -1,1 +1,6 @@
 devLearn - A mobile application to help kids learn to code in a fun and exciting way.
+
+Due to a bug in Titanium in order to package for android you must manually sign the apk to support less then android version 4.3
+To do this:
+jarsigner -verbose -digestalg SHA1 -sigalg MD5withRSA -keystore keystore ./app-unsigned.apk alias
+/android-sdks/build-tools/20.0.0/zipalign -v 4 ./devLearn.apk ./devLearn-zipaligned.apk
