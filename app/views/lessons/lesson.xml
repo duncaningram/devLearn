@@ -2,6 +2,7 @@
 	<Window id="window" class="container">
 		<View layout='vertical'>
 			<View width="100%" top="0" id="titleView">
+				<ImageView id="btnBack" class="listBack" visible="false" width="auto" height="24" image="/images/left_arrow.png"></ImageView>
 				<Label id="txtLessonTitleBar" class="titleBarText">Lesson Title</Label>
 				<View class="statsView" layout="horizontal">
 					<Label id="txtPoints" class="titlePoints" left="0"></Label>
