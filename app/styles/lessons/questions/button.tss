@@ -8,6 +8,21 @@
 	}
 }
 
+"#label[platform=ios]": {
+	backgroundPaddingLeft: 5,
+	backgroundPaddingRight: 5,
+}
+
+"#label[platform=android]": {
+	left: 5,
+	right: 5
+}
+
+"#label[platform=mobileweb]": {
+	left: 5,
+	right: 5
+}
+
 "#label[formFactor=handheld]": {
 	minimumFontSize: 16,
 	font: {
@@ -20,9 +35,4 @@
 	right: 5,
 	top: 5,
 	bottom: 5
-}
-
-".hspace": {
-	width: 5,
-	height: Ti.UI.SIZE
 }
