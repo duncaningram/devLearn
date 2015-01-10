@@ -26,7 +26,12 @@
 
 "#contentView": {
 	width: '90%',
-	top: 25
+	top: 25,
+	bottom:75
+}
+
+"#contentView[formFactor=handheld]": {
+	bottom: 55
 }
 
 ".btnOutterTab": {
