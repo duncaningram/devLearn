@@ -39,12 +39,16 @@
 
 ".lblFlatButton[formFactor=handheld]": {
 	font: {
-		fontSize: 20
+		fontSize: 18
 	}
 }
 
 ".half": {
 	width: "50%"
+}
+
+".half[platform=ios, formFactor=handheld]": {
+	width: "49%"
 }
 
 "#btnSignUp": {
