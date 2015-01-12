@@ -8,11 +8,15 @@
 }
 
 ".titleBarText": {
-	left: 10,
+	left: 40,
 	color: "#fff",
 	font: {
 		fontSize: 20
 	}	
+}
+
+"#btnBack": {
+	left: 10
 }
 
 ".titleBarText[formFactor=handheld]": {

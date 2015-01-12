@@ -223,6 +223,10 @@ function preload_complete() {
 	UserAttempt.load(_lesson.id, check_load);
 }
 
+function cancel(e) {
+	$.window.close();
+}
+
 function init(args) {
 	_lesson = args.lesson;
 	
@@ -231,6 +235,9 @@ function init(args) {
 	} else {
 		$.txtLessonTitleBar.setText(_lesson.name);
 	}
+	
+	$.btnBack.setVisible(true);
+	$.btnBack.addEventListener('click', cancel);
 	
 	Loader.showLoader($.content);
 	
