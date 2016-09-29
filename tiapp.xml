@@ -6,6 +6,10 @@
     <property name="acs-api-key-production" type="string">1a91llPjiqMcMsmrz6OsJBCUhqVv4MGg</property>
     <property name="acs-oauth-key-production" type="string">sNfqNU1po77PgmOJdS2wmoyPT5BvJPEm</property>
     <property name="acs-oauth-secret-production" type="string">l2nZJ7QNmKiXmzbJTL1pD5zIYoDjVbGp</property>
+    <property name="app.backendless.application_id" type="string">18F03ACC-5BDA-13F2-FF4D-4A027A07FC00</property>
+    <property name="app.backendless.secret_key" type="string">20C2CC94-A867-F193-FFBB-AB8468264C00</property>
+    <property name="app.backendless.version" type="string">v1</property>
+    <property name="app.backendless.api_url" type="string">https://devlearn.database.laptopfreek0.com:8181/api</property>
     <id>com.devlearnapp.devlearn</id>
     <name>devLearn</name>
     <version>1.1.1</version>

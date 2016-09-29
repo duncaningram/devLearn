@@ -40,8 +40,7 @@
         });
 
     Backendless.VERSION = '3.1.16';
-    //Backendless.serverURL = 'https://api.backendless.com';
-    Backendless.serverURL = 'https://devlearn.database.laptopfreek0.com:8181/api';
+    Backendless.serverURL = Ti.App.Properties.getString('app.backendless.api_url');
 
     Backendless.noConflict = function() {
         root.Backendless = previousBackendless;
@@ -354,6 +353,7 @@
                             } else if (checkInCache()) {
                                 config.asyncHandler.success && config.asyncHandler.success(Backendless.LocalCache.get(config.urlBlueprint));
                             } else {
+                            	console.log('test');
                                 config.asyncHandler.fault && config.asyncHandler.fault(badResponse(xhr));
                             }
                         }

@@ -153,7 +153,7 @@ exports.advance = function() {
 				_attempt.progress.position = 0;
 				_attempt.is_completed = true;
 				_attempt.grade = (questions - (_lesson.lives - _attempt.lives)) / questions * 100;
-				_user.custom_fields.points += _attempt.points;
+				_user.points += _attempt.points;
 				User.save(_user);
 			}
 		}
@@ -167,9 +167,9 @@ exports.advance = function() {
 
 exports.stats = function() {
 	if (_attempt.is_completed) {
-		$.txtPoints.setText(_user.custom_fields.points);
+		$.txtPoints.setText(_user.points);
 	} else {
-		$.txtPoints.setText(_user.custom_fields.points + _attempt.points);
+		$.txtPoints.setText(_user.points + _attempt.points);
 	}
 
 	switch (_attempt.lives) {

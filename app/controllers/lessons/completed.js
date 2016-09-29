@@ -21,7 +21,7 @@ function cancel(e) {
 }
 
 function retry(e) {
-	_user.custom_fields.points -= _attempt.points;
+	_user.points -= _attempt.points;
 	User.save(_user);
 	
 	_parent.restart();

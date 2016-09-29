@@ -12,7 +12,7 @@ function init(args) {
 	_user = args.user;
 	
 	$.grade.setText(Grade.getLetterGrade(_attempt.grade));
-	$.points.setText(String.format(L('lesson_results_points'), _user.custom_fields.points.toString()));
+	$.points.setText(String.format(L('lesson_results_points'), _user.points.toString()));
 	
 	Event.addEventListener(_parent.btnContinue, "click", cancel);
 }
