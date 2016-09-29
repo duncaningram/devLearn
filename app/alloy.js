@@ -11,7 +11,6 @@
 // Alloy.Globals.someGlobalFunction = function(){};
 var Backendless = require('vendor/backendless');
 
-// TODO: Load from tiapp.xml
 var applicationId = Ti.App.Properties.getString('app.backendless.application_id');
 var secretKey = Ti.App.Properties.getString('app.backendless.secret_key');
 var version = Ti.App.Properties.getString('app.backendless.version');
