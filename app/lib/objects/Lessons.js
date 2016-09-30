@@ -16,10 +16,8 @@ var Lessons = (function() {
 			query.options = {
 				sortBy: "order asc"
 			};
-			console.log(language_id);
 			Backendless.Persistence.of(Lesson).find(query, new Backendless.Async(
 				function (collection) {
-					console.log(collection);
 					_lessons[language_id] = collection.data;
 					callback(_lessons[language_id]);
 				},
