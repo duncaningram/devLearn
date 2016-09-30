@@ -1,28 +1,28 @@
-var Cloud = require('ti.cloud');
+var Backendless = require('vendor/backendless');
 var Log = require('utils/Log');
 
 var Languages = (function() {
 	
 	var _languages = new Array();
 	
+	function Language(args) {
+		args = args || {};
+	}
+	
 	function getLanguages(callback) {
-		if (_languages.length == 0) {
-			Cloud.Objects.query({
-				classname: 'Languages',
-				order: 'order'
-			}, function (e) {
-				if (e.success) {
-					_languages = e.Languages;
-				} else {
-					Log.error('error: ' + JSON.stringify(e));	
-				}
-				
+		var query = new Backendless.DataQuery();
+		query.options = {
+			sortBy: "order asc"
+		};
+		Backendless.Persistence.of(Language).find(query, new Backendless.Async(
+			function (collection) {
+				_languages = collection.data;
 				callback(_languages);
-			});
-		}
-		else {
-			callback(_languages);
-		}
+			},
+			function (e) {
+				Log.error('error: ' + JSON.stringify(e));
+			}
+		));
 	};
 	
 	return {

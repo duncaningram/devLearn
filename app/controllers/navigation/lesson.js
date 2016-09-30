@@ -64,7 +64,7 @@ function display_lessons(lessons) {
 }
 
 function refresh_lessons() {
-	Lessons.getLessons(language.id, display_lessons);
+	Lessons.getLessons(language.objectId, display_lessons);
 }
 
 function display_attempt(attempt) {
@@ -110,7 +110,7 @@ function cancel(e) {
 function init(args) {
 	language = args.language;
 	
-	Lessons.getLessons(language.id, display_lessons);
+	Lessons.getLessons(language.objectId, display_lessons);
 }
 
 init(arguments[0] || {});
