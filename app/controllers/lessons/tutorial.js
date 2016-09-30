@@ -15,31 +15,31 @@ function init(args) {
 	$.txtTitle.setText(tutorial.title);
 	$.txtDescription.setText(tutorial.description);
 	
-	if (tutorial.example.source) {
+	if (tutorial.source) {
 		$.btnSource.addEventListener('click', function() { toggleTab("source"); });
 	} else {
 		$.tabs.remove($.btnSource);
 	}
 	
-	if (tutorial.example.source_css) {
+	if (tutorial.source_css) {
 		$.btnSourceCSS.addEventListener('click', function() { toggleTab("source_css"); });
 	} else {
 		$.tabs.remove($.btnSourceCSS);
 	}
 	
-	if (tutorial.example.source_js) {
+	if (tutorial.source_js) {
 		$.btnSourceJS.addEventListener('click', function() { toggleTab("source_js"); });
 	} else {
 		$.tabs.remove($.btnSourceJS);
 	}
 	
-	if (tutorial.example.html) {
+	if (tutorial.html) {
 		$.btnBrowser.addEventListener('click', function() { toggleTab("html"); });
 	} else {
 		$.tabs.remove($.btnBrowser);
 	}
 
-	showSource(tutorial.example.source);
+	showSource(tutorial.source);
 	
 	Event.removeEventListener(parent.btnContinue, 'click', parent.advance);
 	parent.btnContinue.setBackgroundColor("#d3d3d3");
@@ -61,7 +61,7 @@ function toggleTab(source) {
 		$.lblSourceJS.setColor("#000");
 		$.btnBrowser.setBackgroundColor("#d3d3d3");
 		$.lblBrowser.setColor("#000");
-		showSource(tutorial.example.source);
+		showSource(tutorial.source);
 	}
 	else if (source == "source_css") {
 		$.btnSource.setBackgroundColor("#d3d3d3");
@@ -72,7 +72,7 @@ function toggleTab(source) {
 		$.lblSourceJS.setColor("#000");
 		$.btnBrowser.setBackgroundColor("#d3d3d3");
 		$.lblBrowser.setColor("#000");
-		showSource(tutorial.example.source_css);
+		showSource(tutorial.source_css);
 	}
 	else if (source == "source_js") {
 		$.btnSource.setBackgroundColor("#d3d3d3");
@@ -83,7 +83,7 @@ function toggleTab(source) {
 		$.lblSourceJS.setColor("#FFF");
 		$.btnBrowser.setBackgroundColor("#d3d3d3");
 		$.lblBrowser.setColor("#000");
-		showSource(tutorial.example.source_js);
+		showSource(tutorial.source_js);
 	}
 	else {
 		$.btnSource.setBackgroundColor("#d3d3d3");
@@ -113,9 +113,9 @@ function showSource(source) {
 
 function showBrowser() {
 	$.sourceWrapper.removeAllChildren();
-	Log.info("HTML source: " + tutorial.example.html);
+	Log.info("HTML source: " + tutorial.html);
 	var browser = Ti.UI.createWebView({
-		html: tutorial.example.html
+		html: tutorial.html
 	});
 	
 	$.sourceWrapper.add(browser);
