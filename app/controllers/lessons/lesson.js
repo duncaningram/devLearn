@@ -231,6 +231,7 @@ function init(args) {
 	_lesson = args.lesson;
 	
 	if (Device.isTablet()) {
+		//TODO This needs to be changed
 		$.txtLessonTitleBar.setText(_lesson['[CUSTOM_Languages]language_id'][0]['name'] + ": " + _lesson.name);
 	} else {
 		$.txtLessonTitleBar.setText(_lesson.name);
@@ -241,7 +242,7 @@ function init(args) {
 	
 	Loader.showLoader($.content);
 	
-	Tutorials.getTutorials(_lesson.id, preload_tutorials_complete);
+	Tutorials.getTutorials(_lesson.objectId, preload_tutorials_complete);
 }
 
 init(arguments[0] || {});
