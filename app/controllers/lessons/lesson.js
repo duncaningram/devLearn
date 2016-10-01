@@ -110,7 +110,7 @@ function load(attempt) {
 			display_tutorial(_tutorials[_attempt.progress.position]);
 			break;
 		case "quizzes":
-			Quizzes.getQuiz(_tutorials[_attempt.progress.position].id, display_quiz);
+			Quizzes.getQuiz(_tutorials[_attempt.progress.position].objectId, display_quiz);
 			break;
 		case "tests":
 			display_test(_tests[_attempt.progress.position]);
@@ -210,7 +210,7 @@ exports.stats = function() {
 function preload_tutorials_complete(tutorials) {
 	_tutorials = tutorials;
 	
-	Tests.getTests(_lesson.id, preload_tests_complete);
+	Tests.getTests(_lesson.objectId, preload_tests_complete);
 }
 
 function preload_tests_complete(tests) {

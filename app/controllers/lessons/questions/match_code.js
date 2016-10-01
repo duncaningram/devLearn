@@ -23,7 +23,7 @@ function init(args) {
 	setCheckButton(true, true);
 	$.txtQuestion.setText(quiz.question);
 	
-	questions = Collection.shuffle(quiz.selections);
+	questions = Collection.shuffle(JSON.parse(quiz.selections));
 	
 	Log.info("Match_Code shuffled: " + JSON.stringify(questions));
 	
@@ -31,7 +31,7 @@ function init(args) {
 	if(quiz.html !== undefined)
 		$.webView.setHtml(quiz.html);
 	else
-		$.webView.setHtml(quiz.answer[0]);
+		$.webView.setHtml(JSON.parse(quiz.answer)[0]);
 	answers = new Array();
 	buttons = new Array();
 	answerButtons = new Array();
@@ -113,7 +113,7 @@ function checkAnswer(e) {
 	
 	Log.info("Completed Answer: " + answer);
 	Log.info("Correct Answer: " + quiz.answer);
-	quiz.answer.forEach(function(entry) {
+	JSON.parse(quiz.answer).forEach(function(entry) {
 		if (answer == entry)
 			correct = true;
 		correctAnswer = entry;

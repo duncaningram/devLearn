@@ -353,7 +353,6 @@
                             } else if (checkInCache()) {
                                 config.asyncHandler.success && config.asyncHandler.success(Backendless.LocalCache.get(config.urlBlueprint));
                             } else {
-                            	console.log('test');
                                 config.asyncHandler.fault && config.asyncHandler.fault(badResponse(xhr));
                             }
                         }

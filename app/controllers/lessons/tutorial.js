@@ -4,8 +4,6 @@ var Log = require('utils/Log');
 
 var parent;
 var tutorial;
-		
-
 
 function init(args) {
 	parent = args.parent;

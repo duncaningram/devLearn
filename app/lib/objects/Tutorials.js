@@ -16,11 +16,8 @@ var Tutorials = (function() {
 			query.options = {
 				sortBy: "order asc"
 			};
-			console.log('getTutorials');
-			console.log(lesson_id);
 			Backendless.Persistence.of(Tutorial).find(query, new Backendless.Async(
 				function (collection) {
-					console.log(collection);
 					_tutorials[lesson_id] = collection.data;
 					callback(_tutorials[lesson_id]);
 				},
@@ -41,11 +38,8 @@ var Tutorials = (function() {
 			query.options = {
 				sortBy: "order asc"
 			};
-			console.log('getTutorial');
-			console.log(lesson_id);
 			Backendless.Persistence.of(Tutorial).find(query, new Backendless.Async(
 				function (collection) {
-					console.log(collection);
 					_tutorials[lesson_id] = collection.data;
 					callback(_tutorials[lesson_id][index]);
 				},

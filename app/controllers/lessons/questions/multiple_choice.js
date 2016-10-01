@@ -21,7 +21,7 @@ function init(args) {
 	setCheckButton(true, true);
 	$.txtQuestion.setText(quiz.question);
 	
-	questions = Collection.shuffle(quiz.selections);
+	questions = Collection.shuffle(JSON.parse(quiz.selections));
 	
 	Log.info("Multiple Choice shuffled: " + JSON.stringify(questions));
 	
@@ -44,7 +44,7 @@ function init(args) {
 		});
 		
 		var correct = false;
-		quiz.answer.forEach(function(answer) {
+		JSON.parse(quiz.answer).forEach(function(answer) {
 			if(entry == answer)
 				correct = true;
 		});

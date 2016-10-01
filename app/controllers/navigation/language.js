@@ -9,8 +9,6 @@ function display_languages(languages) {
 	table.btnSettings.addEventListener('click', show_settings);
 	table.title.setText(L('language_select_title'));
 	
-	Log.info(JSON.stringify(languages));
-	
 	var lang = new Array();
 	for (var i = 0; i < languages.length; i++) {
 		lang[languages[i].order] = languages[i];
@@ -29,8 +27,6 @@ function display_languages(languages) {
 		
 		table.items.add(row.getView());
 	}
-	
-	//Globals.setLanguageView($.getView());
 	
 	$.window.add(table.getView());
 }
