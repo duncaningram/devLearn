@@ -1,24 +1,35 @@
-var Cloud = require('ti.cloud');
+var Backendless = require('vendor/backendless');
 var Log = require('utils/Log');
 var User = require('objects/User');
 
 var UserTest = (function() {
 	
-	function log(test_id, attempt_id, is_correct, answer) {
-		Cloud.Objects.create({
-			classname: 'UserTests',
-			fields: {
-				"[CUSTOM_Tests]test_id": test_id,
-				"[CUSTOM_UserAttempts]attempt_id": attempt_id,
-				is_correct: is_correct,
-				answer: answer
-			}
-		}, function(e) {
-			Log.info(JSON.stringify(e));
-			if (!e.success) {
+	function UserTest(args) {
+		args = args || {};
+		this.___class = 'UserTest';
+		this.owner = args.owner || User.getUser();
+		this.test = args.test || {};
+		this.attempt = args.attempt || {};
+		this.is_correct = args.is_correct || false;
+		this.answer = args.answer || '';
+	}
+	
+	function log(test, attempt, is_correct, answer) {
+		var attempt = new UserTest({
+			test: test,
+			attempt: attempt,
+			is_correct: is_correct,
+			answer: answer
+		});
+		
+		Backendless.Persistence.of(UserTest).save(attempt, new Backendless.Async(
+			function (obj) {
+				
+			},
+			function (e) {
 				Log.error('error: ' + JSON.stringify(e));
 			}
-		});
+		));
 	};
 	
 	return {

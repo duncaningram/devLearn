@@ -8,7 +8,6 @@ var tutorial;
 function init(args) {
 	parent = args.parent;
 	tutorial = args.tutorial;
-	Log.info("tutorial controller: " + JSON.stringify(tutorial));
 	
 	$.txtTitle.setText(tutorial.title);
 	$.txtDescription.setText(tutorial.description);

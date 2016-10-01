@@ -64,9 +64,9 @@ function display_match_code() {
 
 exports.logAnswer = function(is_correct, answer) {
 	if (type == "quiz") {
-		UserQuiz.log(quiz.id, attempt.id, is_correct, answer);
+		UserQuiz.log(quiz, attempt, is_correct, JSON.stringify(answer));
 	} else {
-		UserTest.log(quiz.id, attempt.id, is_correct, answer);	
+		UserTest.log(quiz, attempt, is_correct, JSON.stringify(answer));
 	}
 };
 

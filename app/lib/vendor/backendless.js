@@ -344,7 +344,23 @@
                 }
 
                 if (config.isAsync) {
+                	xhr.onload = function() {
+                		if (xhr.status >= 200 && xhr.status < 300) {
+                            response = parseResponse(xhr);
+                            cacheHandler(response);
+                            config.asyncHandler.success && config.asyncHandler.success(response);
+                        } else if (checkInCache()) {
+                            config.asyncHandler.success && config.asyncHandler.success(Backendless.LocalCache.get(config.urlBlueprint));
+                        }
+                	};
+                	
+                	xhr.onerror = function() {
+                		config.asyncHandler.fault && config.asyncHandler.fault(badResponse(xhr));
+                	};
+                	
+                	/*
                     xhr.onreadystatechange = function() {
+                    	console.log(xhr.readyState + ' ' + config.url);
                         if (xhr.readyState == 4) {
                             if (xhr.status >= 200 && xhr.status < 300) {
                                 response = parseResponse(xhr);
@@ -357,6 +373,7 @@
                             }
                         }
                     };
+                    */
                 }
 				
                 xhr.send(config.data);
@@ -3399,6 +3416,15 @@
         var asyncHandler = this.asyncHandler;
 
         if (asyncHandler) {
+        	xhr.onload = function() {
+                asyncHandler.success(JSON.parse(xhr.responseText));
+        	};
+        	
+        	xhr.onerror = function() {
+        		asyncHandler.fault(JSON.parse(xhr.responseText));
+        	};
+        	
+        	/*
             xhr.onreadystatechange = function() {
                 if (xhr.readyState == 4) {
                     if (xhr.status >= 200 && xhr.status < 300) {
@@ -3408,6 +3434,7 @@
                     }
                 }
             };
+            */
         }
 
         xhr.sendAsBinary(builder);
@@ -3450,6 +3477,15 @@
         var asyncHandler = this.asyncHandler;
 
         if (asyncHandler) {
+        	xhr.onload = function() {
+                asyncHandler.success(JSON.parse(xhr.responseText));
+        	};
+        	
+        	xhr.ondatastreamnerror = function () {
+        		asyncHandler.fault(JSON.parse(xhr.responseText));
+        	};
+        	
+        	/*
             xhr.onreadystatechange = function() {
                 if (xhr.readyState == 4) {
                     if (xhr.status >= 200 && xhr.status < 300) {
@@ -3459,6 +3495,7 @@
                     }
                 }
             };
+            */
         }
 
         xhr.send(e.target.result.split(',')[1]);

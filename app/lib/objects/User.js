@@ -47,6 +47,7 @@ var User = (function() {
 	
 	function login(email, password, callback) {
 		if(_user == undefined) {
+			console.log('login');
 			Backendless.UserService.login(email, password, false, new Backendless.Async(
 				function (user) {
 					_user = user;
