@@ -16,7 +16,7 @@ $.btnSignIn.addEventListener('click', function() {
 	if(_email.match(validateEmail)) {
 		User.login(_email, _password, function(user) {
 			if(user != undefined) {
-				Ti.App.Properties.setString('email', _email);
+				Ti.App.Properties.setString('username', _email);
 				Ti.App.Properties.setString('password', _password);
 				
 				var view = Alloy.createController('navigation/language').getView();
