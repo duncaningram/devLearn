@@ -2,10 +2,10 @@ var User = require('objects/User');
 var Log = require('utils/Log');
 var Window = require('utils/Window');
 
-var email = Ti.App.Properties.getString('email');
+var email = Ti.App.Properties.getString('username');
 var password = Ti.App.Properties.getString('password');
 
-Log.info("email" + email);
+Log.info("username" + email);
 Log.info("password" + password);
 
 if(email == null || password == null) {
