@@ -28,7 +28,7 @@ function init(args) {
 	Log.info("Match_Code shuffled: " + JSON.stringify(questions));
 	
 	$.questions.removeAllChildren();
-	if (quiz.html !== undefined)
+	if (quiz.html !== undefined && quiz.html !== "")
 		$.webView.setHtml(quiz.html);
 	else
 		$.webView.setHtml(JSON.parse(quiz.answer)[0]);
