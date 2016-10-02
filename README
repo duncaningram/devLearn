@@ -4,3 +4,5 @@ Due to a bug in Titanium in order to package for android you must manually sign 
 To do this:
 jarsigner -verbose -digestalg SHA1 -sigalg MD5withRSA -keystore keystore ./app-unsigned.apk alias
 /android-sdks/build-tools/20.0.0/zipalign -v 4 ./devLearn.apk ./devLearn-zipaligned.apk
+
+When building and publishing uncheck "Enable JavaScript Minification"

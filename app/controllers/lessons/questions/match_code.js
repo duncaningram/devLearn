@@ -28,7 +28,7 @@ function init(args) {
 	Log.info("Match_Code shuffled: " + JSON.stringify(questions));
 	
 	$.questions.removeAllChildren();
-	if(quiz.html !== undefined)
+	if (quiz.html !== undefined)
 		$.webView.setHtml(quiz.html);
 	else
 		$.webView.setHtml(JSON.parse(quiz.answer)[0]);
@@ -121,7 +121,7 @@ function checkAnswer(e) {
 	
 	parent.logAnswer(correct, answer);
 	
-	if(correct) {
+	if (correct) {
 		// Correct answer
 		parent.addPoints();
 		parent.showCorrectIncorrect(true);
@@ -136,7 +136,7 @@ function checkAnswer(e) {
 
 function setCheckButton(check, disabled) {
 
-	if(check){
+	if (check){
 		grandparent.lblContinue.setText("Check");
 		if(disabled) {
 			grandparent.lblContinue.setColor("#000");
