@@ -17,6 +17,7 @@ var User = (function() {
 			user.points = 0;
 			Backendless.UserService.register(user, new Backendless.Async(
 				function (user) {
+					user.___class = "Users";
 					_user = user;
 					callback(_user);
 				},
