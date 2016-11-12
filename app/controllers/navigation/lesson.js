@@ -53,6 +53,11 @@ function display_lessons(lessons) {
 		row.row.addEventListener('click', select_transition);
 		controller.items.add(row.getView());
 		
+		var row = Alloy.createController('navigation/row');
+		row.item.setText(L('language_donate'));
+		row.row.addEventListener('click', select_donate);
+		controller.items.add(row.getView());
+		
 		$.window.add(controller.getView());
 	} else {
 		controller = Alloy.createController('navigation/soon', {parent: $, language: language});
@@ -90,6 +95,10 @@ function select_lesson(e) {
 
 function select_transition(e) {
 	Alloy.createController('lessons/transition', { language: language }).getView().open();
+}
+
+function select_donate(e) {
+	Ti.Platform.openURL("http://www.devlearnapp.com/donate");
 }
 
 function show_settings(e) {
