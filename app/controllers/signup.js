@@ -55,7 +55,7 @@ $.btnGuest.addEventListener('click', function() {
 function signup(_email, _password, _first_name, _last_name, is_guest) {
 	User.create(_email, _password, _password, _first_name, _last_name, is_guest, function(user) {
 		if(user != undefined) {
-			Ti.App.Properties.setString('email', _email);
+			Ti.App.Properties.setString('username', _email);
 			Ti.App.Properties.setString('password', _password);
 			
 			var view = Alloy.createController('navigation/language').getView();

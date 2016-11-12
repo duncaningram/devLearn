@@ -82,7 +82,7 @@ function start(attempt) {
 
 function check_load(attempt) {
 	if (attempt === undefined) {
-		UserAttempt.create(_lesson.id, start);
+		UserAttempt.create(_lesson, start);
 	} else {
 		_attempt = attempt;
 		
@@ -93,8 +93,8 @@ function check_load(attempt) {
 			display_outoflives();
 			$.stats();
 		} else {
-			if (_attempt.progress.flow == "quizzes") {
-				_attempt.progress.flow = "tutorials";
+			if (_attempt.progress_flow == "quizzes") {
+				_attempt.progress_flow = "tutorials";
 			}
 			
 			load(_attempt);
@@ -105,21 +105,21 @@ function check_load(attempt) {
 function load(attempt) {
 	_attempt = attempt;
 
-	switch (_attempt.progress.flow) {
+	switch (_attempt.progress_flow) {
 		case "tutorials":
-			display_tutorial(_tutorials[_attempt.progress.position]);
+			display_tutorial(_tutorials[_attempt.progress_position]);
 			break;
 		case "quizzes":
-			Quizzes.getQuiz(_tutorials[_attempt.progress.position].id, display_quiz);
+			Quizzes.getQuiz(_tutorials[_attempt.progress_position].objectId, display_quiz);
 			break;
 		case "tests":
-			display_test(_tests[_attempt.progress.position]);
+			display_test(_tests[_attempt.progress_position]);
 			break;
 		case "results":
 			display_results();
 			break;
 		default:
-			Log.info("Invalid flow: " + _attempt.progress.flow);
+			Log.info("Invalid flow: " + _attempt.progress_flow);
 	}
 	
 	$.stats();
@@ -127,33 +127,33 @@ function load(attempt) {
 
 exports.restart = function() {
 	Tests.randomize(_lesson.id);
-	UserAttempt.create(_lesson.id, start);
+	UserAttempt.create(_lesson, start);
 };
 
 exports.advance = function() {
 	Event.removeEventListener($.btnContinue, 'click', $.advance);
 	
 	if (_attempt.lives > 0) {
-		if (_attempt.progress.flow == "tutorials") {
-			_attempt.progress.flow = "quizzes";
-		} else if (_attempt.progress.flow == "quizzes") {
-			if (_attempt.progress.position + 1 < _tutorials.length) {
-				_attempt.progress.flow = "tutorials";
-				_attempt.progress.position = _attempt.progress.position + 1;
+		if (_attempt.progress_flow == "tutorials") {
+			_attempt.progress_flow = "quizzes";
+		} else if (_attempt.progress_flow == "quizzes") {
+			if (_attempt.progress_position + 1 < _tutorials.length) {
+				_attempt.progress_flow = "tutorials";
+				_attempt.progress_position = _attempt.progress_position + 1;
 			} else {
-				_attempt.progress.flow = "tests";
-				_attempt.progress.position = 0;
+				_attempt.progress_flow = "tests";
+				_attempt.progress_position = 0;
 			}
-		} else if (_attempt.progress.flow == "tests") {
-			if (_attempt.progress.position + 1 < _tests.length && _attempt.progress.position + 1 < MAX_TESTS) {
-				_attempt.progress.position = _attempt.progress.position + 1;
+		} else if (_attempt.progress_flow == "tests") {
+			if (_attempt.progress_position + 1 < _tests.length && _attempt.progress_position + 1 < MAX_TESTS) {
+				_attempt.progress_position = _attempt.progress_position + 1;
 			} else {
 				var questions = _tutorials.length + Math.min(_tests.length, MAX_TESTS);
-				_attempt.progress.flow = "results";
-				_attempt.progress.position = 0;
+				_attempt.progress_flow = "results";
+				_attempt.progress_position = 0;
 				_attempt.is_completed = true;
 				_attempt.grade = (questions - (_lesson.lives - _attempt.lives)) / questions * 100;
-				_user.custom_fields.points += _attempt.points;
+				_user.points += _attempt.points;
 				User.save(_user);
 			}
 		}
@@ -167,9 +167,9 @@ exports.advance = function() {
 
 exports.stats = function() {
 	if (_attempt.is_completed) {
-		$.txtPoints.setText(_user.custom_fields.points);
+		$.txtPoints.setText(_user.points);
 	} else {
-		$.txtPoints.setText(_user.custom_fields.points + _attempt.points);
+		$.txtPoints.setText(_user.points + _attempt.points);
 	}
 
 	switch (_attempt.lives) {
@@ -210,7 +210,7 @@ exports.stats = function() {
 function preload_tutorials_complete(tutorials) {
 	_tutorials = tutorials;
 	
-	Tests.getTests(_lesson.id, preload_tests_complete);
+	Tests.getTests(_lesson.objectId, preload_tests_complete);
 }
 
 function preload_tests_complete(tests) {
@@ -220,7 +220,7 @@ function preload_tests_complete(tests) {
 }
 
 function preload_complete() {
-	UserAttempt.load(_lesson.id, check_load);
+	UserAttempt.load(_lesson.objectId, check_load);
 }
 
 function cancel(e) {
@@ -230,18 +230,13 @@ function cancel(e) {
 function init(args) {
 	_lesson = args.lesson;
 	
-	if (Device.isTablet()) {
-		$.txtLessonTitleBar.setText(_lesson['[CUSTOM_Languages]language_id'][0]['name'] + ": " + _lesson.name);
-	} else {
-		$.txtLessonTitleBar.setText(_lesson.name);
-	}
+	$.txtLessonTitleBar.setText(_lesson.name);
 	
 	$.btnBack.setVisible(true);
 	$.btnBack.addEventListener('click', cancel);
 	
 	Loader.showLoader($.content);
-	
-	Tutorials.getTutorials(_lesson.id, preload_tutorials_complete);
+	Tutorials.getTutorials(_lesson.objectId, preload_tutorials_complete);
 }
 
 init(arguments[0] || {});

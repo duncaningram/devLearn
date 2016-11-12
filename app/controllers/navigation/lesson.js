@@ -32,7 +32,7 @@ function display_lessons(lessons) {
 		}
 		
 		for (var i = 0; i < less.length; i++) {
-			var attempt = UserAttempt.load(less[i].id, display_attempt);
+			var attempt = UserAttempt.load(less[i].objectId, display_attempt);
 			var row = Alloy.createController('navigation/row');
 			row.item.setText(less[i].name);
 			row.row.lesson = less[i];
@@ -64,14 +64,14 @@ function display_lessons(lessons) {
 }
 
 function refresh_lessons() {
-	Lessons.getLessons(language.id, display_lessons);
+	Lessons.getLessons(language.objectId, display_lessons);
 }
 
 function display_attempt(attempt) {
-	if(attempt !== undefined){
-		if(attempt.is_completed && attempt.grade > -1) {
+	if (attempt !== undefined){
+		if (attempt.is_completed && attempt.grade > -1) {
 			for (var i = 0; i < rows.length; i++) {
-				if(rows[i].lesson.id == attempt['[CUSTOM_Lessons]lesson_id'][0]['id'])
+				if (rows[i].lesson.objectId == attempt.lesson.objectId)
 					rows[i].children[0].children[1].children[0].text = Grade.getLetterGrade(attempt.grade);
 			}
 		}
@@ -80,7 +80,7 @@ function display_attempt(attempt) {
 
 function select_lesson(e) {
 	var view;
-	if(Ti.Platform.name == 'mobileweb'){
+	if (Ti.Platform.name == 'mobileweb'){
 		var view = Alloy.createController('lessons/lesson', { lesson: e.source.lesson }).getView();
 	} else {
 		var view = Alloy.createController('lessons/lesson', { lesson: e.row.lesson }).getView();
@@ -110,7 +110,7 @@ function cancel(e) {
 function init(args) {
 	language = args.language;
 	
-	Lessons.getLessons(language.id, display_lessons);
+	Lessons.getLessons(language.objectId, display_lessons);
 }
 
 init(arguments[0] || {});

@@ -1,4 +1,4 @@
-var Cloud = require('ti.cloud');
+var Backendless = require('vendor/backendless');
 var Collection = require('utils/Collection');
 var Log = require('utils/Log');
 
@@ -6,23 +6,23 @@ var Tests = (function() {
 	
 	var _tests = {};
 	
+	function Test(args) {
+		args = args || {};
+	}
+	
 	function getTests(lesson_id, callback) {
 		if (_tests[lesson_id] === undefined) {
-			Cloud.Objects.query({
-				classname: 'Tests',
-				where: {
-					"[CUSTOM_Lessons]lesson_id": lesson_id,
+			var query = new Backendless.DataQuery();
+			query.condition = "Lesson[tests].objectId='" + lesson_id + "'";
+			Backendless.Persistence.of(Test).find(query, new Backendless.Async(
+				function (collection) {
+					_tests[lesson_id] = Collection.shuffle(collection.data);
+					callback(_tests[lesson_id]);
 				},
-				order: 'order'
-			}, function (e) {
-				if (e.success) {
-					_tests[lesson_id] = Collection.shuffle(e.Tests);
-				} else {
-					Log.error('error: ' + JSON.stringify(e));	
+				function (e) {
+					Log.error('error: ' + JSON.stringify(e));
 				}
-				
-				callback(_tests[lesson_id]);
-			});
+			));
 		}
 		else {
 			callback(_tests[lesson_id]);
@@ -31,20 +31,17 @@ var Tests = (function() {
 	
 	function getTest(lesson_id, index, callback) {
 		if (_tests[lesson_id] === undefined) {
-			Cloud.Objects.query({
-				classname: 'Tests',
-				where: {
-					"[CUSTOM_Lessons]lesson_id": lesson_id,
+			var query = new Backendless.DataQuery();
+			query.condition = "Lesson[tests].objectId='" + lesson_id + "'";
+			Backendless.Persistence.of(Test).find(query, new Backendless.Async(
+				function (collection) {
+					_tests[lesson_id] = Collection.shuffle(collection.data);
+					callback(_tests[lesson_id][index]);
+				},
+				function (e) {
+					Log.error('error: ' + JSON.stringify(e));
 				}
-			}, function (e) {
-				if (e.success) {
-					_tests[lesson_id] = Collection.shuffle(e.Tests);
-				} else {
-					Log.error('error: ' + JSON.stringify(e));	
-				}
-				
-				callback(_tests[lesson_id][index]);
-			});
+			));
 		}
 		else {
 			callback(_tests[lesson_id][index]);

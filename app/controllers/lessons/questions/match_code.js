@@ -23,15 +23,15 @@ function init(args) {
 	setCheckButton(true, true);
 	$.txtQuestion.setText(quiz.question);
 	
-	questions = Collection.shuffle(quiz.selections);
+	questions = Collection.shuffle(JSON.parse(quiz.selections));
 	
 	Log.info("Match_Code shuffled: " + JSON.stringify(questions));
 	
 	$.questions.removeAllChildren();
-	if(quiz.html !== undefined)
+	if (quiz.html !== undefined && quiz.html !== "")
 		$.webView.setHtml(quiz.html);
 	else
-		$.webView.setHtml(quiz.answer[0]);
+		$.webView.setHtml(JSON.parse(quiz.answer)[0]);
 	answers = new Array();
 	buttons = new Array();
 	answerButtons = new Array();
@@ -113,7 +113,7 @@ function checkAnswer(e) {
 	
 	Log.info("Completed Answer: " + answer);
 	Log.info("Correct Answer: " + quiz.answer);
-	quiz.answer.forEach(function(entry) {
+	JSON.parse(quiz.answer).forEach(function(entry) {
 		if (answer == entry)
 			correct = true;
 		correctAnswer = entry;
@@ -121,7 +121,7 @@ function checkAnswer(e) {
 	
 	parent.logAnswer(correct, answer);
 	
-	if(correct) {
+	if (correct) {
 		// Correct answer
 		parent.addPoints();
 		parent.showCorrectIncorrect(true);
@@ -136,7 +136,7 @@ function checkAnswer(e) {
 
 function setCheckButton(check, disabled) {
 
-	if(check){
+	if (check){
 		grandparent.lblContinue.setText("Check");
 		if(disabled) {
 			grandparent.lblContinue.setColor("#000");

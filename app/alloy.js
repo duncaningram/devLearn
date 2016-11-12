@@ -9,3 +9,9 @@
 // object. For example:
 //
 // Alloy.Globals.someGlobalFunction = function(){};
+var Backendless = require('vendor/backendless');
+
+var applicationId = Ti.App.Properties.getString('app.backendless.application_id');
+var secretKey = Ti.App.Properties.getString('app.backendless.secret_key');
+var version = Ti.App.Properties.getString('app.backendless.version');
+Backendless.initApp(applicationId, secretKey, version);

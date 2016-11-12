@@ -23,7 +23,7 @@ function init(args) {
 	setCheckButton(true, true);
 	$.txtQuestion.setText(quiz.question);
 	
-	questions = Collection.shuffle(quiz.selections);
+	questions = Collection.shuffle(JSON.parse(quiz.selections));
 	
 	Log.info("Code shuffled: " + JSON.stringify(questions));
 	
@@ -112,7 +112,7 @@ function checkAnswer(e) {
 	
 	Log.info("Completed Answer: " + answer);
 	Log.info("Correct Answer: " + quiz.answer);
-	quiz.answer.forEach(function(entry) {
+	JSON.parse(quiz.answer).forEach(function(entry) {
 		if (answer == entry)
 			correct = true;
 		correctAnswer = entry;

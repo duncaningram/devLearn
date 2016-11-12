@@ -1,4 +1,4 @@
-var Cloud = require('ti.cloud');
+var Backendless = require('vendor/backendless');
 var Log = require('utils/Log');
 
 var User = (function() {
@@ -8,30 +8,27 @@ var User = (function() {
 	
 	function create(email, password, password_confirmation, first_name, last_name, is_guest, callback) {
 		if (_user == undefined) {
-			Cloud.Users.create({
-				email: email,
-				username: email,
-				password: password,
-				password_confirmation: password_confirmation,
-				first_name: first_name,
-				last_name: last_name,
-				custom_fields: {
-					is_guest: is_guest,
-					points: 0
-				}
-			}, function (e) {
-				if (e.success) {
-					_user = e.users[0];
-				}  else if(e.code == 400) {
-					alert("Email address already taken");
-					Log.error('error:' + e.message + JSON.stringify(e));
-				} else {
-					//TODO error callback
-					Log.error('error: ' + JSON.stringify(e));	
-				}
-				
-				callback(_user);
-			});
+			var user = new Backendless.User();
+			user.email = email;
+			user.password = password;
+			user.first_name = first_name;
+			user.last_name = last_name;
+			user.is_guest = is_guest;
+			user.points = 0;
+			Backendless.UserService.register(user, new Backendless.Async(
+				function (user) {
+					user.___class = "Users";
+					_user = user;
+					callback(_user);
+				},
+				function (e) {
+					if (e.statusCode == 3033) {
+						alert("Email address already taken");
+					} else {
+						Log.error('error:' + e.message + JSON.stringify(e));
+					}
+				})
+			);
 		}
 		else {
 			callback(_user);
@@ -39,40 +36,34 @@ var User = (function() {
 	};
 	
 	function save(user) {
-		Cloud.Users.update({
-			custom_fields: {
-				points: user.custom_fields.points
+		Backendless.UserService.update(user, new Backendless.Async(
+			function (user) {
+				_user = user;
+			},
+			function (e) {
+				Log.error('error:' + e.message + JSON.stringify(e));
 			}
-		}, function (e) {
-			if (e.success) {
-				_user = e.users[0];
-			} else {
-				Log.error('error: ' + JSON.stringify(e));
-			}
-		});
+		));
 	}
 	
 	function login(email, password, callback) {
 		if(_user == undefined) {
-			Cloud.Users.login({
-				login: email,
-				password: password
-			}, function (e) {
-				if (e.success) {
-					_user = e.users[0];
-					_sessionId = Cloud.sessionId;
+			console.log('login');
+			Backendless.UserService.login(email, password, false, new Backendless.Async(
+				function (user) {
+					_user = user;
 					Log.info('Login success');
-					//alert('Success');
-				} else if(e.code == 401) {
-					alert("Invalid Username or password");
-					Log.error('error:' + e.message + JSON.stringify(e));
-				} else {
-					alert("Failed to login");
-					Log.error('error:' + e.message + JSON.stringify(e));
+					callback(_user);
+				},
+				function (e) {
+					if (e.code == 3003) {
+						alert("Invalid Username or password");
+						Log.error('error:' + e.message + JSON.stringify(e));
+					} else {
+						Log.error('error:' + e.message + JSON.stringify(e));
+					}
 				}
-				
-				callback(_user);
-			});
+			));
 		} else {
 			Log.info("User Logged In already");
 			callback(_user);
@@ -81,16 +72,14 @@ var User = (function() {
 	
 	function logout() {
 		if(_user != undefined) {
-			Cloud.Users.logout(function (e) {
-				if(e.success) {
-					Ti.App.Properties.removeProperty('email');
-					Ti.App.Properties.removeProperty('password');
-					Log.info("User Logged Out");
+			Backendless.UserService.logout(new Backendless.Async(
+				function (user) {
 					_user = undefined;
-				} else {
-					alert('Error:\n' + ((e.error && e.message) || JSON.stringify(e)));
+				},
+				function (e) {
+					Log.error('error:' + e.message + JSON.stringify(e));
 				}
-			});
+			));
 		} else {
 			Log.info("User Already Logged out");
 		}
